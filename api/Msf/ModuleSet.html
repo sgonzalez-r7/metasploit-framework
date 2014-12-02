@@ -767,6 +767,7 @@ expose the mechanism necessary to create instances of them.</p>
       <pre class="lines">
 
 
+131
 132
 133
 134
@@ -783,11 +784,10 @@ expose the mechanism necessary to create instances of them.</p>
 145
 146
 147
-148
-149</pre>
+148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 132</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 131</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='comment'>#
@@ -864,12 +864,12 @@ have modules with the same reference name</p>
       <pre class="lines">
 
 
+283
 284
-285
-286</pre>
+285</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 284</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 283</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ambiguous_module_reference_name_set'>ambiguous_module_reference_name_set</span>
   <span class='ivar'>@ambiguous_module_reference_name_set</span>
@@ -925,12 +925,12 @@ have modules with the same reference name</p>
       <pre class="lines">
 
 
+288
 289
-290
-291</pre>
+290</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 289</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 288</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_architectures_by_module'>architectures_by_module</span>
   <span class='ivar'>@architectures_by_module</span>
@@ -968,12 +968,12 @@ have modules with the same reference name</p>
       <pre class="lines">
 
 
+289
 290
-291
-292</pre>
+291</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 290</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 289</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mod_extensions'>mod_extensions</span>
   <span class='ivar'>@mod_extensions</span>
@@ -1031,12 +1031,12 @@ name and the module class.</p>
       <pre class="lines">
 
 
+299
 300
-301
-302</pre>
+301</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 300</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 299</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mod_ranked'>mod_ranked</span>
   <span class='ivar'>@mod_ranked</span>
@@ -1093,12 +1093,12 @@ name and the module class.</p>
       <pre class="lines">
 
 
+305
 306
-307
-308</pre>
+307</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 306</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 305</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mod_sorted'>mod_sorted</span>
   <span class='ivar'>@mod_sorted</span>
@@ -1136,12 +1136,12 @@ name and the module class.</p>
       <pre class="lines">
 
 
+154
 155
-156
-157</pre>
+156</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 155</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 154</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_module_type'>module_type</span>
   <span class='ivar'>@module_type</span>
@@ -1197,12 +1197,12 @@ name and the module class.</p>
       <pre class="lines">
 
 
+294
 295
-296
-297</pre>
+296</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 295</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 294</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_platforms_by_module'>platforms_by_module</span>
   <span class='ivar'>@platforms_by_module</span>
@@ -1285,16 +1285,16 @@ afterwords.</p>
       <pre class="lines">
 
 
+25
 26
 27
 28
 29
 30
-31
-32</pre>
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='op'>[]</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='lparen'>(</span><span class='kw'>super</span> <span class='op'>==</span> <span class='const'>Msf</span><span class='op'>::</span><span class='const'>SymbolicModule</span><span class='rparen'>)</span>
@@ -1420,7 +1420,7 @@ afterwords.</p>
         &mdash;
         <div class='inline'>
 <p>The klass parameter modified to have <span class='object_link'><a href="Module.html#framework-instance_method" title="Msf::Module#framework (method)">Msf::Module#framework</a></span>,
-<span class='object_link'><a href="Module.html#refname-instance_method" title="Msf::Module#refname (method)">Msf::Module#refname</a></span>, <span class='object_link'><a href="Module.html#file_path-instance_method" title="Msf::Module#file_path (method)">Msf::Module#file_path</a></span>, and <span class='object_link'><a href="Module.html#orig_cls-instance_method" title="Msf::Module#orig_cls (method)">Msf::Module#orig_cls</a></span>
+Msf::Module#refname, <span class='object_link'><a href="Module.html#file_path-instance_method" title="Msf::Module#file_path (method)">Msf::Module#file_path</a></span>, and <span class='object_link'><a href="Module.html#orig_cls-instance_method" title="Msf::Module#orig_cls (method)">Msf::Module#orig_cls</a></span>
 set.</p>
 </div>
       
@@ -1434,6 +1434,7 @@ set.</p>
       <pre class="lines">
 
 
+189
 190
 191
 192
@@ -1454,11 +1455,10 @@ set.</p>
 207
 208
 209
-210
-211</pre>
+210</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 190</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 189</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_module'>add_module</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span><span class='comma'>,</span> <span class='id identifier rubyid_reference_name'>reference_name</span><span class='comma'>,</span> <span class='id identifier rubyid_info'>info</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># Set the module&#39;s reference_name so that it can be referenced when
@@ -1551,6 +1551,7 @@ set.</p>
       <pre class="lines">
 
 
+38
 39
 40
 41
@@ -1575,11 +1576,10 @@ set.</p>
 60
 61
 62
-63
-64</pre>
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_reference_name'>reference_name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_klass'>klass</span> <span class='op'>=</span> <span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='id identifier rubyid_reference_name'>reference_name</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
@@ -1638,6 +1638,7 @@ set.</p>
       <pre class="lines">
 
 
+217
 218
 219
 220
@@ -1652,11 +1653,10 @@ set.</p>
 229
 230
 231
-232
-233</pre>
+232</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 218</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 217</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_demand_load_modules'>demand_load_modules</span>
   <span class='id identifier rubyid_found_symbolics'>found_symbolics</span> <span class='op'>=</span> <span class='kw'>false</span>
@@ -1756,16 +1756,16 @@ iteration”</p>
       <pre class="lines">
 
 
+72
 73
 74
 75
 76
 77
-78
-79</pre>
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_list'>list</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -1871,16 +1871,16 @@ iteration”</p>
       <pre class="lines">
 
 
+86
 87
 88
 89
 90
 91
-92
-93</pre>
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 86</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_each_module'>each_module</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_demand_load_modules'>demand_load_modules</span>
@@ -2002,12 +2002,12 @@ filtering.</p>
       <pre class="lines">
 
 
+101
 102
-103
-104</pre>
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 102</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 101</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_each_module_filter'>each_module_filter</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_entry'>entry</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>false</span>
@@ -2165,6 +2165,7 @@ platforms.</p>
       <pre class="lines">
 
 
+246
 247
 248
 249
@@ -2194,11 +2195,10 @@ platforms.</p>
 273
 274
 275
-276
-277</pre>
+276</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 247</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 246</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_each_module_list'>each_module_list</span><span class='lparen'>(</span><span class='id identifier rubyid_ary'>ary</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_ary'>ary</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_entry'>entry</span><span class='op'>|</span>
@@ -2329,16 +2329,16 @@ one another.  Modules that are ranked higher are shown first.</p>
       <pre class="lines">
 
 
+112
 113
 114
 115
 116
 117
-118
-119</pre>
+118</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 113</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 112</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_each_module_ranked'>each_module_ranked</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_demand_load_modules'>demand_load_modules</span>
@@ -2378,12 +2378,12 @@ one another.  Modules that are ranked higher are shown first.</p>
       <pre class="lines">
 
 
+123
 124
-125
-126</pre>
+125</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 124</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 123</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_force_load_set'>force_load_set</span>
   <span class='id identifier rubyid_each_module'>each_module</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_mod'>mod</span><span class='op'>|</span> <span class='rbrace'>}</span>
@@ -2439,11 +2439,11 @@ one another.  Modules that are ranked higher are shown first.</p>
       <pre class="lines">
 
 
-161
-162</pre>
+160
+161</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 161</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 160</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_on_module_reload'>on_module_reload</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -2499,6 +2499,7 @@ name and the module class.</p>
       <pre class="lines">
 
 
+317
 318
 319
 320
@@ -2515,11 +2516,10 @@ name and the module class.</p>
 331
 332
 333
-334
-335</pre>
+334</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 318</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 317</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rank_modules'>rank_modules</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_mod_ranked'>mod_ranked</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='op'>|</span>
@@ -2570,11 +2570,11 @@ name and the module class.</p>
       <pre class="lines">
 
 
-167
-168</pre>
+166
+167</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 167</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 166</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_recalculate'>recalculate</span>
 <span class='kw'>end</span></pre>
@@ -2661,13 +2661,13 @@ name and the module class.</p>
       <pre class="lines">
 
 
+174
 175
 176
-177
-178</pre>
+177</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 175</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_set.rb', line 174</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_valid?'>valid?</span><span class='lparen'>(</span><span class='id identifier rubyid_reference_name'>reference_name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_reference_name'>reference_name</span><span class='rparen'>)</span>
@@ -2683,9 +2683,9 @@ name and the module class.</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:36 2014 by
+  Generated on Tue Dec  2 09:35:22 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

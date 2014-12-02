@@ -836,7 +836,7 @@ exceptions.</p>
     <span class='id identifier rubyid_log_error'>log_error</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Operation timed out.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='kw'>rescue</span> <span class='const'>RequestError</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_info'>info</span>
     <span class='id identifier rubyid_log_error'>log_error</span><span class='lparen'>(</span><span class='id identifier rubyid_info'>info</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
-  <span class='kw'>rescue</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>AddressInUse</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
+  <span class='kw'>rescue</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>InvalidDestination</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
     <span class='id identifier rubyid_log_error'>log_error</span><span class='lparen'>(</span><span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
   <span class='kw'>rescue</span> <span class='op'>::</span><span class='const'>Errno</span><span class='op'>::</span><span class='const'>EPIPE</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>SSL</span><span class='op'>::</span><span class='const'>SSLError</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>IOError</span>
     <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_kill'>kill</span>
@@ -854,9 +854,9 @@ exceptions.</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:52:10 2014 by
+  Generated on Tue Dec  2 09:35:57 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

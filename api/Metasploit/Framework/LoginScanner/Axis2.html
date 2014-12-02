@@ -160,7 +160,7 @@
   <h2>Instance Attribute Summary</h2>
   
   <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="HTTP.html" title="Metasploit::Framework::LoginScanner::HTTP (class)">HTTP</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="HTTP.html#method-instance_method" title="Metasploit::Framework::LoginScanner::HTTP#method (method)">#method</a></span>, <span class='object_link'><a href="HTTP.html#uri-instance_method" title="Metasploit::Framework::LoginScanner::HTTP#uri (method)">#uri</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="HTTP.html#method-instance_method" title="Metasploit::Framework::LoginScanner::HTTP#method (method)">#method</a></span>, <span class='object_link'><a href="HTTP.html#uri-instance_method" title="Metasploit::Framework::LoginScanner::HTTP#uri (method)">#uri</a></span>, <span class='object_link'><a href="HTTP.html#user_agent-instance_method" title="Metasploit::Framework::LoginScanner::HTTP#user_agent (method)">#user_agent</a></span>, <span class='object_link'><a href="HTTP.html#vhost-instance_method" title="Metasploit::Framework::LoginScanner::HTTP#vhost (method)">#vhost</a></span></p>
 
 
   
@@ -252,6 +252,11 @@ change it.</p>
   
   
   
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="HTTP.html" title="Metasploit::Framework::LoginScanner::HTTP (class)">HTTP</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="HTTP.html#check_setup-instance_method" title="Metasploit::Framework::LoginScanner::HTTP#check_setup (method)">#check_setup</a></span></p>
+
+  
+  
   
   
   
@@ -323,15 +328,19 @@ change it.</p>
 53
 54
 55
-56</pre>
+56
+57
+58</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/metasploit/framework/login_scanner/axis2.rb', line 18</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_attempt_login'>attempt_login</span><span class='lparen'>(</span><span class='id identifier rubyid_credential'>credential</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_http_client'>http_client</span> <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Proto</span><span class='op'>::</span><span class='const'>Http</span><span class='op'>::</span><span class='const'>Client</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
-    <span class='id identifier rubyid_host'>host</span><span class='comma'>,</span> <span class='id identifier rubyid_port'>port</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_ssl'>ssl</span><span class='comma'>,</span> <span class='id identifier rubyid_ssl_version'>ssl_version</span>
+    <span class='id identifier rubyid_host'>host</span><span class='comma'>,</span> <span class='id identifier rubyid_port'>port</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_ssl'>ssl</span><span class='comma'>,</span> <span class='id identifier rubyid_ssl_version'>ssl_version</span><span class='comma'>,</span> <span class='id identifier rubyid_proxies'>proxies</span>
   <span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_http_client'>http_client</span> <span class='op'>=</span> <span class='id identifier rubyid_config_client'>config_client</span><span class='lparen'>(</span><span class='id identifier rubyid_http_client'>http_client</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_result_opts'>result_opts</span> <span class='op'>=</span> <span class='lbrace'>{</span>
       <span class='label'>credential:</span> <span class='id identifier rubyid_credential'>credential</span><span class='comma'>,</span>
@@ -360,8 +369,8 @@ change it.</p>
     <span class='kw'>else</span>
       <span class='id identifier rubyid_result_opts'>result_opts</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='label'>status:</span> <span class='const'>Metasploit</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>Login</span><span class='op'>::</span><span class='const'>Status</span><span class='op'>::</span><span class='const'>INCORRECT</span><span class='comma'>,</span> <span class='label'>proof:</span> <span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
-  <span class='kw'>rescue</span> <span class='op'>::</span><span class='const'>EOFError</span><span class='comma'>,</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>ConnectionError</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>Timeout</span><span class='op'>::</span><span class='const'>Error</span>
-    <span class='id identifier rubyid_result_opts'>result_opts</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='label'>status:</span> <span class='const'>Metasploit</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>Login</span><span class='op'>::</span><span class='const'>Status</span><span class='op'>::</span><span class='const'>UNABLE_TO_CONNECT</span><span class='rparen'>)</span>
+  <span class='kw'>rescue</span> <span class='op'>::</span><span class='const'>EOFError</span><span class='comma'>,</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>ConnectionError</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>Timeout</span><span class='op'>::</span><span class='const'>Error</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
+    <span class='id identifier rubyid_result_opts'>result_opts</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='label'>status:</span> <span class='const'>Metasploit</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>Login</span><span class='op'>::</span><span class='const'>Status</span><span class='op'>::</span><span class='const'>UNABLE_TO_CONNECT</span><span class='comma'>,</span> <span class='label'>proof:</span> <span class='id identifier rubyid_e'>e</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
   <span class='const'>Result</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_result_opts'>result_opts</span><span class='rparen'>)</span>
@@ -412,12 +421,12 @@ change it</p>
       <pre class="lines">
 
 
-68
-69
-70</pre>
+70
+71
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/login_scanner/axis2.rb', line 68</span>
+      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/login_scanner/axis2.rb', line 70</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_method='>method=</span><span class='lparen'>(</span><span class='id identifier rubyid__'>_</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>RuntimeError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Method must be POST for Axis2</span><span class='tstring_end'>&quot;</span></span>
@@ -442,15 +451,15 @@ change it</p>
       <pre class="lines">
 
 
-59
-60
 61
 62
 63
-64</pre>
+64
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/login_scanner/axis2.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/login_scanner/axis2.rb', line 61</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_set_sane_defaults'>set_sane_defaults</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_uri'>uri</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/axis2/axis2-admin/login</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_uri'>uri</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -468,9 +477,9 @@ change it</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:49 2014 by
+  Generated on Tue Dec  2 09:35:36 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

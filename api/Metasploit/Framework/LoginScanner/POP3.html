@@ -157,7 +157,7 @@ then saves the results.</p>
   <h2>Instance Attribute Summary</h2>
   
   <h3 class="inherited">Attributes included from <span class='object_link'><a href="../Tcp/Client.html" title="Metasploit::Framework::Tcp::Client (module)">Tcp::Client</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../Tcp/Client.html#sock-instance_method" title="Metasploit::Framework::Tcp::Client#sock (method)">#sock</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../Tcp/Client.html#max_send_size-instance_method" title="Metasploit::Framework::Tcp::Client#max_send_size (method)">#max_send_size</a></span>, <span class='object_link'><a href="../Tcp/Client.html#send_delay-instance_method" title="Metasploit::Framework::Tcp::Client#send_delay (method)">#send_delay</a></span>, <span class='object_link'><a href="../Tcp/Client.html#sock-instance_method" title="Metasploit::Framework::Tcp::Client#sock (method)">#sock</a></span></p>
 
 
   
@@ -206,8 +206,9 @@ target.</p>
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="../Tcp/Client.html" title="Metasploit::Framework::Tcp::Client (module)">Tcp::Client</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../Tcp/Client.html#chost-instance_method" title="Metasploit::Framework::Tcp::Client#chost (method)">#chost</a></span>, <span class='object_link'><a href="../Tcp/Client.html#connect-instance_method" title="Metasploit::Framework::Tcp::Client#connect (method)">#connect</a></span>, <span class='object_link'><a href="../Tcp/Client.html#cport-instance_method" title="Metasploit::Framework::Tcp::Client#cport (method)">#cport</a></span>, <span class='object_link'><a href="../Tcp/Client.html#disconnect-instance_method" title="Metasploit::Framework::Tcp::Client#disconnect (method)">#disconnect</a></span>, <span class='object_link'><a href="../Tcp/Client.html#max_send_size-instance_method" title="Metasploit::Framework::Tcp::Client#max_send_size (method)">#max_send_size</a></span>, <span class='object_link'><a href="../Tcp/Client.html#proxies-instance_method" title="Metasploit::Framework::Tcp::Client#proxies (method)">#proxies</a></span>, <span class='object_link'><a href="../Tcp/Client.html#rhost-instance_method" title="Metasploit::Framework::Tcp::Client#rhost (method)">#rhost</a></span>, <span class='object_link'><a href="../Tcp/Client.html#rport-instance_method" title="Metasploit::Framework::Tcp::Client#rport (method)">#rport</a></span>, <span class='object_link'><a href="../Tcp/Client.html#send_delay-instance_method" title="Metasploit::Framework::Tcp::Client#send_delay (method)">#send_delay</a></span>, <span class='object_link'><a href="../Tcp/Client.html#set_tcp_evasions-instance_method" title="Metasploit::Framework::Tcp::Client#set_tcp_evasions (method)">#set_tcp_evasions</a></span>, <span class='object_link'><a href="../Tcp/Client.html#ssl-instance_method" title="Metasploit::Framework::Tcp::Client#ssl (method)">#ssl</a></span>, <span class='object_link'><a href="../Tcp/Client.html#ssl_version-instance_method" title="Metasploit::Framework::Tcp::Client#ssl_version (method)">#ssl_version</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../Tcp/Client.html#chost-instance_method" title="Metasploit::Framework::Tcp::Client#chost (method)">#chost</a></span>, <span class='object_link'><a href="../Tcp/Client.html#connect-instance_method" title="Metasploit::Framework::Tcp::Client#connect (method)">#connect</a></span>, <span class='object_link'><a href="../Tcp/Client.html#cport-instance_method" title="Metasploit::Framework::Tcp::Client#cport (method)">#cport</a></span>, <span class='object_link'><a href="../Tcp/Client.html#disconnect-instance_method" title="Metasploit::Framework::Tcp::Client#disconnect (method)">#disconnect</a></span>, <span class='object_link'><a href="../Tcp/Client.html#proxies-instance_method" title="Metasploit::Framework::Tcp::Client#proxies (method)">#proxies</a></span>, <span class='object_link'><a href="../Tcp/Client.html#rhost-instance_method" title="Metasploit::Framework::Tcp::Client#rhost (method)">#rhost</a></span>, <span class='object_link'><a href="../Tcp/Client.html#rport-instance_method" title="Metasploit::Framework::Tcp::Client#rport (method)">#rport</a></span>, <span class='object_link'><a href="../Tcp/Client.html#set_tcp_evasions-instance_method" title="Metasploit::Framework::Tcp::Client#set_tcp_evasions (method)">#set_tcp_evasions</a></span>, <span class='object_link'><a href="../Tcp/Client.html#ssl-instance_method" title="Metasploit::Framework::Tcp::Client#ssl (method)">#ssl</a></span>, <span class='object_link'><a href="../Tcp/Client.html#ssl_version-instance_method" title="Metasploit::Framework::Tcp::Client#ssl_version (method)">#ssl_version</a></span></p>
 
+  
   
   
   
@@ -386,7 +387,7 @@ target</p>
 
   <span class='kw'>rescue</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>ConnectionError</span><span class='comma'>,</span> <span class='const'>EOFError</span><span class='comma'>,</span> <span class='const'>Timeout</span><span class='op'>::</span><span class='const'>Error</span><span class='comma'>,</span> <span class='const'>Errno</span><span class='op'>::</span><span class='const'>EPIPE</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
     <span class='id identifier rubyid_result_options'>result_options</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span>
-      <span class='label'>proof:</span> <span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span><span class='comma'>,</span>
+      <span class='label'>proof:</span> <span class='id identifier rubyid_e'>e</span><span class='comma'>,</span>
       <span class='label'>status:</span> <span class='const'>Metasploit</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>Login</span><span class='op'>::</span><span class='const'>Status</span><span class='op'>::</span><span class='const'>UNABLE_TO_CONNECT</span>
     <span class='rparen'>)</span>
   <span class='kw'>end</span>
@@ -405,9 +406,9 @@ target</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:49 2014 by
+  Generated on Tue Dec  2 09:35:36 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

@@ -296,7 +296,7 @@
     <span class='kw'>begin</span>
       <span class='id identifier rubyid_sd'>sd</span> <span class='op'>=</span> <span class='id identifier rubyid_connect'>connect</span><span class='lparen'>(</span><span class='kw'>true</span><span class='comma'>,</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>CPORT</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_cport'>cport</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
 
-    <span class='kw'>rescue</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>AddressInUse</span>
+    <span class='kw'>rescue</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>BindFailed</span>
       <span class='comment'># Ignore and try again
 </span>      <span class='comment'>#vprint_error(&quot;Unable to connect: #{$!}&quot;)
 </span>
@@ -421,9 +421,9 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:14 2014 by
+  Generated on Tue Dec  2 09:34:55 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

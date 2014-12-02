@@ -181,7 +181,8 @@ advanced option is set to true.</p>
 17
 18
 19
-20</pre>
+20
+21</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/msf/base/sessions/meterpreter_options.rb', line 9</span>
@@ -195,7 +196,8 @@ advanced option is set to true.</p>
       <span class='const'>OptString</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>InitialAutoRunScript</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='kw'>false</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>An initial script to run on session creation (before AutoRunScript)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='comma'>,</span>
       <span class='const'>OptString</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>AutoRunScript</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='kw'>false</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>A script to run automatically on session creation.</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='comma'>,</span>
       <span class='const'>OptBool</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>AutoSystemInfo</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='kw'>true</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Automatically capture system information on initialization.</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='comma'>,</span>
-      <span class='const'>OptBool</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>EnableUnicodeEncoding</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='kw'>true</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Automatically encode UTF-8 strings as hexadecimal</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+      <span class='const'>OptBool</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>EnableUnicodeEncoding</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='kw'>true</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Automatically encode UTF-8 strings as hexadecimal</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='comma'>,</span>
+      <span class='const'>OptPath</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>HandlerSSLCert</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='kw'>false</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Path to a SSL certificate in unified PEM format, ignored for HTTP transports</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
     <span class='rbracket'>]</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -230,7 +232,6 @@ advanced option is set to true.</p>
       <pre class="lines">
 
 
-26
 27
 28
 29
@@ -282,10 +283,11 @@ advanced option is set to true.</p>
 75
 76
 77
-78</pre>
+78
+79</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/sessions/meterpreter_options.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/sessions/meterpreter_options.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_on_session'>on_session</span><span class='lparen'>(</span><span class='id identifier rubyid_session'>session</span><span class='rparen'>)</span>
   <span class='kw'>super</span>
@@ -350,9 +352,9 @@ advanced option is set to true.</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:18 2014 by
+  Generated on Tue Dec  2 09:35:02 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

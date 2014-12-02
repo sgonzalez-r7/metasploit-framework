@@ -79,7 +79,7 @@
   
   
     <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">lib/msf/core/module.rb</dd>
+    <dd class="r1 last">lib/msf/core/module/failure.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -99,54 +99,6 @@
   <h2>Constant Summary</h2>
   
     <dl class="constants">
-      
-        <dt id="None-constant" class="">None =
-          <div class="docstring">
-  <div class="discussion">
-    
-<p>No confidence in success or failure</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-        </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>none</span><span class='tstring_end'>&#39;</span></span></pre></dd>
-      
-        <dt id="Unknown-constant" class="">Unknown =
-          <div class="docstring">
-  <div class="discussion">
-    
-<p>No confidence in success or failure</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-        </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>unknown</span><span class='tstring_end'>&#39;</span></span></pre></dd>
-      
-        <dt id="Unreachable-constant" class="">Unreachable =
-          <div class="docstring">
-  <div class="discussion">
-    
-<p>The network service was unreachable (connection refused, etc)</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-        </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>unreachable</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
         <dt id="BadConfig-constant" class="">BadConfig =
           <div class="docstring">
@@ -180,70 +132,6 @@
         </dt>
         <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>disconnected</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
-        <dt id="NotFound-constant" class="">NotFound =
-          <div class="docstring">
-  <div class="discussion">
-    
-<p>The application endpoint or specific service was not found</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-        </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>not-found</span><span class='tstring_end'>&#39;</span></span></pre></dd>
-      
-        <dt id="UnexpectedReply-constant" class="">UnexpectedReply =
-          <div class="docstring">
-  <div class="discussion">
-    
-<p>The application replied in an unexpected fashion</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-        </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>unexpected-reply</span><span class='tstring_end'>&#39;</span></span></pre></dd>
-      
-        <dt id="TimeoutExpired-constant" class="">TimeoutExpired =
-          <div class="docstring">
-  <div class="discussion">
-    
-<p>The exploit triggered some form of timeout</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-        </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>timeout-expired</span><span class='tstring_end'>&#39;</span></span></pre></dd>
-      
-        <dt id="UserInterrupt-constant" class="">UserInterrupt =
-          <div class="docstring">
-  <div class="discussion">
-    
-<p>The exploit was interrupted by the user</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-        </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>user-interrupt</span><span class='tstring_end'>&#39;</span></span></pre></dd>
-      
         <dt id="NoAccess-constant" class="">NoAccess =
           <div class="docstring">
   <div class="discussion">
@@ -260,6 +148,22 @@
         </dt>
         <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>no-access</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
+        <dt id="None-constant" class="">None =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>No confidence in success or failure</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>none</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
         <dt id="NoTarget-constant" class="">NoTarget =
           <div class="docstring">
   <div class="discussion">
@@ -275,6 +179,22 @@
 </div>
         </dt>
         <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>no-target</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+        <dt id="NotFound-constant" class="">NotFound =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>The application endpoint or specific service was not found</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>not-found</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
         <dt id="NotVulnerable-constant" class="">NotVulnerable =
           <div class="docstring">
@@ -308,6 +228,86 @@
         </dt>
         <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>payload-failed</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
+        <dt id="TimeoutExpired-constant" class="">TimeoutExpired =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>The exploit triggered some form of timeout</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>timeout-expired</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+        <dt id="UnexpectedReply-constant" class="">UnexpectedReply =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>The application replied in an unexpected fashion</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>unexpected-reply</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+        <dt id="Unknown-constant" class="">Unknown =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>No confidence in success or failure</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>unknown</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+        <dt id="Unreachable-constant" class="">Unreachable =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>The network service was unreachable (connection refused, etc)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>unreachable</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+        <dt id="UserInterrupt-constant" class="">UserInterrupt =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>The exploit was interrupted by the user</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>user-interrupt</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
     </dl>
   
 
@@ -322,9 +322,9 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:02 2014 by
+  Generated on Tue Dec  2 09:34:39 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

@@ -377,7 +377,11 @@ href="http://source.android.com/tech/dalvik/dex-format.html">source.android.com/
 61
 62
 63
-64</pre>
+64
+65
+66
+67
+68</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/msf/core/payload/dalvik.rb', line 38</span>
@@ -407,7 +411,11 @@ href="http://source.android.com/tech/dalvik/dex-format.html">source.android.com/
 </span>  <span class='comment'># with a key whose validity expires before that date.
 </span>  <span class='comment'># &quot;&quot;&quot;
 </span>  <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_not_after'>not_after</span> <span class='op'>=</span> <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_not_before'>not_before</span> <span class='op'>+</span> <span class='int'>3600</span><span class='op'>*</span><span class='int'>24</span><span class='op'>*</span><span class='int'>365</span><span class='op'>*</span><span class='int'>20</span> <span class='comment'># 20 years
-</span>  <span class='kw'>return</span> <span class='id identifier rubyid_cert'>cert</span><span class='comma'>,</span> <span class='id identifier rubyid_key'>key</span>
+</span>
+  <span class='comment'># If this line is left out, signature verification fails on OSX.
+</span>  <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_sign'>sign</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>Digest</span><span class='op'>::</span><span class='const'>SHA1</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='rparen'>)</span>
+
+  <span class='kw'>return</span> <span class='id identifier rubyid_cert'>cert</span><span class='comma'>,</span> <span class='id identifier rubyid_key'>key</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -518,9 +526,9 @@ href="http://source.android.com/tech/dalvik/dex-format.html">source.android.com/
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:07 2014 by
+  Generated on Tue Dec  2 09:34:38 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

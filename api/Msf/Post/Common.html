@@ -416,7 +416,13 @@ uses proc_open() both of which have similar semantics to POSIX.</p>
 119
 120
 121
-122</pre>
+122
+123
+124
+125
+126
+127
+128</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/msf/core/post/common.rb', line 81</span>
@@ -454,7 +460,13 @@ uses proc_open() both of which have similar semantics to POSIX.</p>
       <span class='id identifier rubyid_o'>o</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_d'>d</span>
     <span class='kw'>end</span>
     <span class='id identifier rubyid_o'>o</span><span class='period'>.</span><span class='id identifier rubyid_chomp!'>chomp!</span> <span class='kw'>if</span> <span class='id identifier rubyid_o'>o</span>
-    <span class='id identifier rubyid_process'>process</span><span class='period'>.</span><span class='id identifier rubyid_channel'>channel</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
+
+    <span class='kw'>begin</span>
+      <span class='id identifier rubyid_process'>process</span><span class='period'>.</span><span class='id identifier rubyid_channel'>channel</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
+    <span class='kw'>rescue</span> <span class='const'>IOError</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
+      <span class='comment'># Channel was already closed, but we got the cmd output, so let&#39;s soldier on.
+</span>    <span class='kw'>end</span>
+
     <span class='id identifier rubyid_process'>process</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
   <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>shell</span><span class='regexp_end'>/</span></span>
     <span class='id identifier rubyid_o'>o</span> <span class='op'>=</span> <span class='id identifier rubyid_session'>session</span><span class='period'>.</span><span class='id identifier rubyid_shell_command_token'>shell_command_token</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_cmd'>cmd</span><span class='embexpr_end'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_args'>args</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_time_out'>time_out</span><span class='rparen'>)</span>
@@ -483,12 +495,6 @@ uses proc_open() both of which have similar semantics to POSIX.</p>
       <pre class="lines">
 
 
-124
-125
-126
-127
-128
-129
 130
 131
 132
@@ -498,10 +504,16 @@ uses proc_open() both of which have similar semantics to POSIX.</p>
 136
 137
 138
-139</pre>
+139
+140
+141
+142
+143
+144
+145</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/post/common.rb', line 124</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/post/common.rb', line 130</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cmd_exec_get_pid'>cmd_exec_get_pid</span><span class='lparen'>(</span><span class='id identifier rubyid_cmd'>cmd</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_time_out'>time_out</span><span class='op'>=</span><span class='int'>15</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_session'>session</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span>
@@ -550,12 +562,6 @@ uses proc_open() both of which have similar semantics to POSIX.</p>
       <pre class="lines">
 
 
-160
-161
-162
-163
-164
-165
 166
 167
 168
@@ -575,10 +581,16 @@ uses proc_open() both of which have similar semantics to POSIX.</p>
 182
 183
 184
-185</pre>
+185
+186
+187
+188
+189
+190
+191</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/post/common.rb', line 160</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/post/common.rb', line 166</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_env'>get_env</span><span class='lparen'>(</span><span class='id identifier rubyid_env'>env</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_session'>session</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span>
@@ -637,12 +649,6 @@ uses proc_open() both of which have similar semantics to POSIX.</p>
       <pre class="lines">
 
 
-190
-191
-192
-193
-194
-195
 196
 197
 198
@@ -652,10 +658,16 @@ uses proc_open() both of which have similar semantics to POSIX.</p>
 202
 203
 204
-205</pre>
+205
+206
+207
+208
+209
+210
+211</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/post/common.rb', line 190</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/post/common.rb', line 196</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_envs'>get_envs</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_envs'>envs</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_session'>session</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span>
@@ -821,20 +833,20 @@ type of virtual machine it is (e.g VirtualBox, VMware, Xen)</p>
       <pre class="lines">
 
 
-145
-146
-147
-148
-149
-150
 151
 152
 153
 154
-155</pre>
+155
+156
+157
+158
+159
+160
+161</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/post/common.rb', line 145</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/post/common.rb', line 151</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_report_vm'>report_vm</span><span class='lparen'>(</span><span class='id identifier rubyid_vm'>vm</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_session'>session</span>
@@ -937,9 +949,9 @@ type of virtual machine it is (e.g VirtualBox, VMware, Xen)</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:03 2014 by
+  Generated on Tue Dec  2 09:34:32 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

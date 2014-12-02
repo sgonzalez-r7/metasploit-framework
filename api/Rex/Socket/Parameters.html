@@ -598,7 +598,7 @@ name or an array of strings containing cipher names e.g.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>What version of SSL to use (SSL2, SSL3, SSL23, TLS1).</p>
+<p>What version of SSL to use (Auto, SSL2, SSL3, SSL23, TLS1).</p>
 </div></span>
   
 </li>
@@ -1086,7 +1086,7 @@ can be specified.</p>
           </span>
           
             &mdash; <div class='inline'>
-<p>Specify SSL2, SSL3, or TLS1 (SSL3 is default)</p>
+<p>Specify Auto, SSL2, SSL3, or TLS1 (Auto is default)</p>
 </div>
           
         </li>
@@ -1417,7 +1417,7 @@ determine who is responsible for requesting that a socket be created.</p>
     <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_ssl'>ssl</span> <span class='op'>=</span> <span class='kw'>false</span>
   <span class='kw'>end</span>
 
-  <span class='id identifier rubyid_supported_ssl_versions'>supported_ssl_versions</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SSL2</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SSL23</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TLS1</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SSL3</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:SSLv2</span><span class='comma'>,</span> <span class='symbol'>:SSLv3</span><span class='comma'>,</span> <span class='symbol'>:SSLv23</span><span class='comma'>,</span> <span class='symbol'>:TLSv1</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_supported_ssl_versions'>supported_ssl_versions</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Auto</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SSL2</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SSL23</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TLS1</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SSL3</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:Auto</span><span class='comma'>,</span> <span class='symbol'>:SSLv2</span><span class='comma'>,</span> <span class='symbol'>:SSLv3</span><span class='comma'>,</span> <span class='symbol'>:SSLv23</span><span class='comma'>,</span> <span class='symbol'>:TLSv1</span><span class='rbracket'>]</span>
   <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SSLVersion</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='kw'>and</span> <span class='id identifier rubyid_supported_ssl_versions'>supported_ssl_versions</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SSLVersion</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
     <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_ssl_version'>ssl_version</span> <span class='op'>=</span> <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SSLVersion</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
   <span class='kw'>end</span>
@@ -2423,7 +2423,7 @@ name or an array of strings containing cipher names e.g.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>What version of SSL to use (SSL2, SSL3, SSL23, TLS1)</p>
+<p>What version of SSL to use (Auto, SSL2, SSL3, SSL23, TLS1)</p>
 
 
   </div>
@@ -3069,9 +3069,9 @@ extended Rex classes.</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:52:00 2014 by
+  Generated on Tue Dec  2 09:35:49 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

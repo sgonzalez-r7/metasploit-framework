@@ -116,7 +116,7 @@
 
 </div><div id="subclasses">
   <h2>Direct Known Subclasses</h2>
-  <p class="children"><span class='object_link'><a href="Axis2.html" title="Metasploit::Framework::LoginScanner::Axis2 (class)">Axis2</a></span>, <span class='object_link'><a href="Tomcat.html" title="Metasploit::Framework::LoginScanner::Tomcat (class)">Tomcat</a></span>, <span class='object_link'><a href="WinRM.html" title="Metasploit::Framework::LoginScanner::WinRM (class)">WinRM</a></span></p>
+  <p class="children"><span class='object_link'><a href="Axis2.html" title="Metasploit::Framework::LoginScanner::Axis2 (class)">Axis2</a></span>, <span class='object_link'><a href="Buffalo.html" title="Metasploit::Framework::LoginScanner::Buffalo (class)">Buffalo</a></span>, <span class='object_link'><a href="Glassfish.html" title="Metasploit::Framework::LoginScanner::Glassfish (class)">Glassfish</a></span>, <span class='object_link'><a href="IPBoard.html" title="Metasploit::Framework::LoginScanner::IPBoard (class)">IPBoard</a></span>, <span class='object_link'><a href="Jenkins.html" title="Metasploit::Framework::LoginScanner::Jenkins (class)">Jenkins</a></span>, <span class='object_link'><a href="MyBookLive.html" title="Metasploit::Framework::LoginScanner::MyBookLive (class)">MyBookLive</a></span>, <span class='object_link'><a href="Smh.html" title="Metasploit::Framework::LoginScanner::Smh (class)">Smh</a></span>, <span class='object_link'><a href="Tomcat.html" title="Metasploit::Framework::LoginScanner::Tomcat (class)">Tomcat</a></span>, <span class='object_link'><a href="WinRM.html" title="Metasploit::Framework::LoginScanner::WinRM (class)">WinRM</a></span>, <span class='object_link'><a href="WordpressRPC.html" title="Metasploit::Framework::LoginScanner::WordpressRPC (class)">WordpressRPC</a></span></p>
 </div>
 
   <h2>Constant Summary</h2>
@@ -221,6 +221,60 @@
 </li>
 
     
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#user_agent-instance_method" title="#user_agent (instance method)">- (String) <strong>user_agent</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The User-Agent to use for the HTTP requests.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#vhost-instance_method" title="#vhost (instance method)">- (String) <strong>vhost</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The Virtual Host name for the target Web Server.</p>
+</div></span>
+  
+</li>
+
+    
   </ul>
 
 
@@ -254,6 +308,28 @@
     <span class="summary_desc"><div class='inline'>
 <p>Attempt a single login with a single credential against the target.</p>
 </div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#check_setup-instance_method" title="#check_setup (instance method)">- (Object) <strong>check_setup</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -384,6 +460,128 @@
 </table>
 </div>
     
+      
+      <span id="user_agent=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="user_agent-instance_method">
+  
+    - (<tt>String</tt>) <strong>user_agent</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the User-Agent to use for the HTTP requests</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the User-Agent to use for the HTTP requests</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/login_scanner/http.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_user_agent'>user_agent</span>
+  <span class='ivar'>@user_agent</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="vhost=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="vhost-instance_method">
+  
+    - (<tt>String</tt>) <strong>vhost</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the Virtual Host name for the target Web Server</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the Virtual Host name for the target Web Server</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/login_scanner/http.rb', line 38</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_vhost'>vhost</span>
+  <span class='ivar'>@vhost</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 
@@ -455,11 +653,126 @@
       <pre class="lines">
 
 
-43
-44
-45
-46
-47
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/login_scanner/http.rb', line 79</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_attempt_login'>attempt_login</span><span class='lparen'>(</span><span class='id identifier rubyid_credential'>credential</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_ssl'>ssl</span> <span class='op'>=</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_ssl'>ssl</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+  <span class='id identifier rubyid_result_opts'>result_opts</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='label'>credential:</span> <span class='id identifier rubyid_credential'>credential</span><span class='comma'>,</span>
+    <span class='label'>status:</span> <span class='const'>Metasploit</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>Login</span><span class='op'>::</span><span class='const'>Status</span><span class='op'>::</span><span class='const'>INCORRECT</span><span class='comma'>,</span>
+    <span class='label'>proof:</span> <span class='kw'>nil</span><span class='comma'>,</span>
+    <span class='label'>host:</span> <span class='id identifier rubyid_host'>host</span><span class='comma'>,</span>
+    <span class='label'>port:</span> <span class='id identifier rubyid_port'>port</span><span class='comma'>,</span>
+    <span class='label'>protocol:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tcp</span><span class='tstring_end'>&#39;</span></span>
+  <span class='rbrace'>}</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_ssl'>ssl</span>
+    <span class='id identifier rubyid_result_opts'>result_opts</span><span class='lbracket'>[</span><span class='symbol'>:service_name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>https</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_result_opts'>result_opts</span><span class='lbracket'>[</span><span class='symbol'>:service_name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>http</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_http_client'>http_client</span> <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Proto</span><span class='op'>::</span><span class='const'>Http</span><span class='op'>::</span><span class='const'>Client</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
+    <span class='id identifier rubyid_host'>host</span><span class='comma'>,</span> <span class='id identifier rubyid_port'>port</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_ssl'>ssl</span><span class='comma'>,</span> <span class='id identifier rubyid_ssl_version'>ssl_version</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_proxies'>proxies</span><span class='comma'>,</span> <span class='id identifier rubyid_credential'>credential</span><span class='period'>.</span><span class='id identifier rubyid_public'>public</span><span class='comma'>,</span> <span class='id identifier rubyid_credential'>credential</span><span class='period'>.</span><span class='id identifier rubyid_private'>private</span>
+  <span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_http_client'>http_client</span> <span class='op'>=</span> <span class='id identifier rubyid_config_client'>config_client</span><span class='lparen'>(</span><span class='id identifier rubyid_http_client'>http_client</span><span class='rparen'>)</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_credential'>credential</span><span class='period'>.</span><span class='id identifier rubyid_realm'>realm</span>
+    <span class='id identifier rubyid_http_client'>http_client</span><span class='period'>.</span><span class='id identifier rubyid_set_config'>set_config</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>domain</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_credential'>credential</span><span class='period'>.</span><span class='id identifier rubyid_realm'>realm</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>begin</span>
+    <span class='id identifier rubyid_http_client'>http_client</span><span class='period'>.</span><span class='id identifier rubyid_connect'>connect</span>
+    <span class='id identifier rubyid_request'>request</span> <span class='op'>=</span> <span class='id identifier rubyid_http_client'>http_client</span><span class='period'>.</span><span class='id identifier rubyid_request_cgi'>request_cgi</span><span class='lparen'>(</span>
+      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>uri</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_uri'>uri</span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>method</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_method'>method</span>
+    <span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_http_client'>http_client</span><span class='period'>.</span><span class='id identifier rubyid_send_recv'>send_recv</span><span class='lparen'>(</span><span class='id identifier rubyid_request'>request</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_response'>response</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>==</span> <span class='int'>200</span>
+      <span class='id identifier rubyid_result_opts'>result_opts</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='label'>status:</span> <span class='const'>Metasploit</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>Login</span><span class='op'>::</span><span class='const'>Status</span><span class='op'>::</span><span class='const'>SUCCESSFUL</span><span class='comma'>,</span> <span class='label'>proof:</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>rescue</span> <span class='op'>::</span><span class='const'>EOFError</span><span class='comma'>,</span> <span class='const'>Errno</span><span class='op'>::</span><span class='const'>ETIMEDOUT</span><span class='comma'>,</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>ConnectionError</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>Timeout</span><span class='op'>::</span><span class='const'>Error</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
+    <span class='id identifier rubyid_result_opts'>result_opts</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='label'>status:</span> <span class='const'>Metasploit</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>Login</span><span class='op'>::</span><span class='const'>Status</span><span class='op'>::</span><span class='const'>UNABLE_TO_CONNECT</span><span class='comma'>,</span> <span class='label'>proof:</span> <span class='id identifier rubyid_e'>e</span><span class='rparen'>)</span>
+  <span class='kw'>ensure</span>
+    <span class='id identifier rubyid_http_client'>http_client</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
+  <span class='kw'>end</span>
+
+  <span class='const'>Result</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_result_opts'>result_opts</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="check_setup-instance_method">
+  
+    - (<tt>Object</tt>) <strong>check_setup</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
 48
 49
 50
@@ -484,92 +797,35 @@
 69
 70
 71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98</pre>
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/login_scanner/http.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/login_scanner/http.rb', line 48</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_attempt_login'>attempt_login</span><span class='lparen'>(</span><span class='id identifier rubyid_credential'>credential</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_ssl'>ssl</span> <span class='op'>=</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_ssl'>ssl</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-
-  <span class='id identifier rubyid_result_opts'>result_opts</span> <span class='op'>=</span> <span class='lbrace'>{</span>
-    <span class='label'>credential:</span> <span class='id identifier rubyid_credential'>credential</span><span class='comma'>,</span>
-    <span class='label'>status:</span> <span class='const'>Metasploit</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>Login</span><span class='op'>::</span><span class='const'>Status</span><span class='op'>::</span><span class='const'>INCORRECT</span><span class='comma'>,</span>
-    <span class='label'>proof:</span> <span class='kw'>nil</span><span class='comma'>,</span>
-    <span class='label'>host:</span> <span class='id identifier rubyid_host'>host</span><span class='comma'>,</span>
-    <span class='label'>port:</span> <span class='id identifier rubyid_port'>port</span><span class='comma'>,</span>
-    <span class='label'>protocol:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tcp</span><span class='tstring_end'>&#39;</span></span>
-  <span class='rbrace'>}</span>
-
-  <span class='kw'>if</span> <span class='id identifier rubyid_ssl'>ssl</span>
-    <span class='id identifier rubyid_result_opts'>result_opts</span><span class='lbracket'>[</span><span class='symbol'>:service_name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>https</span><span class='tstring_end'>&#39;</span></span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_result_opts'>result_opts</span><span class='lbracket'>[</span><span class='symbol'>:service_name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>http</span><span class='tstring_end'>&#39;</span></span>
-  <span class='kw'>end</span>
-
+<span class='kw'>def</span> <span class='id identifier rubyid_check_setup'>check_setup</span>
   <span class='id identifier rubyid_http_client'>http_client</span> <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Proto</span><span class='op'>::</span><span class='const'>Http</span><span class='op'>::</span><span class='const'>Client</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
-    <span class='id identifier rubyid_host'>host</span><span class='comma'>,</span> <span class='id identifier rubyid_port'>port</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_ssl'>ssl</span><span class='comma'>,</span> <span class='id identifier rubyid_ssl_version'>ssl_version</span><span class='comma'>,</span>
-    <span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_credential'>credential</span><span class='period'>.</span><span class='id identifier rubyid_public'>public</span><span class='comma'>,</span> <span class='id identifier rubyid_credential'>credential</span><span class='period'>.</span><span class='id identifier rubyid_private'>private</span>
+    <span class='id identifier rubyid_host'>host</span><span class='comma'>,</span> <span class='id identifier rubyid_port'>port</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_ssl'>ssl</span><span class='comma'>,</span> <span class='id identifier rubyid_ssl_version'>ssl_version</span><span class='comma'>,</span> <span class='id identifier rubyid_proxies'>proxies</span>
   <span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_credential'>credential</span><span class='period'>.</span><span class='id identifier rubyid_realm'>realm</span>
-    <span class='id identifier rubyid_http_client'>http_client</span><span class='period'>.</span><span class='id identifier rubyid_set_config'>set_config</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>domain</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_credential'>credential</span><span class='period'>.</span><span class='id identifier rubyid_realm'>realm</span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
+  <span class='id identifier rubyid_request'>request</span> <span class='op'>=</span> <span class='id identifier rubyid_http_client'>http_client</span><span class='period'>.</span><span class='id identifier rubyid_request_cgi'>request_cgi</span><span class='lparen'>(</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>uri</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_uri'>uri</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>method</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_method'>method</span>
+  <span class='rparen'>)</span>
 
   <span class='kw'>begin</span>
-    <span class='id identifier rubyid_http_client'>http_client</span><span class='period'>.</span><span class='id identifier rubyid_connect'>connect</span>
-    <span class='id identifier rubyid_request'>request</span> <span class='op'>=</span> <span class='id identifier rubyid_http_client'>http_client</span><span class='period'>.</span><span class='id identifier rubyid_request_cgi'>request_cgi</span><span class='lparen'>(</span>
-      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>uri</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_uri'>uri</span><span class='comma'>,</span>
-      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>method</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_method'>method</span>
-    <span class='rparen'>)</span>
-
-    <span class='comment'># First try to connect without logging in to make sure this
-</span>    <span class='comment'># resource requires authentication. We use #_send_recv for
-</span>    <span class='comment'># that instead of #send_recv.
+    <span class='comment'># Use _send_recv instead of send_recv to skip automatiu
+</span>    <span class='comment'># authentication
 </span>    <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_http_client'>http_client</span><span class='period'>.</span><span class='id identifier rubyid__send_recv'>_send_recv</span><span class='lparen'>(</span><span class='id identifier rubyid_request'>request</span><span class='rparen'>)</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_response'>response</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>==</span> <span class='int'>401</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>WWW-Authenticate</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-      <span class='comment'># Now send the creds
-</span>      <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_http_client'>http_client</span><span class='period'>.</span><span class='id identifier rubyid_send_auth'>send_auth</span><span class='lparen'>(</span>
-        <span class='id identifier rubyid_response'>response</span><span class='comma'>,</span> <span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_opts'>opts</span><span class='comma'>,</span> <span class='id identifier rubyid_connection_timeout'>connection_timeout</span><span class='comma'>,</span> <span class='kw'>true</span>
-      <span class='rparen'>)</span>
-      <span class='kw'>if</span> <span class='id identifier rubyid_response'>response</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>==</span> <span class='int'>200</span>
-        <span class='id identifier rubyid_result_opts'>result_opts</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='label'>status:</span> <span class='const'>Metasploit</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>Login</span><span class='op'>::</span><span class='const'>Status</span><span class='op'>::</span><span class='const'>SUCCESSFUL</span><span class='comma'>,</span> <span class='label'>proof:</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span><span class='rparen'>)</span>
-      <span class='kw'>end</span>
-    <span class='kw'>else</span>
-      <span class='id identifier rubyid_result_opts'>result_opts</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='label'>status:</span> <span class='const'>Metasploit</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>Login</span><span class='op'>::</span><span class='const'>Status</span><span class='op'>::</span><span class='const'>NO_AUTH_REQUIRED</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
   <span class='kw'>rescue</span> <span class='op'>::</span><span class='const'>EOFError</span><span class='comma'>,</span> <span class='const'>Errno</span><span class='op'>::</span><span class='const'>ETIMEDOUT</span><span class='comma'>,</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>ConnectionError</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>Timeout</span><span class='op'>::</span><span class='const'>Error</span>
-    <span class='id identifier rubyid_result_opts'>result_opts</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='label'>status:</span> <span class='const'>Metasploit</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>Login</span><span class='op'>::</span><span class='const'>Status</span><span class='op'>::</span><span class='const'>UNABLE_TO_CONNECT</span><span class='rparen'>)</span>
-  <span class='kw'>ensure</span>
-    <span class='id identifier rubyid_http_client'>http_client</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
+    <span class='id identifier rubyid_error_message'>error_message</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unable to connect to target</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
 
-  <span class='const'>Result</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_result_opts'>result_opts</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='op'>!</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>==</span> <span class='int'>401</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>WWW-Authenticate</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_error_message'>error_message</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No authentication required</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_error_message'>error_message</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_error_message'>error_message</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -581,9 +837,9 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:49 2014 by
+  Generated on Tue Dec  2 09:35:36 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

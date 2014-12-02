@@ -123,7 +123,6 @@
 </div>
         </dt>
         <dd><pre class="code"><span class='lbracket'>[</span>
-    <span class='const'>Msf</span><span class='op'>::</span><span class='const'>Modules</span><span class='op'>::</span><span class='const'>Loader</span><span class='op'>::</span><span class='const'>Archive</span><span class='comma'>,</span>
     <span class='const'>Msf</span><span class='op'>::</span><span class='const'>Modules</span><span class='op'>::</span><span class='const'>Loader</span><span class='op'>::</span><span class='const'>Directory</span>
 <span class='rbracket'>]</span></pre></dd>
       
@@ -308,12 +307,12 @@ accordingly.</p>
       <pre class="lines">
 
 
-55
-56
-57</pre>
+53
+54
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_manager/loading.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_manager/loading.rb', line 53</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_module_load_error_by_path'>module_load_error_by_path</span>
   <span class='ivar'>@module_load_error_by_path</span>
@@ -367,6 +366,8 @@ accordingly.</p>
       <pre class="lines">
 
 
+25
+26
 27
 28
 29
@@ -391,12 +392,10 @@ accordingly.</p>
 48
 49
 50
-51
-52
-53</pre>
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_manager/loading.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_manager/loading.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_file_changed?'>file_changed?</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_changed'>changed</span> <span class='op'>=</span> <span class='kw'>false</span>
@@ -462,7 +461,7 @@ accordingly.</p>
       
         &mdash;
         <div class='inline'>
-<p>Path to a directory or Fastlib archive</p>
+<p>Path to a directory</p>
 </div>
       
     </li>
@@ -545,6 +544,8 @@ already loaded.</p>
       <pre class="lines">
 
 
+110
+111
 112
 113
 114
@@ -557,12 +558,10 @@ already loaded.</p>
 121
 122
 123
-124
-125
-126</pre>
+124</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_manager/loading.rb', line 112</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_manager/loading.rb', line 110</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_load_modules'>load_modules</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_assert_valid_keys'>assert_valid_keys</span><span class='lparen'>(</span><span class='symbol'>:force</span><span class='comma'>,</span> <span class='symbol'>:whitelist</span><span class='rparen'>)</span>
@@ -611,18 +610,18 @@ module manager</p>
       <pre class="lines">
 
 
+92
+93
 94
 95
 96
 97
 98
 99
-100
-101
-102</pre>
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_manager/loading.rb', line 94</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_manager/loading.rb', line 92</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_loaders'>loaders</span>
   <span class='kw'>unless</span> <span class='id identifier rubyid_instance_variable_defined?'>instance_variable_defined?</span> <span class='symbol'>:@loaders</span>
@@ -790,6 +789,8 @@ is defined.</p>
       <pre class="lines">
 
 
+69
+70
 71
 72
 73
@@ -806,12 +807,10 @@ is defined.</p>
 84
 85
 86
-87
-88
-89</pre>
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_manager/loading.rb', line 71</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_manager/loading.rb', line 69</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_on_module_load'>on_module_load</span><span class='lparen'>(</span><span class='id identifier rubyid_class_or_module'>class_or_module</span><span class='comma'>,</span> <span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_reference_name'>reference_name</span><span class='comma'>,</span> <span class='id identifier rubyid_info'>info</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_module_set'>module_set</span> <span class='op'>=</span> <span class='id identifier rubyid_module_set_by_type'>module_set_by_type</span><span class='lbracket'>[</span><span class='id identifier rubyid_type'>type</span><span class='rbracket'>]</span>
@@ -842,9 +841,9 @@ is defined.</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:17 2014 by
+  Generated on Tue Dec  2 09:34:59 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

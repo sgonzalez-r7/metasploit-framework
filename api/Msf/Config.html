@@ -171,6 +171,7 @@ things.</p>
   <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ModuleDirectory</span><span class='tstring_end'>&#39;</span></span>     <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>modules</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
   <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ScriptDirectory</span><span class='tstring_end'>&#39;</span></span>     <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>scripts</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
   <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>LogDirectory</span><span class='tstring_end'>&#39;</span></span>        <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>logs</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>LogosDirectory</span><span class='tstring_end'>&#39;</span></span>      <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>logos</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
   <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SessionLogDirectory</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>logs/sessions</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
   <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>PluginDirectory</span><span class='tstring_end'>&#39;</span></span>     <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>plugins</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
   <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>DataDirectory</span><span class='tstring_end'>&#39;</span></span>       <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>data</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
@@ -439,6 +440,30 @@ is specified.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#logos_directory-class_method" title="logos_directory (class method)">+ (String) <strong>logos_directory</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the directory that logo files should be loaded from.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#loot_directory-class_method" title="loot_directory (class method)">+ (String) <strong>loot_directory</strong> </a>
     
 
@@ -576,6 +601,30 @@ default path if one isn&#39;t specified.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>Returns the directory in which session log files are to reside.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#user_logos_directory-class_method" title="user_logos_directory (class method)">+ (String) <strong>user_logos_directory</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the user-specific directory that logo files should be loaded from.</p>
 </div></span>
   
 </li>
@@ -908,6 +957,30 @@ is specified.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#logos_directory-instance_method" title="#logos_directory (instance method)">- (String) <strong>logos_directory</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the directory that logo files should be loaded from.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#loot_directory-instance_method" title="#loot_directory (instance method)">- (String) <strong>loot_directory</strong> </a>
     
 
@@ -1053,6 +1126,30 @@ default path if one isn&#39;t specified.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#user_logos_directory-instance_method" title="#user_logos_directory (instance method)">- (String) <strong>user_logos_directory</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the user-specific directory that logo files should be loaded from.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#user_module_directory-instance_method" title="#user_module_directory (instance method)">- (String) <strong>user_module_directory</strong> </a>
     
 
@@ -1155,12 +1252,12 @@ default path if one isn&#39;t specified.</p>
       <pre class="lines">
 
 
-223
-224
-225</pre>
+238
+239
+240</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 223</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 238</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
   <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='const'>Defaults</span><span class='rparen'>)</span>
@@ -1221,12 +1318,12 @@ default path if one isn&#39;t specified.</p>
       <pre class="lines">
 
 
-91
 92
-93</pre>
+93
+94</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 92</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_config_directory'>config_directory</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_config_directory'>config_directory</span>
@@ -1280,12 +1377,12 @@ default path if one isn&#39;t specified.</p>
       <pre class="lines">
 
 
-175
-176
-177</pre>
+190
+191
+192</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 175</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 190</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_config_file'>config_file</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_config_file'>config_file</span>
@@ -1339,12 +1436,12 @@ default path if one isn&#39;t specified.</p>
       <pre class="lines">
 
 
-168
-169
-170</pre>
+183
+184
+185</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 168</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 183</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_data_directory'>data_directory</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_data_directory'>data_directory</span>
@@ -1499,12 +1596,12 @@ default path if one isn&#39;t specified.</p>
       <pre class="lines">
 
 
-182
-183
-184</pre>
+197
+198
+199</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 182</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 197</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_history_file'>history_file</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_history_file'>history_file</span>
@@ -1540,12 +1637,12 @@ default path if one isn&#39;t specified.</p>
       <pre class="lines">
 
 
-189
-190
-191</pre>
+204
+205
+206</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 189</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 204</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_init'>init</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_init'>init</span>
@@ -1599,12 +1696,12 @@ default path if one isn&#39;t specified.</p>
       <pre class="lines">
 
 
-84
 85
-86</pre>
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 85</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_install_root'>install_root</span>
   <span class='const'>InstallRoot</span>
@@ -1681,12 +1778,12 @@ is specified.</p>
       <pre class="lines">
 
 
-198
-199
-200</pre>
+213
+214
+215</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 198</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 213</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
@@ -1740,12 +1837,12 @@ is specified.</p>
       <pre class="lines">
 
 
-147
-148
-149</pre>
+155
+156
+157</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 147</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 155</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_local_directory'>local_directory</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_local_directory'>local_directory</span>
@@ -1799,15 +1896,74 @@ is specified.</p>
       <pre class="lines">
 
 
-112
-113
-114</pre>
+120
+121
+122</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 112</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 120</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_log_directory'>log_directory</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_log_directory'>log_directory</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="logos_directory-class_method">
+  
+    + (<tt>String</tt>) <strong>logos_directory</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the directory that logo files should be loaded from.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>path to the logos directory.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+99
+100
+101</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 99</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_logos_directory'>logos_directory</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_logos_directory'>logos_directory</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1858,12 +2014,12 @@ is specified.</p>
       <pre class="lines">
 
 
-140
-141
-142</pre>
+148
+149
+150</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 140</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 148</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_loot_directory'>loot_directory</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_loot_directory'>loot_directory</span>
@@ -1917,12 +2073,12 @@ is specified.</p>
       <pre class="lines">
 
 
-98
-99
-100</pre>
+106
+107
+108</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 98</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 106</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_module_directory'>module_directory</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_module_directory'>module_directory</span>
@@ -1976,12 +2132,12 @@ is specified.</p>
       <pre class="lines">
 
 
-119
-120
-121</pre>
+127
+128
+129</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 119</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 127</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_plugin_directory'>plugin_directory</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_plugin_directory'>plugin_directory</span>
@@ -2077,12 +2233,12 @@ references that have named value pairs.</p>
       <pre class="lines">
 
 
-216
-217
-218</pre>
+231
+232
+233</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 216</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 231</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -2136,12 +2292,12 @@ references that have named value pairs.</p>
       <pre class="lines">
 
 
-105
-106
-107</pre>
+113
+114
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 113</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_script_directory'>script_directory</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_script_directory'>script_directory</span>
@@ -2195,15 +2351,74 @@ references that have named value pairs.</p>
       <pre class="lines">
 
 
-133
-134
-135</pre>
+141
+142
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 133</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 141</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_session_log_directory'>session_log_directory</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_session_log_directory'>session_log_directory</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="user_logos_directory-class_method">
+  
+    + (<tt>String</tt>) <strong>user_logos_directory</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the user-specific directory that logo files should be loaded from.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>path to the logos directory.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+162
+163
+164</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 162</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_user_logos_directory'>user_logos_directory</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_user_logos_directory'>user_logos_directory</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2254,12 +2469,12 @@ references that have named value pairs.</p>
       <pre class="lines">
 
 
-154
-155
-156</pre>
+169
+170
+171</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 154</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 169</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_user_module_directory'>user_module_directory</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_user_module_directory'>user_module_directory</span>
@@ -2313,12 +2528,12 @@ references that have named value pairs.</p>
       <pre class="lines">
 
 
-126
-127
-128</pre>
+134
+135
+136</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 126</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 134</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_user_plugin_directory'>user_plugin_directory</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_user_plugin_directory'>user_plugin_directory</span>
@@ -2372,12 +2587,12 @@ references that have named value pairs.</p>
       <pre class="lines">
 
 
-161
-162
-163</pre>
+176
+177
+178</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 161</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 176</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_user_script_directory'>user_script_directory</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_user_script_directory'>user_script_directory</span>
@@ -2437,12 +2652,12 @@ references that have named value pairs.</p>
       <pre class="lines">
 
 
-237
-238
-239</pre>
+259
+260
+261</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 237</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 259</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_config_directory'>config_directory</span>
   <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ConfigDirectory</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
@@ -2496,12 +2711,12 @@ references that have named value pairs.</p>
       <pre class="lines">
 
 
-244
-245
-246</pre>
+266
+267
+268</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 244</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 266</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_config_file'>config_file</span>
   <span class='id identifier rubyid_config_directory'>config_directory</span> <span class='op'>+</span> <span class='const'>FileSep</span> <span class='op'>+</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ConfigFile</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
@@ -2555,12 +2770,12 @@ references that have named value pairs.</p>
       <pre class="lines">
 
 
-328
-329
-330</pre>
+357
+358
+359</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 328</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 357</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_data_directory'>data_directory</span>
   <span class='id identifier rubyid_install_root'>install_root</span> <span class='op'>+</span> <span class='const'>FileSep</span> <span class='op'>+</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>DataDirectory</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
@@ -2614,12 +2829,12 @@ references that have named value pairs.</p>
       <pre class="lines">
 
 
-251
-252
-253</pre>
+273
+274
+275</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 251</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 273</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_history_file'>history_file</span>
   <span class='id identifier rubyid_config_directory'>config_directory</span> <span class='op'>+</span> <span class='const'>FileSep</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>history</span><span class='tstring_end'>&quot;</span></span>
@@ -2655,19 +2870,20 @@ references that have named value pairs.</p>
       <pre class="lines">
 
 
-335
-336
-337
-338
-339
-340
-341
-342
-343
-344</pre>
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 335</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 364</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_init'>init</span>
   <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_mkdir_p'>mkdir_p</span><span class='lparen'>(</span><span class='id identifier rubyid_module_directory'>module_directory</span><span class='rparen'>)</span>
@@ -2676,6 +2892,7 @@ references that have named value pairs.</p>
   <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_mkdir_p'>mkdir_p</span><span class='lparen'>(</span><span class='id identifier rubyid_session_log_directory'>session_log_directory</span><span class='rparen'>)</span>
   <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_mkdir_p'>mkdir_p</span><span class='lparen'>(</span><span class='id identifier rubyid_loot_directory'>loot_directory</span><span class='rparen'>)</span>
   <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_mkdir_p'>mkdir_p</span><span class='lparen'>(</span><span class='id identifier rubyid_local_directory'>local_directory</span><span class='rparen'>)</span>
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_mkdir_p'>mkdir_p</span><span class='lparen'>(</span><span class='id identifier rubyid_user_logos_directory'>user_logos_directory</span><span class='rparen'>)</span>
   <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_mkdir_p'>mkdir_p</span><span class='lparen'>(</span><span class='id identifier rubyid_user_module_directory'>user_module_directory</span><span class='rparen'>)</span>
   <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_mkdir_p'>mkdir_p</span><span class='lparen'>(</span><span class='id identifier rubyid_user_plugin_directory'>user_plugin_directory</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -2728,12 +2945,12 @@ references that have named value pairs.</p>
       <pre class="lines">
 
 
-230
-231
-232</pre>
+245
+246
+247</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 230</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 245</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_install_root'>install_root</span>
   <span class='const'>InstallRoot</span>
@@ -2810,14 +3027,14 @@ is specified.</p>
       <pre class="lines">
 
 
-351
-352
-353
-354
-355</pre>
+381
+382
+383
+384
+385</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 351</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 381</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='id identifier rubyid_config_file'>config_file</span> <span class='kw'>if</span> <span class='lparen'>(</span><span class='op'>!</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
@@ -2873,12 +3090,12 @@ is specified.</p>
       <pre class="lines">
 
 
-300
-301
-302</pre>
+322
+323
+324</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 300</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 322</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_local_directory'>local_directory</span>
   <span class='id identifier rubyid_config_directory'>config_directory</span> <span class='op'>+</span> <span class='const'>FileSep</span> <span class='op'>+</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>LocalDirectory</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
@@ -2932,15 +3149,74 @@ is specified.</p>
       <pre class="lines">
 
 
-272
-273
-274</pre>
+294
+295
+296</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 272</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 294</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_log_directory'>log_directory</span>
   <span class='id identifier rubyid_config_directory'>config_directory</span> <span class='op'>+</span> <span class='const'>FileSep</span> <span class='op'>+</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>LogDirectory</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="logos_directory-instance_method">
+  
+    - (<tt>String</tt>) <strong>logos_directory</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the directory that logo files should be loaded from.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>path to the logos directory.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+252
+253
+254</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 252</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_logos_directory'>logos_directory</span>
+  <span class='id identifier rubyid_data_directory'>data_directory</span> <span class='op'>+</span> <span class='const'>FileSep</span> <span class='op'>+</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>LogosDirectory</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2991,12 +3267,12 @@ is specified.</p>
       <pre class="lines">
 
 
-293
-294
-295</pre>
+315
+316
+317</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 293</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 315</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_loot_directory'>loot_directory</span>
   <span class='id identifier rubyid_config_directory'>config_directory</span> <span class='op'>+</span> <span class='const'>FileSep</span> <span class='op'>+</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>LootDirectory</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
@@ -3050,12 +3326,12 @@ is specified.</p>
       <pre class="lines">
 
 
-258
-259
-260</pre>
+280
+281
+282</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 258</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 280</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_module_directory'>module_directory</span>
   <span class='id identifier rubyid_install_root'>install_root</span> <span class='op'>+</span> <span class='const'>FileSep</span> <span class='op'>+</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ModuleDirectory</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
@@ -3109,12 +3385,12 @@ is specified.</p>
       <pre class="lines">
 
 
-279
-280
-281</pre>
+301
+302
+303</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 279</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 301</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_plugin_directory'>plugin_directory</span>
   <span class='id identifier rubyid_install_root'>install_root</span> <span class='op'>+</span> <span class='const'>FileSep</span> <span class='op'>+</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>PluginDirectory</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
@@ -3210,16 +3486,16 @@ references that have named value pairs.</p>
       <pre class="lines">
 
 
-371
-372
-373
-374
-375
-376
-377</pre>
+401
+402
+403
+404
+405
+406
+407</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 371</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 401</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_save'>save</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_ini'>ini</span> <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Parser</span><span class='op'>::</span><span class='const'>Ini</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ConfigFile</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='id identifier rubyid_config_file'>config_file</span><span class='rparen'>)</span>
@@ -3277,12 +3553,12 @@ references that have named value pairs.</p>
       <pre class="lines">
 
 
-265
-266
-267</pre>
+287
+288
+289</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 265</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 287</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_script_directory'>script_directory</span>
   <span class='id identifier rubyid_install_root'>install_root</span> <span class='op'>+</span> <span class='const'>FileSep</span> <span class='op'>+</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ScriptDirectory</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
@@ -3336,15 +3612,74 @@ references that have named value pairs.</p>
       <pre class="lines">
 
 
-286
-287
-288</pre>
+308
+309
+310</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 286</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 308</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_session_log_directory'>session_log_directory</span>
   <span class='id identifier rubyid_config_directory'>config_directory</span> <span class='op'>+</span> <span class='const'>FileSep</span> <span class='op'>+</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SessionLogDirectory</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="user_logos_directory-instance_method">
+  
+    - (<tt>String</tt>) <strong>user_logos_directory</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the user-specific directory that logo files should be loaded from.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>path to the logos directory.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+329
+330
+331</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 329</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_user_logos_directory'>user_logos_directory</span>
+  <span class='id identifier rubyid_config_directory'>config_directory</span> <span class='op'>+</span> <span class='const'>FileSep</span> <span class='op'>+</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>LogosDirectory</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -3395,12 +3730,12 @@ references that have named value pairs.</p>
       <pre class="lines">
 
 
-307
-308
-309</pre>
+336
+337
+338</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 307</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 336</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_user_module_directory'>user_module_directory</span>
   <span class='id identifier rubyid_config_directory'>config_directory</span> <span class='op'>+</span> <span class='const'>FileSep</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>modules</span><span class='tstring_end'>&quot;</span></span>
@@ -3454,12 +3789,12 @@ references that have named value pairs.</p>
       <pre class="lines">
 
 
-314
-315
-316</pre>
+343
+344
+345</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 314</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 343</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_user_plugin_directory'>user_plugin_directory</span>
   <span class='id identifier rubyid_config_directory'>config_directory</span> <span class='op'>+</span> <span class='const'>FileSep</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>plugins</span><span class='tstring_end'>&quot;</span></span>
@@ -3513,12 +3848,12 @@ references that have named value pairs.</p>
       <pre class="lines">
 
 
-321
-322
-323</pre>
+350
+351
+352</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 321</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/config.rb', line 350</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_user_script_directory'>user_script_directory</span>
   <span class='id identifier rubyid_config_directory'>config_directory</span> <span class='op'>+</span> <span class='const'>FileSep</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>scripts</span><span class='tstring_end'>&quot;</span></span>
@@ -3533,9 +3868,9 @@ references that have named value pairs.</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:34 2014 by
+  Generated on Tue Dec  2 09:35:18 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

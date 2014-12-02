@@ -462,6 +462,7 @@ it wishes to monitor.</p>
       <pre class="lines">
 
 
+115
 116
 117
 118
@@ -481,11 +482,10 @@ it wishes to monitor.</p>
 132
 133
 134
-135
-136</pre>
+135</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_manager.rb', line 116</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_manager.rb', line 115</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_framework'>framework</span><span class='comma'>,</span> <span class='id identifier rubyid_types'>types</span><span class='op'>=</span><span class='const'>Msf</span><span class='op'>::</span><span class='const'>MODULE_TYPES</span><span class='rparen'>)</span>
   <span class='comment'>#
@@ -535,6 +535,7 @@ it wishes to monitor.</p>
       <pre class="lines">
 
 
+47
 48
 49
 50
@@ -542,11 +543,10 @@ it wishes to monitor.</p>
 52
 53
 54
-55
-56</pre>
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_manager.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_manager.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='op'>[]</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_names'>names</span> <span class='op'>=</span> <span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -612,6 +612,7 @@ they can collect more information about the host that was detected.</p>
       <pre class="lines">
 
 
+148
 149
 150
 151
@@ -635,11 +636,10 @@ they can collect more information about the host that was detected.</p>
 169
 170
 171
-172
-173</pre>
+172</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_manager.rb', line 149</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_manager.rb', line 148</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_auto_subscribe_module'>auto_subscribe_module</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span><span class='rparen'>)</span>
   <span class='comment'># If auto-subscribe has been disabled
@@ -738,6 +738,7 @@ sets until we find one that matches.</p>
       <pre class="lines">
 
 
+65
 66
 67
 68
@@ -769,11 +770,10 @@ sets until we find one that matches.</p>
 94
 95
 96
-97
-98</pre>
+97</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_manager.rb', line 66</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_manager.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='comment'># Check to see if it has a module type prefix.  If it does,
@@ -875,16 +875,16 @@ sets until we find one that matches.</p>
       <pre class="lines">
 
 
+104
 105
 106
 107
 108
 109
-110
-111</pre>
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/module_manager.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/module_manager.rb', line 104</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_each'>each</span>
   <span class='id identifier rubyid_module_set_by_type'>module_set_by_type</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_set'>set</span><span class='op'>|</span>
@@ -903,9 +903,9 @@ sets until we find one that matches.</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:38 2014 by
+  Generated on Tue Dec  2 09:35:24 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

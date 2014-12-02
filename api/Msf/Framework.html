@@ -90,11 +90,15 @@
     
   
     
+      <dt class="r2">Includes:</dt>
+      <dd class="r2">MonitorMixin</dd>
+      
+    
   
   
   
-    <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/msf/core/framework.rb</dd>
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/msf/core/framework.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -290,7 +294,7 @@ interfaces interact with.  It ties everything together.</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#db-instance_method" title="#db (instance method)">- (Object) <strong>db</strong> </a>
+      <a href="#db-instance_method" title="#db (instance method)">- (Msf::DBManager) <strong>db</strong> </a>
     
 
     
@@ -398,6 +402,33 @@ regardless of type.</p>
 </li>
 
     
+      <li class="protected ">
+  <span class="summary_signature">
+    
+      <a href="#options-instance_method" title="#options (instance method)">- (Hash) <strong>options</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  <span class="note title protected">protected</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Options passed to <span class='object_link'><a href="#initialize-instance_method" title="Msf::Framework#initialize (method)">#initialize</a></span>.</p>
+</div></span>
+  
+</li>
+
+    
       <li class="public ">
   <span class="summary_signature">
     
@@ -420,61 +451,6 @@ regardless of type.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>The framework instance&#39;s plugin manager.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#sessions-instance_method" title="#sessions (instance method)">- (Object) <strong>sessions</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Session manager that tracks sessions associated with this framework
-instance over the course of their lifetime.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#threads-instance_method" title="#threads (instance method)">- (Object) <strong>threads</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>The framework instance&#39;s thread manager.</p>
 </div></span>
   
 </li>
@@ -568,7 +544,7 @@ instance over the course of their lifetime.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Framework) <strong>initialize</strong>(opts = {}) </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Framework) <strong>initialize</strong>(options = {}) </a>
     
 
     
@@ -688,6 +664,79 @@ instance over the course of their lifetime.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#sessions-instance_method" title="#sessions (instance method)">- (Msf::SessionManager) <strong>sessions</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Session manager that tracks sessions associated with this framework
+instance over the course of their lifetime.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#threads-instance_method" title="#threads (instance method)">- (Msf::ThreadManager) <strong>threads</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The framework instance&#39;s thread manager.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#threads%3F-instance_method" title="#threads? (instance method)">- (true, false) <strong>threads?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Whether <span class='object_link'><a href="#threads-instance_method" title="Msf::Framework#threads (method)">#threads</a></span> has been initialized.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#version-instance_method" title="#version (instance method)">- (Object) <strong>version</strong> </a>
     
 
@@ -712,13 +761,14 @@ instance over the course of their lifetime.</p>
     </ul>
   
 
-<div id="constructor_details" class="method_details_list">
+
+  <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    - (<tt><span class='object_link'><a href="" title="Msf::Framework (class)">Framework</a></span></tt>) <strong>initialize</strong>(opts = {}) 
+    - (<tt><span class='object_link'><a href="" title="Msf::Framework (class)">Framework</a></span></tt>) <strong>initialize</strong>(options = {}) 
   
 
   
@@ -741,18 +791,6 @@ instance over the course of their lifetime.</p>
       <pre class="lines">
 
 
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
 81
 82
 83
@@ -764,27 +802,39 @@ instance over the course of their lifetime.</p>
 89
 90
 91
-92</pre>
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 69</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 81</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span>
+  <span class='comment'># call super to initialize MonitorMixin.  #synchronize won&#39;t work without this.
+</span>  <span class='kw'>super</span><span class='lparen'>(</span><span class='rparen'>)</span>
 
   <span class='comment'># Allow specific module types to be loaded
-</span>  <span class='id identifier rubyid_types'>types</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:module_types</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='const'>MODULE_TYPES</span>
+</span>  <span class='id identifier rubyid_types'>types</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:module_types</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='const'>Msf</span><span class='op'>::</span><span class='const'>MODULE_TYPES</span>
 
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_threads'>threads</span>   <span class='op'>=</span> <span class='const'>ThreadManager</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_events'>events</span>    <span class='op'>=</span> <span class='const'>EventDispatcher</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_modules'>modules</span>   <span class='op'>=</span> <span class='const'>ModuleManager</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span><span class='id identifier rubyid_types'>types</span><span class='rparen'>)</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_sessions'>sessions</span>  <span class='op'>=</span> <span class='const'>SessionManager</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_datastore'>datastore</span> <span class='op'>=</span> <span class='const'>DataStore</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_jobs'>jobs</span>      <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>JobContainer</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_plugins'>plugins</span>   <span class='op'>=</span> <span class='const'>PluginManager</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_db'>db</span>        <span class='op'>=</span> <span class='const'>DBManager</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
 
   <span class='comment'># Configure the thread factory
-</span>  <span class='const'>Rex</span><span class='op'>::</span><span class='const'>ThreadFactory</span><span class='period'>.</span><span class='id identifier rubyid_provider'>provider</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_threads'>threads</span>
+</span>  <span class='const'>Rex</span><span class='op'>::</span><span class='const'>ThreadFactory</span><span class='period'>.</span><span class='id identifier rubyid_provider'>provider</span> <span class='op'>=</span> <span class='const'>Metasploit</span><span class='op'>::</span><span class='const'>Framework</span><span class='op'>::</span><span class='const'>ThreadFactoryProvider</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>framework:</span> <span class='kw'>self</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_subscriber'>subscriber</span> <span class='op'>=</span> <span class='const'>FrameworkEventSubscriber</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_events'>events</span><span class='period'>.</span><span class='id identifier rubyid_add_exploit_subscriber'>add_exploit_subscriber</span><span class='lparen'>(</span><span class='id identifier rubyid_subscriber'>subscriber</span><span class='rparen'>)</span>
@@ -833,12 +883,12 @@ modules.</p>
       <pre class="lines">
 
 
-171
-172
-173</pre>
+178
+179
+180</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 171</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 178</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_auxmgr'>auxmgr</span>
   <span class='ivar'>@auxmgr</span>
@@ -876,12 +926,12 @@ modules.</p>
       <pre class="lines">
 
 
-165
-166
-167</pre>
+172
+173
+174</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 165</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 172</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_datastore'>datastore</span>
   <span class='ivar'>@datastore</span>
@@ -896,7 +946,7 @@ modules.</p>
       <div class="method_details ">
   <h3 class="signature " id="db-instance_method">
   
-    - (<tt>Object</tt>) <strong>db</strong> 
+    - (<tt><span class='object_link'><a href="DBManager.html" title="Msf::DBManager (class)">Msf::DBManager</a></span></tt>) <strong>db</strong> 
   
 
   
@@ -913,6 +963,19 @@ database db and handles db events</p>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="DBManager.html" title="Msf::DBManager (class)">Msf::DBManager</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -920,15 +983,19 @@ database db and handles db events</p>
       <pre class="lines">
 
 
-187
-188
-189</pre>
+195
+196
+197
+198
+199</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 187</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 195</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_db'>db</span>
-  <span class='ivar'>@db</span>
+  <span class='id identifier rubyid_synchronize'>synchronize</span> <span class='lbrace'>{</span>
+    <span class='ivar'>@db</span> <span class='op'>||=</span> <span class='const'>Msf</span><span class='op'>::</span><span class='const'>DBManager</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+  <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -964,12 +1031,12 @@ for interacting with the correlation engine.</p>
       <pre class="lines">
 
 
-151
-152
-153</pre>
+163
+164
+165</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 151</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 163</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_events'>events</span>
   <span class='ivar'>@events</span>
@@ -1008,12 +1075,12 @@ the framework.</p>
       <pre class="lines">
 
 
-176
-177
-178</pre>
+183
+184
+185</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 176</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 183</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_jobs'>jobs</span>
   <span class='ivar'>@jobs</span>
@@ -1052,15 +1119,71 @@ regardless of type.</p>
       <pre class="lines">
 
 
-156
-157
-158</pre>
+168
+169
+170</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 156</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 168</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_modules'>modules</span>
   <span class='ivar'>@modules</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="options=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="options-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>options</strong>  <span class="extras">(protected)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Options passed to <span class='object_link'><a href="#initialize-instance_method" title="Msf::Framework#initialize (method)">#initialize</a></span></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+237
+238
+239</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 237</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_options'>options</span>
+  <span class='ivar'>@options</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1097,103 +1220,15 @@ unloading of plugins.</p>
       <pre class="lines">
 
 
-182
-183
-184</pre>
+189
+190
+191</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 182</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 189</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_plugins'>plugins</span>
   <span class='ivar'>@plugins</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id="sessions=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="sessions-instance_method">
-  
-    - (<tt>Object</tt>) <strong>sessions</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Session manager that tracks sessions associated with this framework
-instance over the course of their lifetime.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-161
-162
-163</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 161</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_sessions'>sessions</span>
-  <span class='ivar'>@sessions</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id="threads=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="threads-instance_method">
-  
-    - (<tt>Object</tt>) <strong>threads</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>The framework instance&#39;s thread manager. The thread manager provides a
-cleaner way to manage spawned threads</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-192
-193
-194</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 192</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_threads'>threads</span>
-  <span class='ivar'>@threads</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1233,12 +1268,12 @@ cleaner way to manage spawned threads</p>
       <pre class="lines">
 
 
-129
-130
-131</pre>
+141
+142
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 129</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 141</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_auxiliary'>auxiliary</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_modules'>modules</span><span class='period'>.</span><span class='id identifier rubyid_auxiliary'>auxiliary</span>
@@ -1274,12 +1309,12 @@ cleaner way to manage spawned threads</p>
       <pre class="lines">
 
 
-101
-102
-103</pre>
+113
+114
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 101</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 113</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_encoders'>encoders</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_modules'>modules</span><span class='period'>.</span><span class='id identifier rubyid_encoders'>encoders</span>
@@ -1315,12 +1350,12 @@ cleaner way to manage spawned threads</p>
       <pre class="lines">
 
 
-108
-109
-110</pre>
+120
+121
+122</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 108</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 120</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_exploits'>exploits</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_modules'>modules</span><span class='period'>.</span><span class='id identifier rubyid_exploits'>exploits</span>
@@ -1345,12 +1380,12 @@ cleaner way to manage spawned threads</p>
       <pre class="lines">
 
 
-94
-95
-96</pre>
+106
+107
+108</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 94</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 106</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;Framework (</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sessions'>sessions</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='embexpr_end'>}</span><span class='tstring_content'> sessions, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_jobs'>jobs</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='embexpr_end'>}</span><span class='tstring_content'> jobs, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_plugins'>plugins</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='embexpr_end'>}</span><span class='tstring_content'> plugins</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_driver'>driver</span><span class='embexpr_end'>}</span><span class='tstring_content'> database active</span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='embexpr_end'>}</span><span class='tstring_content'>)&gt;</span><span class='tstring_end'>&quot;</span></span>
@@ -1386,12 +1421,12 @@ cleaner way to manage spawned threads</p>
       <pre class="lines">
 
 
-115
-116
-117</pre>
+127
+128
+129</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 115</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 127</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_nops'>nops</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_modules'>modules</span><span class='period'>.</span><span class='id identifier rubyid_nops'>nops</span>
@@ -1427,12 +1462,12 @@ cleaner way to manage spawned threads</p>
       <pre class="lines">
 
 
-122
-123
-124</pre>
+134
+135
+136</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 122</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 134</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_payloads'>payloads</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_modules'>modules</span><span class='period'>.</span><span class='id identifier rubyid_payloads'>payloads</span>
@@ -1468,15 +1503,210 @@ cleaner way to manage spawned threads</p>
       <pre class="lines">
 
 
-136
-137
-138</pre>
+148
+149
+150</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 136</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 148</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_post'>post</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_modules'>modules</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sessions-instance_method">
+  
+    - (<tt><span class='object_link'><a href="SessionManager.html" title="Msf::SessionManager (class)">Msf::SessionManager</a></span></tt>) <strong>sessions</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Session manager that tracks sessions associated with this framework
+instance over the course of their lifetime.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="SessionManager.html" title="Msf::SessionManager (class)">Msf::SessionManager</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+205
+206
+207
+208
+209</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 205</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sessions'>sessions</span>
+  <span class='id identifier rubyid_synchronize'>synchronize</span> <span class='lbrace'>{</span>
+    <span class='ivar'>@sessions</span> <span class='op'>||=</span> <span class='const'>Msf</span><span class='op'>::</span><span class='const'>SessionManager</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="threads-instance_method">
+  
+    - (<tt><span class='object_link'><a href="ThreadManager.html" title="Msf::ThreadManager (class)">Msf::ThreadManager</a></span></tt>) <strong>threads</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The framework instance&#39;s thread manager. The thread manager provides a
+cleaner way to manage spawned threads</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="ThreadManager.html" title="Msf::ThreadManager (class)">Msf::ThreadManager</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+215
+216
+217
+218
+219</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 215</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_threads'>threads</span>
+  <span class='id identifier rubyid_synchronize'>synchronize</span> <span class='lbrace'>{</span>
+    <span class='ivar'>@threads</span> <span class='op'>||=</span> <span class='const'>Msf</span><span class='op'>::</span><span class='const'>ThreadManager</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="threads?-instance_method">
+  
+    - (<tt>true</tt>, <tt>false</tt>) <strong>threads?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Whether <span class='object_link'><a href="#threads-instance_method" title="Msf::Framework#threads (method)">#threads</a></span> has been initialized</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>true</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>if <span class='object_link'><a href="#threads-instance_method" title="Msf::Framework#threads (method)">#threads</a></span> has been initialized</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>false</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>otherwise</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+225
+226
+227
+228
+229</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 225</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_threads?'>threads?</span>
+  <span class='id identifier rubyid_synchronize'>synchronize</span> <span class='lbrace'>{</span>
+    <span class='id identifier rubyid_instance_variable_defined?'>instance_variable_defined?</span> <span class='symbol'>:@threads</span>
+  <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1509,12 +1739,12 @@ cleaner way to manage spawned threads</p>
       <pre class="lines">
 
 
-143
-144
-145</pre>
+155
+156
+157</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 143</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/framework.rb', line 155</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_version'>version</span>
   <span class='const'>Version</span>
@@ -1529,9 +1759,9 @@ cleaner way to manage spawned threads</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:35 2014 by
+  Generated on Tue Dec  2 09:35:21 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

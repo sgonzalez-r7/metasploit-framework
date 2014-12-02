@@ -192,30 +192,6 @@ displayed on a console or some other non-GUI medium.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#dump_auxiliary_actions-class_method" title="dump_auxiliary_actions (class method)">+ (String) <strong>dump_auxiliary_actions</strong>(mod, indent = &#39;&#39;, h = nil) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Dumps an auxiliary&#39;s actions.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#dump_auxiliary_module-class_method" title="dump_auxiliary_module (class method)">+ (String) <strong>dump_auxiliary_module</strong>(mod, indent = &#39;&#39;) </a>
     
 
@@ -481,7 +457,55 @@ module instance.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#dump_options-class_method" title="dump_options (class method)">+ (String) <strong>dump_options</strong>(mod, indent = &#39;&#39;) </a>
+      <a href="#dump_module_action-class_method" title="dump_module_action (class method)">+ (String) <strong>dump_module_action</strong>(mod, indent = &#39;&#39;, h = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Dumps the module&#39;s selected action.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dump_module_actions-class_method" title="dump_module_actions (class method)">+ (String) <strong>dump_module_actions</strong>(mod, indent = &#39;&#39;, h = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Dumps a module&#39;s actions.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dump_options-class_method" title="dump_options (class method)">+ (String) <strong>dump_options</strong>(mod, indent = &#39;&#39;, missing = false) </a>
     
 
     
@@ -521,6 +545,30 @@ module instance.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>Dumps information about a payload module.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dump_post_module-class_method" title="dump_post_module (class method)">+ (String) <strong>dump_post_module</strong>(mod, indent = &#39;&#39;) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Dumps information about a post module.</p>
 </div></span>
   
 </li>
@@ -689,29 +737,29 @@ module instance.</p>
       <pre class="lines">
 
 
-345
-346
-347
-348
-349
-350
-351
-352
-353
-354
-355
-356
-357
-358
-359
-360
-361
-362
-363
-364</pre>
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 345</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 422</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dump_advanced_options'>dump_advanced_options</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_output'>output</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
@@ -732,147 +780,6 @@ module instance.</p>
   <span class='rbrace'>}</span>
 
   <span class='kw'>return</span> <span class='id identifier rubyid_output'>output</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="dump_auxiliary_actions-class_method">
-  
-    + (<tt>String</tt>) <strong>dump_auxiliary_actions</strong>(mod, indent = &#39;&#39;, h = nil) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Dumps an auxiliary&#39;s actions</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>mod</span>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="../Auxiliary.html" title="Msf::Auxiliary (class)">Msf::Auxiliary</a></span></tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>the auxiliary module.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>indent</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>&#39;&#39;</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>the indentation to use (only the length matters)</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>h</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>nil</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>the string to display as the table heading.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>the string form of the table.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 94</span>
-
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dump_auxiliary_actions'>dump_auxiliary_actions</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_h'>h</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_tbl'>tbl</span> <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Ui</span><span class='op'>::</span><span class='const'>Text</span><span class='op'>::</span><span class='const'>Table</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
-    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Indent</span><span class='tstring_end'>&#39;</span></span>  <span class='op'>=&gt;</span> <span class='id identifier rubyid_indent'>indent</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Header</span><span class='tstring_end'>&#39;</span></span>  <span class='op'>=&gt;</span> <span class='id identifier rubyid_h'>h</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Columns</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span>
-      <span class='lbracket'>[</span>
-        <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Name</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
-        <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Description</span><span class='tstring_end'>&#39;</span></span>
-      <span class='rbracket'>]</span><span class='rparen'>)</span>
-
-  <span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_actions'>actions</span><span class='period'>.</span><span class='id identifier rubyid_each_with_index'>each_with_index</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_target'>target</span><span class='comma'>,</span> <span class='id identifier rubyid_idx'>idx</span><span class='op'>|</span>
-    <span class='id identifier rubyid_tbl'>tbl</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span> <span class='id identifier rubyid_target'>target</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>All</span><span class='tstring_end'>&#39;</span></span> <span class='comma'>,</span> <span class='id identifier rubyid_target'>target</span><span class='period'>.</span><span class='id identifier rubyid_description'>description</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span> <span class='rbracket'>]</span>
-  <span class='rbrace'>}</span>
-
-  <span class='id identifier rubyid_tbl'>tbl</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -961,29 +868,6 @@ module instance.</p>
       <pre class="lines">
 
 
-198
-199
-200
-201
-202
-203
-204
-205
-206
-207
-208
-209
-210
-211
-212
-213
-214
-215
-216
-217
-218
-219
-220
 221
 222
 223
@@ -992,10 +876,40 @@ module instance.</p>
 226
 227
 228
-229</pre>
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 198</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 221</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dump_auxiliary_module'>dump_auxiliary_module</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_output'>output</span>  <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
@@ -1003,6 +917,7 @@ module instance.</p>
   <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>     Module: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_fullname'>fullname</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    License: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_license'>license</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>       Rank: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_rank_to_s'>rank_to_s</span><span class='period'>.</span><span class='id identifier rubyid_capitalize'>capitalize</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  Disclosed: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_disclosure_date'>disclosure_date</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_disclosure_date'>disclosure_date</span>
   <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
 
   <span class='comment'># Authors
@@ -1011,6 +926,12 @@ module instance.</p>
     <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_indent'>indent</span> <span class='op'>+</span> <span class='id identifier rubyid_author'>author</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
   <span class='rbrace'>}</span>
   <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='comment'># Actions
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_action'>action</span>
+    <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Available actions:\n</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_dump_module_actions'>dump_module_actions</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 
   <span class='comment'># Options
 </span>  <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_has_options?'>has_options?</span><span class='rparen'>)</span>
@@ -1116,38 +1037,38 @@ module instance.</p>
       <pre class="lines">
 
 
-275
-276
-277
-278
-279
-280
-281
-282
-283
-284
-285
-286
-287
-288
-289
-290
-291
-292
-293
-294
-295
-296
-297
-298
-299
-300
-301
-302
-303</pre>
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 275</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 351</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dump_basic_module'>dump_basic_module</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='comment'># General
@@ -1283,25 +1204,25 @@ module instance.</p>
       <pre class="lines">
 
 
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134</pre>
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 119</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 141</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dump_compatible_payloads'>dump_compatible_payloads</span><span class='lparen'>(</span><span class='id identifier rubyid_exploit'>exploit</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_h'>h</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_tbl'>tbl</span> <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Ui</span><span class='op'>::</span><span class='const'>Text</span><span class='op'>::</span><span class='const'>Table</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
@@ -1440,25 +1361,25 @@ module instance.</p>
       <pre class="lines">
 
 
-419
-420
-421
-422
-423
-424
-425
-426
-427
-428
-429
-430
-431
-432
-433
-434</pre>
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 419</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 496</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dump_datastore'>dump_datastore</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_ds'>ds</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span> <span class='op'>=</span> <span class='const'>DefaultIndent</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span> <span class='op'>=</span> <span class='const'>DefaultColumnWrap</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_tbl'>tbl</span> <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Ui</span><span class='op'>::</span><span class='const'>Text</span><span class='op'>::</span><span class='const'>Table</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
@@ -1563,30 +1484,30 @@ module instance.</p>
       <pre class="lines">
 
 
-371
-372
-373
-374
-375
-376
-377
-378
-379
-380
-381
-382
-383
-384
-385
-386
-387
-388
-389
-390
-391</pre>
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 371</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 448</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dump_evasion_options'>dump_evasion_options</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_output'>output</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
@@ -1696,28 +1617,6 @@ module instance.</p>
       <pre class="lines">
 
 
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
 163
 164
 165
@@ -1746,10 +1645,33 @@ module instance.</p>
 188
 189
 190
-191</pre>
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 141</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 163</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dump_exploit_module'>dump_exploit_module</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_output'>output</span>  <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
@@ -1759,6 +1681,7 @@ module instance.</p>
   <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> Privileged: </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_privileged?'>privileged?</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Yes</span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    License: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_license'>license</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>       Rank: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_rank_to_s'>rank_to_s</span><span class='period'>.</span><span class='id identifier rubyid_capitalize'>capitalize</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  Disclosed: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_disclosure_date'>disclosure_date</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_disclosure_date'>disclosure_date</span>
   <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
 
   <span class='comment'># Authors
@@ -2111,11 +2034,11 @@ module instance.</p>
       <pre class="lines">
 
 
-306
-307</pre>
+382
+383</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 306</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 382</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dump_generic_module'>dump_generic_module</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -2243,44 +2166,44 @@ exist, for each job.</p>
       <pre class="lines">
 
 
-497
-498
-499
-500
-501
-502
-503
-504
-505
-506
-507
-508
-509
-510
-511
-512
-513
-514
-515
-516
-517
-518
-519
-520
-521
-522
-523
-524
-525
-526
-527
-528
-529
-530
-531</pre>
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 497</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 574</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dump_jobs'>dump_jobs</span><span class='lparen'>(</span><span class='id identifier rubyid_framework'>framework</span><span class='comma'>,</span> <span class='id identifier rubyid_verbose'>verbose</span> <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span> <span class='op'>=</span> <span class='const'>DefaultIndent</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span> <span class='op'>=</span> <span class='const'>DefaultColumnWrap</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_columns'>columns</span> <span class='op'>=</span> <span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Id</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Name</span><span class='tstring_end'>&#39;</span></span> <span class='rbracket'>]</span>
@@ -2429,18 +2352,18 @@ module instance.</p>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dump_module'>dump_module</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span>
-    <span class='kw'>when</span> <span class='const'>MODULE_PAYLOAD</span>
+    <span class='kw'>when</span> <span class='const'>Msf</span><span class='op'>::</span><span class='const'>MODULE_PAYLOAD</span>
       <span class='kw'>return</span> <span class='id identifier rubyid_dump_payload_module'>dump_payload_module</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span><span class='rparen'>)</span>
-    <span class='kw'>when</span> <span class='const'>MODULE_NOP</span>
+    <span class='kw'>when</span> <span class='const'>Msf</span><span class='op'>::</span><span class='const'>MODULE_NOP</span>
       <span class='kw'>return</span> <span class='id identifier rubyid_dump_basic_module'>dump_basic_module</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span><span class='rparen'>)</span>
-    <span class='kw'>when</span> <span class='const'>MODULE_ENCODER</span>
+    <span class='kw'>when</span> <span class='const'>Msf</span><span class='op'>::</span><span class='const'>MODULE_ENCODER</span>
       <span class='kw'>return</span> <span class='id identifier rubyid_dump_basic_module'>dump_basic_module</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span><span class='rparen'>)</span>
-    <span class='kw'>when</span> <span class='const'>MODULE_EXPLOIT</span>
+    <span class='kw'>when</span> <span class='const'>Msf</span><span class='op'>::</span><span class='const'>MODULE_EXPLOIT</span>
       <span class='kw'>return</span> <span class='id identifier rubyid_dump_exploit_module'>dump_exploit_module</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span><span class='rparen'>)</span>
-    <span class='kw'>when</span> <span class='const'>MODULE_AUX</span>
+    <span class='kw'>when</span> <span class='const'>Msf</span><span class='op'>::</span><span class='const'>MODULE_AUX</span>
       <span class='kw'>return</span> <span class='id identifier rubyid_dump_auxiliary_module'>dump_auxiliary_module</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span><span class='rparen'>)</span>
-    <span class='kw'>when</span> <span class='const'>MODULE_POST</span>
-      <span class='kw'>return</span> <span class='id identifier rubyid_dump_basic_module'>dump_basic_module</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span><span class='rparen'>)</span>
+    <span class='kw'>when</span> <span class='const'>Msf</span><span class='op'>::</span><span class='const'>MODULE_POST</span>
+      <span class='kw'>return</span> <span class='id identifier rubyid_dump_post_module'>dump_post_module</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span><span class='rparen'>)</span>
     <span class='kw'>else</span>
       <span class='kw'>return</span> <span class='id identifier rubyid_dump_generic_module'>dump_generic_module</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
@@ -2451,9 +2374,287 @@ module instance.</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="dump_module_action-class_method">
+  
+    + (<tt>String</tt>) <strong>dump_module_action</strong>(mod, indent = &#39;&#39;, h = nil) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Dumps the module&#39;s selected action</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>mod</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Module.html" title="Msf::Module (class)">Msf::Module</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the module.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>indent</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the indentation to use (only the length matters)</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>h</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the string to display as the table heading.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the string form of the table.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 118</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dump_module_action'>dump_module_action</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_h'>h</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_tbl'>tbl</span> <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Ui</span><span class='op'>::</span><span class='const'>Text</span><span class='op'>::</span><span class='const'>Table</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Indent</span><span class='tstring_end'>&#39;</span></span>  <span class='op'>=&gt;</span> <span class='id identifier rubyid_indent'>indent</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Header</span><span class='tstring_end'>&#39;</span></span>  <span class='op'>=&gt;</span> <span class='id identifier rubyid_h'>h</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Columns</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span>
+      <span class='lbracket'>[</span>
+        <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Name</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+        <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Description</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='rbracket'>]</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_tbl'>tbl</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span> <span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_action'>action</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>All</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_action'>action</span><span class='period'>.</span><span class='id identifier rubyid_description'>description</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span> <span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_tbl'>tbl</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="dump_module_actions-class_method">
+  
+    + (<tt>String</tt>) <strong>dump_module_actions</strong>(mod, indent = &#39;&#39;, h = nil) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Dumps a module&#39;s actions</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>mod</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Module.html" title="Msf::Module (class)">Msf::Module</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the module.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>indent</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the indentation to use (only the length matters)</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>h</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the string to display as the table heading.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the string form of the table.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 94</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dump_module_actions'>dump_module_actions</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_h'>h</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_tbl'>tbl</span> <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Ui</span><span class='op'>::</span><span class='const'>Text</span><span class='op'>::</span><span class='const'>Table</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Indent</span><span class='tstring_end'>&#39;</span></span>  <span class='op'>=&gt;</span> <span class='id identifier rubyid_indent'>indent</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Header</span><span class='tstring_end'>&#39;</span></span>  <span class='op'>=&gt;</span> <span class='id identifier rubyid_h'>h</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Columns</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span>
+      <span class='lbracket'>[</span>
+        <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Name</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+        <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Description</span><span class='tstring_end'>&#39;</span></span>
+      <span class='rbracket'>]</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_actions'>actions</span><span class='period'>.</span><span class='id identifier rubyid_each_with_index'>each_with_index</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_target'>target</span><span class='comma'>,</span> <span class='id identifier rubyid_idx'>idx</span><span class='op'>|</span>
+    <span class='id identifier rubyid_tbl'>tbl</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span> <span class='id identifier rubyid_target'>target</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>All</span><span class='tstring_end'>&#39;</span></span> <span class='comma'>,</span> <span class='id identifier rubyid_target'>target</span><span class='period'>.</span><span class='id identifier rubyid_description'>description</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span> <span class='rbracket'>]</span>
+  <span class='rbrace'>}</span>
+
+  <span class='id identifier rubyid_tbl'>tbl</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="dump_options-class_method">
   
-    + (<tt>String</tt>) <strong>dump_options</strong>(mod, indent = &#39;&#39;) 
+    + (<tt>String</tt>) <strong>dump_options</strong>(mod, indent = &#39;&#39;, missing = false) 
   
 
   
@@ -2505,6 +2706,24 @@ module instance.</p>
       
     </li>
   
+    <li>
+      
+        <span class='name'>missing</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>dump only empty required options.</p>
+</div>
+      
+    </li>
+  
 </ul>
 
 <p class="tag_title">Returns:</p>
@@ -2532,35 +2751,35 @@ module instance.</p>
       <pre class="lines">
 
 
-315
-316
-317
-318
-319
-320
-321
-322
-323
-324
-325
-326
-327
-328
-329
-330
-331
-332
-333
-334
-335
-336
-337
-338</pre>
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 315</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 392</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dump_options'>dump_options</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dump_options'>dump_options</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_missing'>missing</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_tbl'>tbl</span> <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Ui</span><span class='op'>::</span><span class='const'>Text</span><span class='op'>::</span><span class='const'>Table</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
     <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Indent</span><span class='tstring_end'>&#39;</span></span>  <span class='op'>=&gt;</span> <span class='id identifier rubyid_indent'>indent</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='comma'>,</span>
     <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Columns</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span>
@@ -2573,13 +2792,13 @@ module instance.</p>
 
   <span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_sorted'>sorted</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_entry'>entry</span><span class='op'>|</span>
     <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_opt'>opt</span> <span class='op'>=</span> <span class='id identifier rubyid_entry'>entry</span>
+    <span class='id identifier rubyid_val'>val</span> <span class='op'>=</span> <span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='id identifier rubyid_opt'>opt</span><span class='period'>.</span><span class='id identifier rubyid_default'>default</span>
 
     <span class='kw'>next</span> <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_opt'>opt</span><span class='period'>.</span><span class='id identifier rubyid_advanced?'>advanced?</span><span class='rparen'>)</span>
     <span class='kw'>next</span> <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_opt'>opt</span><span class='period'>.</span><span class='id identifier rubyid_evasion?'>evasion?</span><span class='rparen'>)</span>
+    <span class='kw'>next</span> <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_missing'>missing</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_opt'>opt</span><span class='period'>.</span><span class='id identifier rubyid_valid?'>valid?</span><span class='lparen'>(</span><span class='id identifier rubyid_val'>val</span><span class='rparen'>)</span><span class='rparen'>)</span>
 
-    <span class='id identifier rubyid_val_display'>val_display</span> <span class='op'>=</span> <span class='id identifier rubyid_opt'>opt</span><span class='period'>.</span><span class='id identifier rubyid_display_value'>display_value</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='id identifier rubyid_opt'>opt</span><span class='period'>.</span><span class='id identifier rubyid_default'>default</span><span class='rparen'>)</span>
-
-    <span class='id identifier rubyid_tbl'>tbl</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_val_display'>val_display</span><span class='comma'>,</span> <span class='id identifier rubyid_opt'>opt</span><span class='period'>.</span><span class='id identifier rubyid_required?'>required?</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>yes</span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>no</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_opt'>opt</span><span class='period'>.</span><span class='id identifier rubyid_desc'>desc</span> <span class='rbracket'>]</span>
+    <span class='id identifier rubyid_tbl'>tbl</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_opt'>opt</span><span class='period'>.</span><span class='id identifier rubyid_display_value'>display_value</span><span class='lparen'>(</span><span class='id identifier rubyid_val'>val</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_opt'>opt</span><span class='period'>.</span><span class='id identifier rubyid_required?'>required?</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>yes</span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>no</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_opt'>opt</span><span class='period'>.</span><span class='id identifier rubyid_desc'>desc</span> <span class='rbracket'>]</span>
   <span class='rbrace'>}</span>
 
   <span class='kw'>return</span> <span class='id identifier rubyid_tbl'>tbl</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
@@ -2671,42 +2890,42 @@ module instance.</p>
       <pre class="lines">
 
 
-236
-237
-238
-239
-240
-241
-242
-243
-244
-245
-246
-247
-248
-249
-250
-251
-252
-253
-254
-255
-256
-257
-258
-259
-260
-261
-262
-263
-264
-265
-266
-267
-268</pre>
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 236</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 312</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dump_payload_module'>dump_payload_module</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='comment'># General
@@ -2738,6 +2957,177 @@ module instance.</p>
 </span>  <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Description:\n</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_word_wrap'>word_wrap</span><span class='lparen'>(</span><span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_compress'>compress</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_description'>description</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n\n</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='kw'>return</span> <span class='id identifier rubyid_output'>output</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="dump_post_module-class_method">
+  
+    + (<tt>String</tt>) <strong>dump_post_module</strong>(mod, indent = &#39;&#39;) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Dumps information about a post module.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>mod</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Post.html" title="Msf::Post (class)">Msf::Post</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the post module.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>indent</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the indentation to use.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the string form of the information.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 266</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dump_post_module'>dump_post_module</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_output'>output</span>  <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>       Name: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>     Module: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_fullname'>fullname</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>   Platform: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_platform_to_s'>platform_to_s</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>       Arch: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_arch_to_s'>arch_to_s</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>       Rank: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_rank_to_s'>rank_to_s</span><span class='period'>.</span><span class='id identifier rubyid_capitalize'>capitalize</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  Disclosed: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_disclosure_date'>disclosure_date</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_disclosure_date'>disclosure_date</span>
+  <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='comment'># Authors
+</span>  <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Provided by:\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_each_author'>each_author</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_author'>author</span><span class='op'>|</span>
+    <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_indent'>indent</span> <span class='op'>+</span> <span class='id identifier rubyid_author'>author</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='comment'># Actions
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_action'>action</span>
+    <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Available actions:\n</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_dump_module_actions'>dump_module_actions</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Options
+</span>  <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_has_options?'>has_options?</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Basic options:\n</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_dump_options'>dump_options</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Description
+</span>  <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Description:\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_word_wrap'>word_wrap</span><span class='lparen'>(</span><span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_compress'>compress</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_description'>description</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='comment'># References
+</span>  <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_dump_references'>dump_references</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span><span class='rparen'>)</span>
 
   <span class='kw'>return</span> <span class='id identifier rubyid_output'>output</span>
 <span class='kw'>end</span></pre>
@@ -2828,22 +3218,22 @@ module instance.</p>
       <pre class="lines">
 
 
-398
-399
-400
-401
-402
-403
-404
-405
-406
-407
-408
-409
-410</pre>
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 398</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 475</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dump_references'>dump_references</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_output'>output</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
@@ -3008,50 +3398,50 @@ module instance.</p>
       <pre class="lines">
 
 
-447
-448
-449
-450
-451
-452
-453
-454
-455
-456
-457
-458
-459
-460
-461
-462
-463
-464
-465
-466
-467
-468
-469
-470
-471
-472
-473
-474
-475
-476
-477
-478
-479
-480
-481
-482
-483
-484
-485
-486
-487</pre>
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 447</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 524</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dump_sessions'>dump_sessions</span><span class='lparen'>(</span><span class='id identifier rubyid_framework'>framework</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_ids'>ids</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:session_ids</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='id identifier rubyid_framework'>framework</span><span class='period'>.</span><span class='id identifier rubyid_sessions'>sessions</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span>
@@ -3200,12 +3590,12 @@ to add indention</p>
       <pre class="lines">
 
 
-540
-541
-542</pre>
+617
+618
+619</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 540</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/serializer/readable_text.rb', line 617</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_word_wrap'>word_wrap</span><span class='lparen'>(</span><span class='id identifier rubyid_str'>str</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span> <span class='op'>=</span> <span class='const'>DefaultIndent</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span> <span class='op'>=</span> <span class='const'>DefaultColumnWrap</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_wordwrap'>wordwrap</span><span class='lparen'>(</span><span class='id identifier rubyid_str'>str</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
@@ -3220,9 +3610,9 @@ to add indention</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:44 2014 by
+  Generated on Tue Dec  2 09:35:31 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

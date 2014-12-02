@@ -870,6 +870,31 @@ number.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#register_names_to_ids-class_method" title="register_names_to_ids (class method)">+ (Object) <strong>register_names_to_ids</strong>(str) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Parse a list of registers as a space or command delimited string and return
+the internal register IDs as an array.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#rel_number-class_method" title="rel_number (class method)">+ (Object) <strong>rel_number</strong>(num, delta = 0) </a>
     
 
@@ -998,16 +1023,16 @@ number.</p>
       <pre class="lines">
 
 
-386
-387
 388
 389
 390
 391
-392</pre>
+392
+393
+394</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/arch/x86.rb', line 386</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/arch/x86.rb', line 388</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid__check_badchars'>_check_badchars</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid_badchars'>badchars</span><span class='rparen'>)</span> <span class='comment'># :nodoc:
 </span>  <span class='id identifier rubyid_idx'>idx</span> <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_badchar_index'>badchar_index</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid_badchars'>badchars</span><span class='rparen'>)</span>
@@ -1047,17 +1072,17 @@ number.</p>
       <pre class="lines">
 
 
-377
-378
 379
 380
 381
 382
 383
-384</pre>
+384
+385
+386</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/arch/x86.rb', line 377</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/arch/x86.rb', line 379</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid__check_reg'>_check_reg</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_regs'>regs</span><span class='rparen'>)</span> <span class='comment'># :nodoc:
 </span>  <span class='id identifier rubyid_regs'>regs</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_reg'>reg</span><span class='op'>|</span>
@@ -1099,12 +1124,12 @@ value from a given register.</p>
       <pre class="lines">
 
 
-341
-342
-343</pre>
+343
+344
+345</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/arch/x86.rb', line 341</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/arch/x86.rb', line 343</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='id identifier rubyid_val'>val</span><span class='comma'>,</span> <span class='id identifier rubyid_reg'>reg</span><span class='comma'>,</span> <span class='id identifier rubyid_badchars'>badchars</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_adjust'>adjust</span> <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='id identifier rubyid_bits'>bits</span> <span class='op'>=</span> <span class='int'>0</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='id identifier rubyid_val'>val</span><span class='comma'>,</span> <span class='id identifier rubyid_reg'>reg</span><span class='comma'>,</span> <span class='id identifier rubyid_badchars'>badchars</span><span class='comma'>,</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='id identifier rubyid_adjust'>adjust</span><span class='comma'>,</span> <span class='id identifier rubyid_bits'>bits</span><span class='rparen'>)</span>
@@ -1140,16 +1165,16 @@ value from a given register.</p>
       <pre class="lines">
 
 
-369
-370
 371
 372
 373
 374
-375</pre>
+375
+376
+377</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/arch/x86.rb', line 369</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/arch/x86.rb', line 371</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_adjust_reg'>adjust_reg</span><span class='lparen'>(</span><span class='id identifier rubyid_reg'>reg</span><span class='comma'>,</span> <span class='id identifier rubyid_adjustment'>adjustment</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_adjustment'>adjustment</span> <span class='op'>&gt;</span> <span class='int'>0</span><span class='rparen'>)</span>
@@ -1471,8 +1496,6 @@ register.</p>
       <pre class="lines">
 
 
-397
-398
 399
 400
 401
@@ -1490,10 +1513,12 @@ register.</p>
 413
 414
 415
-416</pre>
+416
+417
+418</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/arch/x86.rb', line 397</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/arch/x86.rb', line 399</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_fpu_instructions'>fpu_instructions</span>
   <span class='id identifier rubyid_fpus'>fpus</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -1547,8 +1572,6 @@ offset This method will return nil if the getip generation fails</p>
       <pre class="lines">
 
 
-422
-423
 424
 425
 426
@@ -1644,10 +1667,12 @@ offset This method will return nil if the getip generation fails</p>
 516
 517
 518
-519</pre>
+519
+520
+521</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/arch/x86.rb', line 422</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/arch/x86.rb', line 424</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_geteip_fpu'>geteip_fpu</span><span class='lparen'>(</span><span class='id identifier rubyid_badchars'>badchars</span><span class='rparen'>)</span>
 
@@ -2088,12 +2113,12 @@ to the supplied value.</p>
       <pre class="lines">
 
 
-355
-356
-357</pre>
+357
+358
+359</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/arch/x86.rb', line 355</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/arch/x86.rb', line 357</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_pack_dword'>pack_dword</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
   <span class='lbracket'>[</span><span class='id identifier rubyid_num'>num</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_pack'>pack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>V</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
@@ -2129,12 +2154,12 @@ to the supplied value.</p>
       <pre class="lines">
 
 
-362
-363
-364</pre>
+364
+365
+366</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/arch/x86.rb', line 362</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/arch/x86.rb', line 364</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_pack_lsb'>pack_lsb</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_pack_dword'>pack_dword</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>1</span><span class='rbracket'>]</span>
@@ -2170,12 +2195,12 @@ to the supplied value.</p>
       <pre class="lines">
 
 
-348
-349
-350</pre>
+350
+351
+352</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/arch/x86.rb', line 348</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/arch/x86.rb', line 350</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_pack_word'>pack_word</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
   <span class='lbracket'>[</span><span class='id identifier rubyid_num'>num</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_pack'>pack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>v</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
@@ -2458,6 +2483,64 @@ number.</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="register_names_to_ids-class_method">
+  
+    + (<tt>Object</tt>) <strong>register_names_to_ids</strong>(str) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Parse a list of registers as a space or command delimited string and return
+the internal register IDs as an array</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rex/arch/x86.rb', line 527</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_register_names_to_ids'>register_names_to_ids</span><span class='lparen'>(</span><span class='id identifier rubyid_str'>str</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_register_ids'>register_ids</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_str'>str</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>[,\s]</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span><span class='period'>.</span>
+    <span class='id identifier rubyid_map'>map</span>    <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_reg'>reg</span><span class='op'>|</span> <span class='id identifier rubyid_reg'>reg</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span><span class='period'>.</span><span class='id identifier rubyid_upcase'>upcase</span> <span class='rbrace'>}</span><span class='period'>.</span>
+    <span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_reg'>reg</span><span class='op'>|</span> <span class='id identifier rubyid_reg'>reg</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&gt;</span> <span class='int'>0</span>        <span class='rbrace'>}</span><span class='period'>.</span>
+    <span class='id identifier rubyid_uniq'>uniq</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_reg'>reg</span><span class='op'>|</span>
+      <span class='kw'>next</span> <span class='kw'>unless</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_const_defined?'>const_defined?</span><span class='lparen'>(</span><span class='id identifier rubyid_reg'>reg</span><span class='period'>.</span><span class='id identifier rubyid_intern'>intern</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_register_ids'>register_ids</span> <span class='op'>&lt;&lt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_const_get'>const_get</span><span class='lparen'>(</span><span class='id identifier rubyid_reg'>reg</span><span class='period'>.</span><span class='id identifier rubyid_intern'>intern</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='id identifier rubyid_register_ids'>register_ids</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="rel_number-class_method">
   
     + (<tt>Object</tt>) <strong>rel_number</strong>(num, delta = 0) 
@@ -2668,7 +2751,9 @@ number.</p>
 286
 287
 288
-289</pre>
+289
+290
+291</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rex/arch/x86.rb', line 243</span>
@@ -2677,7 +2762,7 @@ number.</p>
   <span class='id identifier rubyid__check_reg'>_check_reg</span><span class='lparen'>(</span><span class='id identifier rubyid_dst'>dst</span><span class='rparen'>)</span>
 
   <span class='comment'># If the value is 0 try xor/sub dst, dst (2 bytes)
-</span>  <span class='kw'>if</span><span class='lparen'>(</span><span class='id identifier rubyid_val'>val</span> <span class='op'>==</span> <span class='int'>0</span><span class='rparen'>)</span>
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_val'>val</span> <span class='op'>==</span> <span class='int'>0</span>
     <span class='id identifier rubyid_opcodes'>opcodes</span> <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_remove_badchars'>remove_badchars</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\x29\x2b\x31\x33</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_badchars'>badchars</span><span class='rparen'>)</span>
     <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_opcodes'>opcodes</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
       <span class='kw'>return</span> <span class='id identifier rubyid_opcodes'>opcodes</span><span class='lbracket'>[</span><span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='id identifier rubyid_opcodes'>opcodes</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_chr'>chr</span> <span class='op'>+</span> <span class='id identifier rubyid_encode_modrm'>encode_modrm</span><span class='lparen'>(</span><span class='id identifier rubyid_dst'>dst</span><span class='comma'>,</span> <span class='id identifier rubyid_dst'>dst</span><span class='rparen'>)</span>
@@ -2694,8 +2779,9 @@ number.</p>
 
   <span class='comment'># try clear dst, mov BYTE dst (4 bytes)
 </span>  <span class='kw'>begin</span>
-    <span class='comment'># break if val == 0
-</span>    <span class='kw'>return</span> <span class='id identifier rubyid__check_badchars'>_check_badchars</span><span class='lparen'>(</span><span class='id identifier rubyid_clear'>clear</span><span class='lparen'>(</span><span class='id identifier rubyid_dst'>dst</span><span class='comma'>,</span> <span class='id identifier rubyid_badchars'>badchars</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_mov_byte'>mov_byte</span><span class='lparen'>(</span><span class='id identifier rubyid_dst'>dst</span><span class='comma'>,</span> <span class='id identifier rubyid_val'>val</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_badchars'>badchars</span><span class='rparen'>)</span>
+    <span class='kw'>unless</span> <span class='id identifier rubyid_val'>val</span> <span class='op'>==</span> <span class='int'>0</span> <span class='comment'># clear tries to set(dst, 0, badchars), entering an infinite recursion
+</span>      <span class='kw'>return</span> <span class='id identifier rubyid__check_badchars'>_check_badchars</span><span class='lparen'>(</span><span class='id identifier rubyid_clear'>clear</span><span class='lparen'>(</span><span class='id identifier rubyid_dst'>dst</span><span class='comma'>,</span> <span class='id identifier rubyid_badchars'>badchars</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_mov_byte'>mov_byte</span><span class='lparen'>(</span><span class='id identifier rubyid_dst'>dst</span><span class='comma'>,</span> <span class='id identifier rubyid_val'>val</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_badchars'>badchars</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
   <span class='kw'>rescue</span> <span class='op'>::</span><span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>RuntimeError</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>RangeError</span>
   <span class='kw'>end</span>
 
@@ -2713,8 +2799,9 @@ number.</p>
 
   <span class='comment'># try clear dst, mov WORD dst (6 bytes)
 </span>  <span class='kw'>begin</span>
-    <span class='comment'># break if val == 0
-</span>    <span class='kw'>return</span> <span class='id identifier rubyid__check_badchars'>_check_badchars</span><span class='lparen'>(</span><span class='id identifier rubyid_clear'>clear</span><span class='lparen'>(</span><span class='id identifier rubyid_dst'>dst</span><span class='comma'>,</span> <span class='id identifier rubyid_badchars'>badchars</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_mov_word'>mov_word</span><span class='lparen'>(</span><span class='id identifier rubyid_dst'>dst</span><span class='comma'>,</span> <span class='id identifier rubyid_val'>val</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_badchars'>badchars</span><span class='rparen'>)</span>
+    <span class='kw'>unless</span> <span class='id identifier rubyid_val'>val</span> <span class='op'>==</span> <span class='int'>0</span> <span class='comment'># clear tries to set(dst, 0, badchars), entering an infinite recursion
+</span>      <span class='kw'>return</span> <span class='id identifier rubyid__check_badchars'>_check_badchars</span><span class='lparen'>(</span><span class='id identifier rubyid_clear'>clear</span><span class='lparen'>(</span><span class='id identifier rubyid_dst'>dst</span><span class='comma'>,</span> <span class='id identifier rubyid_badchars'>badchars</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_mov_word'>mov_word</span><span class='lparen'>(</span><span class='id identifier rubyid_dst'>dst</span><span class='comma'>,</span> <span class='id identifier rubyid_val'>val</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_badchars'>badchars</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
   <span class='kw'>rescue</span> <span class='op'>::</span><span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>RuntimeError</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>RangeError</span>
   <span class='kw'>end</span>
 
@@ -2751,8 +2838,6 @@ number.</p>
       <pre class="lines">
 
 
-295
-296
 297
 298
 299
@@ -2791,10 +2876,12 @@ number.</p>
 332
 333
 334
-335</pre>
+335
+336
+337</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/arch/x86.rb', line 295</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/arch/x86.rb', line 297</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='id identifier rubyid_val'>val</span><span class='comma'>,</span> <span class='id identifier rubyid_reg'>reg</span><span class='comma'>,</span> <span class='id identifier rubyid_badchars'>badchars</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_add'>add</span> <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='id identifier rubyid_adjust'>adjust</span> <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='id identifier rubyid_bits'>bits</span> <span class='op'>=</span> <span class='int'>0</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_opcodes'>opcodes</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -2847,9 +2934,9 @@ number.</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:26 2014 by
+  Generated on Tue Dec  2 09:35:13 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

@@ -224,6 +224,55 @@ the parameter&#39;s protocol to TCP and sets the server flag to true.</p>
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ssl_generate_certificate-class_method" title="ssl_generate_certificate (class method)">+ (String, Array) <strong>ssl_generate_certificate</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generate a realistic-looking but obstensibly fake SSL certificate.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ssl_parse_pem-class_method" title="ssl_parse_pem (class method)">+ (String, Array) <strong>ssl_parse_pem</strong>(ssl_cert) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Parse a certificate in unified PEM format that contains a private key and
+one or more certificates.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
     <h2>
@@ -328,6 +377,54 @@ they are available.</p>
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ssl_generate_certificate-instance_method" title="#ssl_generate_certificate (instance method)">- (Object) <strong>ssl_generate_certificate</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Shim for the ssl_generate_certificate module method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ssl_parse_pem-instance_method" title="#ssl_parse_pem (instance method)">- (Object) <strong>ssl_parse_pem</strong>(ssl_cert) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Shim for the ssl_parse_pem module method.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -391,12 +488,12 @@ they are available.</p>
       <pre class="lines">
 
 
-186
-187
-188</pre>
+225
+226
+227</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/socket/ssl_tcp_server.rb', line 186</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/socket/ssl_tcp_server.rb', line 225</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sslctx'>sslctx</span>
   <span class='ivar'>@sslctx</span>
@@ -502,6 +599,213 @@ the parameter&#39;s protocol to TCP and sets the server flag to true.</p>
   <span class='id identifier rubyid_param'>param</span><span class='period'>.</span><span class='id identifier rubyid_server'>server</span> <span class='op'>=</span> <span class='kw'>true</span>
   <span class='id identifier rubyid_param'>param</span><span class='period'>.</span><span class='id identifier rubyid_ssl'>ssl</span>    <span class='op'>=</span> <span class='kw'>true</span>
   <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Socket</span><span class='period'>.</span><span class='id identifier rubyid_create_param'>create_param</span><span class='lparen'>(</span><span class='id identifier rubyid_param'>param</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ssl_generate_certificate-class_method">
+  
+    + (<tt>String</tt>, <tt>Array</tt>) <strong>ssl_generate_certificate</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Generate a realistic-looking but obstensibly fake SSL certificate. This
+matches a typical “snakeoil” cert.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>String</tt>, <tt>Array</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rex/socket/ssl_tcp_server.rb', line 144</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_ssl_generate_certificate'>ssl_generate_certificate</span>
+  <span class='id identifier rubyid_yr'>yr</span>   <span class='op'>=</span> <span class='int'>24</span><span class='op'>*</span><span class='int'>3600</span><span class='op'>*</span><span class='int'>365</span>
+  <span class='id identifier rubyid_vf'>vf</span>   <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_at'>at</span><span class='lparen'>(</span><span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span> <span class='op'>-</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='id identifier rubyid_yr'>yr</span> <span class='op'>*</span> <span class='int'>3</span><span class='rparen'>)</span> <span class='op'>-</span> <span class='id identifier rubyid_yr'>yr</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_vt'>vt</span>   <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_at'>at</span><span class='lparen'>(</span><span class='id identifier rubyid_vf'>vf</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='int'>10</span> <span class='op'>*</span> <span class='id identifier rubyid_yr'>yr</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_cn'>cn</span>   <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_text_alpha_lower'>rand_text_alpha_lower</span><span class='lparen'>(</span><span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8</span><span class='rparen'>)</span><span class='op'>+</span><span class='int'>2</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_key'>key</span>  <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>PKey</span><span class='op'>::</span><span class='const'>RSA</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>2048</span><span class='rparen'>)</span><span class='lbrace'>{</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_cert'>cert</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>X509</span><span class='op'>::</span><span class='const'>Certificate</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_version'>version</span>    <span class='op'>=</span> <span class='int'>2</span>
+  <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_serial'>serial</span>     <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>0xFFFFFFFF</span><span class='rparen'>)</span> <span class='op'>&lt;&lt;</span> <span class='int'>32</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>0xFFFFFFFF</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_subject'>subject</span>    <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>X509</span><span class='op'>::</span><span class='const'>Name</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CN</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_cn'>cn</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_issuer'>issuer</span>     <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>X509</span><span class='op'>::</span><span class='const'>Name</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CN</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_cn'>cn</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_not_before'>not_before</span> <span class='op'>=</span> <span class='id identifier rubyid_vf'>vf</span>
+  <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_not_after'>not_after</span>  <span class='op'>=</span> <span class='id identifier rubyid_vt'>vt</span>
+  <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_public_key'>public_key</span> <span class='op'>=</span> <span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_public_key'>public_key</span>
+
+  <span class='id identifier rubyid_ef'>ef</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>X509</span><span class='op'>::</span><span class='const'>ExtensionFactory</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='comma'>,</span><span class='id identifier rubyid_cert'>cert</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_extensions'>extensions</span> <span class='op'>=</span> <span class='lbracket'>[</span>
+    <span class='id identifier rubyid_ef'>ef</span><span class='period'>.</span><span class='id identifier rubyid_create_extension'>create_extension</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>basicConstraints</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CA:FALSE</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='rbracket'>]</span>
+  <span class='id identifier rubyid_ef'>ef</span><span class='period'>.</span><span class='id identifier rubyid_issuer_certificate'>issuer_certificate</span> <span class='op'>=</span> <span class='id identifier rubyid_cert'>cert</span>
+
+  <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_sign'>sign</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>Digest</span><span class='op'>::</span><span class='const'>SHA256</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='rparen'>)</span>
+
+  <span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_cert'>cert</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ssl_parse_pem-class_method">
+  
+    + (<tt>String</tt>, <tt>Array</tt>) <strong>ssl_parse_pem</strong>(ssl_cert) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Parse a certificate in unified PEM format that contains a private key and
+one or more certificates. The first certificate is the primary, while any
+additional certificates are treated as intermediary certificates. This
+emulates the behavior of web servers like nginx.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>ssl_cert</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>String</tt>, <tt>Array</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rex/socket/ssl_tcp_server.rb', line 110</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_ssl_parse_pem'>ssl_parse_pem</span><span class='lparen'>(</span><span class='id identifier rubyid_ssl_cert'>ssl_cert</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_cert'>cert</span>  <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='id identifier rubyid_key'>key</span>   <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='id identifier rubyid_chain'>chain</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+  <span class='id identifier rubyid_certs'>certs</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_ssl_cert'>ssl_cert</span><span class='period'>.</span><span class='id identifier rubyid_scan'>scan</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>-----BEGIN\s*[^\-]+-----+\r?\n[^\-]*-----END\s*[^\-]+-----\r?\n?</span><span class='regexp_end'>/nm</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_pem'>pem</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_pem'>pem</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>PRIVATE KEY</span><span class='regexp_end'>/</span></span>
+      <span class='id identifier rubyid_key'>key</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>PKey</span><span class='op'>::</span><span class='const'>RSA</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_pem'>pem</span><span class='rparen'>)</span>
+    <span class='kw'>elsif</span> <span class='id identifier rubyid_pem'>pem</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>CERTIFICATE</span><span class='regexp_end'>/</span></span>
+      <span class='id identifier rubyid_certs'>certs</span> <span class='op'>&lt;&lt;</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>X509</span><span class='op'>::</span><span class='const'>Certificate</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_pem'>pem</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_cert'>cert</span> <span class='op'>=</span> <span class='id identifier rubyid_certs'>certs</span><span class='period'>.</span><span class='id identifier rubyid_shift'>shift</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_certs'>certs</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+    <span class='id identifier rubyid_chain'>chain</span> <span class='op'>=</span> <span class='id identifier rubyid_certs'>certs</span>
+  <span class='kw'>end</span>
+
+  <span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_cert'>cert</span><span class='comma'>,</span> <span class='id identifier rubyid_chain'>chain</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -680,16 +984,16 @@ on Windows</p>
       <pre class="lines">
 
 
-178
-179
-180
-181
-182
-183
-184</pre>
+217
+218
+219
+220
+221
+222
+223</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/socket/ssl_tcp_server.rb', line 178</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/socket/ssl_tcp_server.rb', line 217</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_allow_nonblock?'>allow_nonblock?</span><span class='lparen'>(</span><span class='id identifier rubyid_sock'>sock</span><span class='op'>=</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_sock'>sock</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_avail'>avail</span> <span class='op'>=</span> <span class='id identifier rubyid_sock'>sock</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:accept_nonblock</span><span class='rparen'>)</span>
@@ -814,121 +1118,51 @@ a new key and a leaf certificate with random values.</p>
       <pre class="lines">
 
 
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171</pre>
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/socket/ssl_tcp_server.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/socket/ssl_tcp_server.rb', line 183</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_makessl'>makessl</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_ssl_cert'>ssl_cert</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_ssl_cert'>ssl_cert</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_ssl_cert'>ssl_cert</span>
-    <span class='id identifier rubyid_cert'>cert</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>X509</span><span class='op'>::</span><span class='const'>Certificate</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_ssl_cert'>ssl_cert</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_key'>key</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>PKey</span><span class='op'>::</span><span class='const'>RSA</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_ssl_cert'>ssl_cert</span><span class='rparen'>)</span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_key'>key</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>PKey</span><span class='op'>::</span><span class='const'>RSA</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>1024</span><span class='rparen'>)</span><span class='lbrace'>{</span> <span class='rbrace'>}</span>
-    <span class='id identifier rubyid_cert'>cert</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>X509</span><span class='op'>::</span><span class='const'>Certificate</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
-    <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_version'>version</span> <span class='op'>=</span> <span class='int'>2</span>
-    <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_serial'>serial</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>0xFFFFFFFF</span><span class='rparen'>)</span>
-    <span class='comment'># name = OpenSSL::X509::Name.new([[&quot;C&quot;,&quot;JP&quot;],[&quot;O&quot;,&quot;TEST&quot;],[&quot;CN&quot;,&quot;localhost&quot;]])
-</span>    <span class='id identifier rubyid_subject'>subject</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>X509</span><span class='op'>::</span><span class='const'>Name</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='lbracket'>[</span>
-        <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>C</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>US</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
-        <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ST</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_state'>rand_state</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='comma'>,</span>
-        <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>L</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_text_alpha'>rand_text_alpha</span><span class='lparen'>(</span><span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>20</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='int'>10</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='comma'>,</span>
-        <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>O</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_text_alpha'>rand_text_alpha</span><span class='lparen'>(</span><span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>20</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='int'>10</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='comma'>,</span>
-        <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CN</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_hostname'>rand_hostname</span><span class='rbracket'>]</span><span class='comma'>,</span>
-      <span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_issuer'>issuer</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>X509</span><span class='op'>::</span><span class='const'>Name</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='lbracket'>[</span>
-        <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>C</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>US</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
-        <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ST</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_state'>rand_state</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='comma'>,</span>
-        <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>L</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_text_alpha'>rand_text_alpha</span><span class='lparen'>(</span><span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>20</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='int'>10</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='comma'>,</span>
-        <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>O</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_text_alpha'>rand_text_alpha</span><span class='lparen'>(</span><span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>20</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='int'>10</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='comma'>,</span>
-        <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CN</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_hostname'>rand_hostname</span><span class='rbracket'>]</span><span class='comma'>,</span>
-      <span class='rbracket'>]</span><span class='rparen'>)</span>
 
-    <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_subject'>subject</span> <span class='op'>=</span> <span class='id identifier rubyid_subject'>subject</span>
-    <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_issuer'>issuer</span> <span class='op'>=</span> <span class='id identifier rubyid_issuer'>issuer</span>
-    <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_not_before'>not_before</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span> <span class='op'>-</span> <span class='lparen'>(</span><span class='int'>3600</span> <span class='op'>*</span> <span class='int'>365</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_not_after'>not_after</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='int'>3600</span> <span class='op'>*</span> <span class='int'>365</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_public_key'>public_key</span> <span class='op'>=</span> <span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_public_key'>public_key</span>
-    <span class='id identifier rubyid_ef'>ef</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>X509</span><span class='op'>::</span><span class='const'>ExtensionFactory</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='comma'>,</span><span class='id identifier rubyid_cert'>cert</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_extensions'>extensions</span> <span class='op'>=</span> <span class='lbracket'>[</span>
-      <span class='id identifier rubyid_ef'>ef</span><span class='period'>.</span><span class='id identifier rubyid_create_extension'>create_extension</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>basicConstraints</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CA:FALSE</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
-      <span class='id identifier rubyid_ef'>ef</span><span class='period'>.</span><span class='id identifier rubyid_create_extension'>create_extension</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>subjectKeyIdentifier</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>hash</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
-      <span class='id identifier rubyid_ef'>ef</span><span class='period'>.</span><span class='id identifier rubyid_create_extension'>create_extension</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>extendedKeyUsage</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>serverAuth</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
-      <span class='id identifier rubyid_ef'>ef</span><span class='period'>.</span><span class='id identifier rubyid_create_extension'>create_extension</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>keyUsage</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>keyEncipherment,dataEncipherment,digitalSignature</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='rbracket'>]</span>
-    <span class='id identifier rubyid_ef'>ef</span><span class='period'>.</span><span class='id identifier rubyid_issuer_certificate'>issuer_certificate</span> <span class='op'>=</span> <span class='id identifier rubyid_cert'>cert</span>
-    <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_add_extension'>add_extension</span> <span class='id identifier rubyid_ef'>ef</span><span class='period'>.</span><span class='id identifier rubyid_create_extension'>create_extension</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>authorityKeyIdentifier</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>keyid:always,issuer:always</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_sign'>sign</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>Digest</span><span class='op'>::</span><span class='const'>SHA1</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_ssl_cert'>ssl_cert</span>
+    <span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_cert'>cert</span><span class='comma'>,</span> <span class='id identifier rubyid_chain'>chain</span> <span class='op'>=</span> <span class='id identifier rubyid_ssl_parse_pem'>ssl_parse_pem</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_ssl_cert'>ssl_cert</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_cert'>cert</span><span class='comma'>,</span> <span class='id identifier rubyid_chain'>chain</span> <span class='op'>=</span> <span class='id identifier rubyid_ssl_generate_certificate'>ssl_generate_certificate</span>
   <span class='kw'>end</span>
 
   <span class='id identifier rubyid_ctx'>ctx</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>SSL</span><span class='op'>::</span><span class='const'>SSLContext</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_ctx'>ctx</span><span class='period'>.</span><span class='id identifier rubyid_key'>key</span> <span class='op'>=</span> <span class='id identifier rubyid_key'>key</span>
   <span class='id identifier rubyid_ctx'>ctx</span><span class='period'>.</span><span class='id identifier rubyid_cert'>cert</span> <span class='op'>=</span> <span class='id identifier rubyid_cert'>cert</span>
+  <span class='id identifier rubyid_ctx'>ctx</span><span class='period'>.</span><span class='id identifier rubyid_extra_chain_cert'>extra_chain_cert</span> <span class='op'>=</span> <span class='id identifier rubyid_chain'>chain</span>
   <span class='id identifier rubyid_ctx'>ctx</span><span class='period'>.</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='int'>0</span>
-
 
   <span class='comment'># Older versions of OpenSSL do not export the OP_NO_COMPRESSION symbol
 </span>  <span class='kw'>if</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>SSL</span><span class='op'>::</span><span class='const'>OP_NO_COMPRESSION</span><span class='rparen'>)</span>
@@ -949,14 +1183,96 @@ a new key and a leaf certificate with random values.</p>
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="ssl_generate_certificate-instance_method">
+  
+    - (<tt>Object</tt>) <strong>ssl_generate_certificate</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Shim for the ssl_generate_certificate module method</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+173
+174
+175</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rex/socket/ssl_tcp_server.rb', line 173</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_ssl_generate_certificate'>ssl_generate_certificate</span>
+  <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Socket</span><span class='op'>::</span><span class='const'>SslTcpServer</span><span class='period'>.</span><span class='id identifier rubyid_ssl_generate_certificate'>ssl_generate_certificate</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ssl_parse_pem-instance_method">
+  
+    - (<tt>Object</tt>) <strong>ssl_parse_pem</strong>(ssl_cert) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Shim for the ssl_parse_pem module method</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+135
+136
+137</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rex/socket/ssl_tcp_server.rb', line 135</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_ssl_parse_pem'>ssl_parse_pem</span><span class='lparen'>(</span><span class='id identifier rubyid_ssl_cert'>ssl_cert</span><span class='rparen'>)</span>
+  <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Socket</span><span class='op'>::</span><span class='const'>SslTcpServer</span><span class='period'>.</span><span class='id identifier rubyid_ssl_parse_pem'>ssl_parse_pem</span><span class='lparen'>(</span><span class='id identifier rubyid_ssl_cert'>ssl_cert</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:29 2014 by
+  Generated on Tue Dec  2 09:35:15 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

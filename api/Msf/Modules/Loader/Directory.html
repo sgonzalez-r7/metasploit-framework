@@ -400,10 +400,6 @@ path.</p>
       <pre class="lines">
 
 
-28
-29
-30
-31
 32
 33
 34
@@ -448,10 +444,14 @@ path.</p>
 73
 74
 75
-76</pre>
+76
+77
+78
+79
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/modules/loader/directory.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/modules/loader/directory.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_each_module_reference_name'>each_module_reference_name</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_whitelist'>whitelist</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:whitelist</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -585,16 +585,16 @@ path.</p>
       <pre class="lines">
 
 
-9
-10
-11
-12
 13
 14
-15</pre>
+15
+16
+17
+18
+19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/modules/loader/directory.rb', line 9</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/modules/loader/directory.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_loadable?'>loadable?</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_directory?'>directory?</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
@@ -688,15 +688,15 @@ path.</p>
       <pre class="lines">
 
 
-82
-83
-84
-85
 86
-87</pre>
+87
+88
+89
+90
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/modules/loader/directory.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/modules/loader/directory.rb', line 86</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_module_path'>module_path</span><span class='lparen'>(</span><span class='id identifier rubyid_parent_path'>parent_path</span><span class='comma'>,</span> <span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_module_reference_name'>module_reference_name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_typed_path'>typed_path</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_typed_path'>typed_path</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_module_reference_name'>module_reference_name</span><span class='rparen'>)</span>
@@ -807,10 +807,6 @@ path as passed to <span class='object_link'><a href="Base.html#load_modules-inst
       <pre class="lines">
 
 
-93
-94
-95
-96
 97
 98
 99
@@ -826,10 +822,14 @@ path as passed to <span class='object_link'><a href="Base.html#load_modules-inst
 109
 110
 111
-112</pre>
+112
+113
+114
+115
+116</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/modules/loader/directory.rb', line 93</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/modules/loader/directory.rb', line 97</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_read_module_content'>read_module_content</span><span class='lparen'>(</span><span class='id identifier rubyid_parent_path'>parent_path</span><span class='comma'>,</span> <span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_module_reference_name'>module_reference_name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_full_path'>full_path</span> <span class='op'>=</span> <span class='id identifier rubyid_module_path'>module_path</span><span class='lparen'>(</span><span class='id identifier rubyid_parent_path'>parent_path</span><span class='comma'>,</span> <span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_module_reference_name'>module_reference_name</span><span class='rparen'>)</span>
@@ -861,9 +861,9 @@ path as passed to <span class='object_link'><a href="Base.html#load_modules-inst
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:44 2014 by
+  Generated on Tue Dec  2 09:35:31 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

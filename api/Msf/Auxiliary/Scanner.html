@@ -139,6 +139,28 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#has_fatal_errors%3F-instance_method" title="#has_fatal_errors? (instance method)">- (Boolean) <strong>has_fatal_errors?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#initialize-instance_method" title="#initialize (instance method)">- (Object) <strong>initialize</strong>(info = {}) </a>
     
 
@@ -180,6 +202,28 @@
     <span class="summary_desc"><div class='inline'>
 <p>The command handler when launched from the console.</p>
 </div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#scanner_handle_fatal_errors-instance_method" title="#scanner_handle_fatal_errors (instance method)">- (Object) <strong>scanner_handle_fatal_errors</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -293,6 +337,58 @@
   <span class='kw'>rescue</span> <span class='const'>NoMethodError</span>
     <span class='const'>Exploit</span><span class='op'>::</span><span class='const'>CheckCode</span><span class='op'>::</span><span class='const'>Unsupported</span>
   <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="has_fatal_errors?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>has_fatal_errors?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+267
+268
+269</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/auxiliary/scanner.rb', line 267</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_has_fatal_errors?'>has_fatal_errors?</span>
+  <span class='ivar'>@scan_errors</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='ivar'>@scan_errors</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -572,7 +668,37 @@
 223
 224
 225
-226</pre>
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/msf/core/auxiliary/scanner.rb', line 48</span>
@@ -589,11 +715,18 @@
 
   <span class='id identifier rubyid_threads_max'>threads_max</span> <span class='op'>=</span> <span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>THREADS</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
   <span class='ivar'>@tl</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@scan_errors</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
 
   <span class='comment'>#
-</span>  <span class='comment'># Sanity check threading on different platforms
+</span>  <span class='comment'># Sanity check threading given different conditions
 </span>  <span class='comment'>#
 </span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>CPORT</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span> <span class='op'>!=</span> <span class='int'>0</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_threads_max'>threads_max</span> <span class='op'>&gt;</span> <span class='int'>1</span>
+    <span class='id identifier rubyid_print_error'>print_error</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Warning: A maximum of one thread is possible when a source port is set (CPORT)</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_print_error'>print_error</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Thread count has been adjusted to 1</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_threads_max'>threads_max</span> <span class='op'>=</span> <span class='int'>1</span>
+  <span class='kw'>end</span>
+
   <span class='kw'>if</span><span class='lparen'>(</span><span class='const'>Rex</span><span class='op'>::</span><span class='const'>Compat</span><span class='period'>.</span><span class='id identifier rubyid_is_windows'>is_windows</span><span class='rparen'>)</span>
     <span class='kw'>if</span><span class='lparen'>(</span><span class='id identifier rubyid_threads_max'>threads_max</span> <span class='op'>&gt;</span> <span class='int'>16</span><span class='rparen'>)</span>
       <span class='id identifier rubyid_print_error'>print_error</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Warning: The Windows platform cannot reliably support more than 16 threads</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -613,17 +746,22 @@
   <span class='kw'>begin</span>
 
   <span class='kw'>if</span> <span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>run_range</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
-    <span class='comment'># No automated progress reporting for run_range
+    <span class='comment'># No automated progress reporting or error handling for run_range
 </span>    <span class='kw'>return</span> <span class='id identifier rubyid_run_range'>run_range</span><span class='lparen'>(</span><span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>RHOSTS</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
   <span class='kw'>if</span> <span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>run_host</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
 
-    <span class='ivar'>@tl</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-
     <span class='id identifier rubyid_loop'>loop</span> <span class='kw'>do</span>
+      <span class='comment'># Stop scanning if we hit a fatal error
+</span>      <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_has_fatal_errors?'>has_fatal_errors?</span>
+
       <span class='comment'># Spawn threads for each host
 </span>      <span class='kw'>while</span> <span class='lparen'>(</span><span class='ivar'>@tl</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_threads_max'>threads_max</span><span class='rparen'>)</span>
+
+        <span class='comment'># Stop scanning if we hit a fatal error
+</span>        <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_has_fatal_errors?'>has_fatal_errors?</span>
+
         <span class='id identifier rubyid_ip'>ip</span> <span class='op'>=</span> <span class='id identifier rubyid_ar'>ar</span><span class='period'>.</span><span class='id identifier rubyid_next_ip'>next_ip</span>
         <span class='kw'>break</span> <span class='kw'>if</span> <span class='kw'>not</span> <span class='id identifier rubyid_ip'>ip</span>
 
@@ -634,6 +772,10 @@
 
           <span class='kw'>begin</span>
             <span class='id identifier rubyid_nmod'>nmod</span><span class='period'>.</span><span class='id identifier rubyid_run_host'>run_host</span><span class='lparen'>(</span><span class='id identifier rubyid_targ'>targ</span><span class='rparen'>)</span>
+          <span class='kw'>rescue</span> <span class='op'>::</span><span class='const'>Rex</span><span class='op'>::</span><span class='const'>BindFailed</span>
+            <span class='kw'>if</span> <span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>CHOST</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+              <span class='ivar'>@scan_errors</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The source IP (CHOST) value of </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>CHOST</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'> was not usable</span><span class='tstring_end'>&quot;</span></span>
+            <span class='kw'>end</span>
           <span class='kw'>rescue</span> <span class='op'>::</span><span class='const'>Rex</span><span class='op'>::</span><span class='const'>ConnectionError</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>Rex</span><span class='op'>::</span><span class='const'>ConnectionProxyError</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>Errno</span><span class='op'>::</span><span class='const'>ECONNRESET</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>Errno</span><span class='op'>::</span><span class='const'>EINTR</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>Rex</span><span class='op'>::</span><span class='const'>TimeoutError</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>Timeout</span><span class='op'>::</span><span class='const'>Error</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>EOFError</span>
           <span class='kw'>rescue</span> <span class='op'>::</span><span class='const'>Interrupt</span><span class='comma'>,</span><span class='op'>::</span><span class='const'>NoMethodError</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>RuntimeError</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>NameError</span>
             <span class='id identifier rubyid_raise'>raise</span> <span class='gvar'>$!</span>
@@ -645,6 +787,9 @@
           <span class='kw'>end</span>
         <span class='kw'>end</span>
       <span class='kw'>end</span>
+
+      <span class='comment'># Stop scanning if we hit a fatal error
+</span>      <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_has_fatal_errors?'>has_fatal_errors?</span>
 
       <span class='comment'># Exit once we run out of hosts
 </span>      <span class='kw'>if</span><span class='lparen'>(</span><span class='ivar'>@tl</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>==</span> <span class='int'>0</span><span class='rparen'>)</span>
@@ -665,6 +810,7 @@
       <span class='id identifier rubyid_scanner_show_progress'>scanner_show_progress</span><span class='lparen'>(</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@show_progress</span>
     <span class='kw'>end</span>
 
+    <span class='id identifier rubyid_scanner_handle_fatal_errors'>scanner_handle_fatal_errors</span>
     <span class='kw'>return</span>
   <span class='kw'>end</span>
 
@@ -679,10 +825,12 @@
 
     <span class='id identifier rubyid_ar'>ar</span> <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Socket</span><span class='op'>::</span><span class='const'>RangeWalker</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>RHOSTS</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
 
-    <span class='ivar'>@tl</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-
     <span class='kw'>while</span><span class='lparen'>(</span><span class='kw'>true</span><span class='rparen'>)</span>
       <span class='id identifier rubyid_nohosts'>nohosts</span> <span class='op'>=</span> <span class='kw'>false</span>
+
+      <span class='comment'># Stop scanning if we hit a fatal error
+</span>      <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_has_fatal_errors?'>has_fatal_errors?</span>
+
       <span class='kw'>while</span> <span class='lparen'>(</span><span class='ivar'>@tl</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_threads_max'>threads_max</span><span class='rparen'>)</span>
 
         <span class='id identifier rubyid_batch'>batch</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -704,6 +852,10 @@
             <span class='id identifier rubyid_mybatch'>mybatch</span> <span class='op'>=</span> <span class='id identifier rubyid_bat'>bat</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
             <span class='kw'>begin</span>
               <span class='id identifier rubyid_nmod'>nmod</span><span class='period'>.</span><span class='id identifier rubyid_run_batch'>run_batch</span><span class='lparen'>(</span><span class='id identifier rubyid_mybatch'>mybatch</span><span class='rparen'>)</span>
+          <span class='kw'>rescue</span> <span class='op'>::</span><span class='const'>Rex</span><span class='op'>::</span><span class='const'>BindFailed</span>
+            <span class='kw'>if</span> <span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>CHOST</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+              <span class='ivar'>@scan_errors</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The source IP (CHOST) value of </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>CHOST</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'> was not usable</span><span class='tstring_end'>&quot;</span></span>
+            <span class='kw'>end</span>
             <span class='kw'>rescue</span> <span class='op'>::</span><span class='const'>Rex</span><span class='op'>::</span><span class='const'>ConnectionError</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>Rex</span><span class='op'>::</span><span class='const'>ConnectionProxyError</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>Errno</span><span class='op'>::</span><span class='const'>ECONNRESET</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>Errno</span><span class='op'>::</span><span class='const'>EINTR</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>Rex</span><span class='op'>::</span><span class='const'>TimeoutError</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>Timeout</span><span class='op'>::</span><span class='const'>Error</span>
             <span class='kw'>rescue</span> <span class='op'>::</span><span class='const'>Interrupt</span><span class='comma'>,</span><span class='op'>::</span><span class='const'>NoMethodError</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>RuntimeError</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>NameError</span>
               <span class='id identifier rubyid_raise'>raise</span> <span class='gvar'>$!</span>
@@ -722,6 +874,9 @@
           <span class='kw'>break</span>
         <span class='kw'>end</span>
       <span class='kw'>end</span>
+
+      <span class='comment'># Stop scanning if we hit a fatal error
+</span>      <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_has_fatal_errors?'>has_fatal_errors?</span>
 
       <span class='comment'># Exit if there are no more pending threads
 </span>      <span class='kw'>if</span> <span class='lparen'>(</span><span class='ivar'>@tl</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>==</span> <span class='int'>0</span><span class='rparen'>)</span>
@@ -744,6 +899,7 @@
       <span class='id identifier rubyid_scanner_show_progress'>scanner_show_progress</span><span class='lparen'>(</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@show_progress</span>
     <span class='kw'>end</span>
 
+    <span class='id identifier rubyid_scanner_handle_fatal_errors'>scanner_handle_fatal_errors</span>
     <span class='kw'>return</span>
   <span class='kw'>end</span>
 
@@ -755,6 +911,58 @@
   <span class='kw'>ensure</span>
     <span class='id identifier rubyid_seppuko!'>seppuko!</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="scanner_handle_fatal_errors-instance_method">
+  
+    - (<tt>Object</tt>) <strong>scanner_handle_fatal_errors</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/auxiliary/scanner.rb', line 271</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_scanner_handle_fatal_errors'>scanner_handle_fatal_errors</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_has_fatal_errors?'>has_fatal_errors?</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='ivar'>@tl</span>
+
+  <span class='comment'># First kill any running threads
+</span>  <span class='ivar'>@tl</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_t'>t</span><span class='op'>|</span> <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_kill'>kill</span> <span class='kw'>if</span> <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_alive?'>alive?</span> <span class='rbrace'>}</span>
+
+  <span class='comment'># Show the unique errors triggered by the scan
+</span>  <span class='id identifier rubyid_uniq_errors'>uniq_errors</span> <span class='op'>=</span> <span class='ivar'>@scan_errors</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span>
+  <span class='id identifier rubyid_uniq_errors'>uniq_errors</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_emsg'>emsg</span><span class='op'>|</span>
+    <span class='id identifier rubyid_print_error'>print_error</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Fatal: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_emsg'>emsg</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_print_error'>print_error</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Scan terminated due to </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_uniq_errors'>uniq_errors</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='embexpr_end'>}</span><span class='tstring_content'> fatal error(s)</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -776,13 +984,13 @@
       <pre class="lines">
 
 
-237
-238
-239
-240</pre>
+286
+287
+288
+289</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/auxiliary/scanner.rb', line 237</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/auxiliary/scanner.rb', line 286</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_scanner_progress'>scanner_progress</span>
   <span class='kw'>return</span> <span class='int'>0</span> <span class='kw'>unless</span> <span class='ivar'>@range_done</span> <span class='kw'>and</span> <span class='ivar'>@range_count</span>
@@ -808,24 +1016,28 @@
       <pre class="lines">
 
 
-242
-243
-244
-245
-246
-247
-248
-249</pre>
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/auxiliary/scanner.rb', line 242</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/auxiliary/scanner.rb', line 291</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_scanner_show_progress'>scanner_show_progress</span>
+  <span class='comment'># it should already be in the process of shutting down if there are fatal errors
+</span>  <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_has_fatal_errors?'>has_fatal_errors?</span>
   <span class='id identifier rubyid_pct'>pct</span> <span class='op'>=</span> <span class='id identifier rubyid_scanner_progress'>scanner_progress</span>
-  <span class='kw'>if</span><span class='lparen'>(</span><span class='id identifier rubyid_pct'>pct</span> <span class='op'>&gt;=</span> <span class='lparen'>(</span><span class='ivar'>@range_percent</span> <span class='op'>+</span> <span class='ivar'>@show_percent</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_pct'>pct</span> <span class='op'>&gt;=</span> <span class='lparen'>(</span><span class='ivar'>@range_percent</span> <span class='op'>+</span> <span class='ivar'>@show_percent</span><span class='rparen'>)</span>
     <span class='ivar'>@range_percent</span> <span class='op'>=</span> <span class='ivar'>@range_percent</span> <span class='op'>+</span> <span class='ivar'>@show_percent</span>
     <span class='id identifier rubyid_tdlen'>tdlen</span> <span class='op'>=</span> <span class='ivar'>@range_count</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span>
-    <span class='id identifier rubyid_print_status'>print_status</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Scanned </span><span class='embexpr_beg'>#{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_tdlen'>tdlen</span><span class='embexpr_end'>}</span><span class='tstring_content'>d</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='ivar'>@range_done</span><span class='embexpr_end'>}</span><span class='tstring_content'> of </span><span class='embexpr_beg'>#{</span><span class='ivar'>@range_count</span><span class='embexpr_end'>}</span><span class='tstring_content'> hosts (</span><span class='embexpr_beg'>#{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%.3d</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='id identifier rubyid_pct'>pct</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span><span class='embexpr_end'>}</span><span class='tstring_content'>% complete)</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_print_status'>print_status</span><span class='lparen'>(</span><span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Scanned %</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_tdlen'>tdlen</span><span class='embexpr_end'>}</span><span class='tstring_content'>d of %d hosts (%d%% complete)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='ivar'>@range_done</span><span class='comma'>,</span> <span class='ivar'>@range_count</span><span class='comma'>,</span> <span class='id identifier rubyid_pct'>pct</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -848,17 +1060,17 @@
       <pre class="lines">
 
 
-228
-229
-230
-231
-232
-233
-234
-235</pre>
+258
+259
+260
+261
+262
+263
+264
+265</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/auxiliary/scanner.rb', line 228</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/auxiliary/scanner.rb', line 258</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_seppuko!'>seppuko!</span>
   <span class='ivar'>@tl</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_t'>t</span><span class='op'>|</span>
@@ -878,9 +1090,9 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:12 2014 by
+  Generated on Tue Dec  2 09:34:47 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

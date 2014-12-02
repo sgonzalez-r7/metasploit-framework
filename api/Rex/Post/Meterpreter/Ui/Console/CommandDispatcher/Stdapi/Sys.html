@@ -442,6 +442,30 @@ machine.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#cmd_getsid-instance_method" title="#cmd_getsid (instance method)">- (Object) <strong>cmd_getsid</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Display the SID of the user that the server is running as.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#cmd_getuid-instance_method" title="#cmd_getuid (instance method)">- (Object) <strong>cmd_getuid</strong>(*args) </a>
     
 
@@ -910,21 +934,21 @@ removed.</p>
       <pre class="lines">
 
 
-312
-313
-314
-315
-316
-317
-318
-319
-320
 321
 322
-323</pre>
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 312</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 321</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cmd_clearev'>cmd_clearev</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
 
@@ -969,12 +993,12 @@ removed.</p>
       <pre class="lines">
 
 
-782
-783
-784</pre>
+791
+792
+793</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 782</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 791</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cmd_drop_token'>cmd_drop_token</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_print_line'>print_line</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Relinquished token, now running as: </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_sys'>sys</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_drop_token'>drop_token</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -1010,8 +1034,6 @@ removed.</p>
       <pre class="lines">
 
 
-161
-162
 163
 164
 165
@@ -1079,10 +1101,12 @@ removed.</p>
 227
 228
 229
-230</pre>
+230
+231
+232</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 161</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 163</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cmd_execute'>cmd_execute</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>==</span> <span class='int'>0</span><span class='rparen'>)</span>
@@ -1185,15 +1209,6 @@ removed.</p>
       <pre class="lines">
 
 
-285
-286
-287
-288
-289
-290
-291
-292
-293
 294
 295
 296
@@ -1207,10 +1222,19 @@ removed.</p>
 304
 305
 306
-307</pre>
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 285</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 294</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cmd_getenv'>cmd_getenv</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_vars'>vars</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_sys'>sys</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_getenvs'>getenvs</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
@@ -1267,14 +1291,14 @@ machine.</p>
       <pre class="lines">
 
 
-269
-270
 271
 272
-273</pre>
+273
+274
+275</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 269</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 271</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cmd_getpid'>cmd_getpid</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_print_line'>print_line</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Current pid: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_sys'>sys</span><span class='period'>.</span><span class='id identifier rubyid_process'>process</span><span class='period'>.</span><span class='id identifier rubyid_getpid'>getpid</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -1312,21 +1336,21 @@ machine.</p>
       <pre class="lines">
 
 
-755
-756
-757
-758
-759
-760
-761
-762
-763
 764
 765
-766</pre>
+766
+767
+768
+769
+770
+771
+772
+773
+774
+775</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 755</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 764</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cmd_getprivs'>cmd_getprivs</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-h</span><span class='tstring_end'>&quot;</span></span>
@@ -1360,19 +1384,19 @@ machine.</p>
       <pre class="lines">
 
 
-741
-742
-743
-744
-745
-746
-747
-748
-749
-750</pre>
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 741</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 750</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cmd_getprivs_help'>cmd_getprivs_help</span>
   <span class='id identifier rubyid_print_line'>print_line</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Usage: getprivs</span><span class='tstring_end'>&quot;</span></span>
@@ -1383,6 +1407,47 @@ machine.</p>
   <span class='id identifier rubyid_print_line'>print_line</span>
   <span class='id identifier rubyid_print_line'>print_line</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>See also: steal_token, getsystem</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_print_line'>print_line</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="cmd_getsid-instance_method">
+  
+    - (<tt>Object</tt>) <strong>cmd_getsid</strong>(*args) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Display the SID of the user that the server is running as.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+287
+288
+289</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 287</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_cmd_getsid'>cmd_getsid</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_print_line'>print_line</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Server SID: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_sys'>sys</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_getsid'>getsid</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1415,12 +1480,12 @@ machine.</p>
       <pre class="lines">
 
 
-278
-279
-280</pre>
+280
+281
+282</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 278</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 280</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cmd_getuid'>cmd_getuid</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_print_line'>print_line</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Server username: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_sys'>sys</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_getuid'>getuid</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -1456,15 +1521,6 @@ machine.</p>
       <pre class="lines">
 
 
-328
-329
-330
-331
-332
-333
-334
-335
-336
 337
 338
 339
@@ -1483,10 +1539,19 @@ machine.</p>
 352
 353
 354
-355</pre>
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 328</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 337</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cmd_kill'>cmd_kill</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='comment'># give&#39;em help if they want it, or seem confused
@@ -1547,14 +1612,14 @@ machine.</p>
       <pre class="lines">
 
 
-360
-361
-362
-363
-364</pre>
+369
+370
+371
+372
+373</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 360</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 369</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cmd_kill_help'>cmd_kill_help</span>
   <span class='id identifier rubyid_print_line'>print_line</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Usage: kill [pid1 [pid2 [pid3 ...]]] [-s]</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -1592,15 +1657,6 @@ machine.</p>
       <pre class="lines">
 
 
-415
-416
-417
-418
-419
-420
-421
-422
-423
 424
 425
 426
@@ -1650,10 +1706,19 @@ machine.</p>
 470
 471
 472
-473</pre>
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 415</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 424</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cmd_ps'>cmd_ps</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_processes'>processes</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_sys'>sys</span><span class='period'>.</span><span class='id identifier rubyid_process'>process</span><span class='period'>.</span><span class='id identifier rubyid_get_processes'>get_processes</span>
@@ -1734,15 +1799,15 @@ machine.</p>
       <pre class="lines">
 
 
-475
-476
-477
-478
-479
-480</pre>
+484
+485
+486
+487
+488
+489</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 475</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 484</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cmd_ps_help'>cmd_ps_help</span>
   <span class='id identifier rubyid_print_line'>print_line</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Use the command with no arguments to see all running processes.</span><span class='tstring_end'>&quot;</span></span>
@@ -1781,15 +1846,6 @@ machine.</p>
       <pre class="lines">
 
 
-487
-488
-489
-490
-491
-492
-493
-494
-495
 496
 497
 498
@@ -1801,10 +1857,19 @@ machine.</p>
 504
 505
 506
-507</pre>
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 487</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 496</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cmd_reboot'>cmd_reboot</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_force'>force</span> <span class='op'>=</span> <span class='int'>0</span>
@@ -1860,15 +1925,6 @@ and values.</p>
       <pre class="lines">
 
 
-514
-515
-516
-517
-518
-519
-520
-521
-522
 523
 524
 525
@@ -2078,10 +2134,19 @@ and values.</p>
 729
 730
 731
-732</pre>
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 514</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 523</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cmd_reg'>cmd_reg</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='comment'># Extract the command, if any
@@ -2333,12 +2398,12 @@ and values.</p>
       <pre class="lines">
 
 
-737
-738
-739</pre>
+746
+747
+748</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 737</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 746</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cmd_rev2self'>cmd_rev2self</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_sys'>sys</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_revert_to_self'>revert_to_self</span>
@@ -2375,8 +2440,6 @@ the host.</p>
       <pre class="lines">
 
 
-236
-237
 238
 239
 240
@@ -2401,10 +2464,12 @@ the host.</p>
 259
 260
 261
-262</pre>
+262
+263
+264</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 236</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 238</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cmd_shell'>cmd_shell</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_platform'>platform</span>
@@ -2464,15 +2529,6 @@ the host.</p>
       <pre class="lines">
 
 
-805
-806
-807
-808
-809
-810
-811
-812
-813
 814
 815
 816
@@ -2485,10 +2541,19 @@ the host.</p>
 823
 824
 825
-826</pre>
+826
+827
+828
+829
+830
+831
+832
+833
+834
+835</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 805</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 814</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cmd_shutdown'>cmd_shutdown</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_force'>force</span> <span class='op'>=</span> <span class='int'>0</span>
@@ -2543,16 +2608,16 @@ the host.</p>
       <pre class="lines">
 
 
-771
-772
-773
-774
-775
-776
-777</pre>
+780
+781
+782
+783
+784
+785
+786</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 771</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 780</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cmd_steal_token'>cmd_steal_token</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='kw'>if</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>!=</span> <span class='int'>1</span> <span class='kw'>or</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-h</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -2641,15 +2706,6 @@ instead of suspend, followed by a list of one or more valid pids</p>
       <pre class="lines">
 
 
-838
-839
-840
-841
-842
-843
-844
-845
-846
 847
 848
 849
@@ -2692,10 +2748,19 @@ instead of suspend, followed by a list of one or more valid pids</p>
 886
 887
 888
-889</pre>
+889
+890
+891
+892
+893
+894
+895
+896
+897
+898</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 838</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 847</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cmd_suspend'>cmd_suspend</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='comment'># give&#39;em help if they want it, or seem confused
@@ -2780,14 +2845,14 @@ instead of suspend, followed by a list of one or more valid pids</p>
       <pre class="lines">
 
 
-894
-895
-896
-897
-898</pre>
+903
+904
+905
+906
+907</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 894</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 903</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cmd_suspend_help'>cmd_suspend_help</span>
   <span class='id identifier rubyid_print_line'>print_line</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Usage: suspend [options] pid1 pid2 pid3 ...</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -2825,21 +2890,21 @@ instead of suspend, followed by a list of one or more valid pids</p>
       <pre class="lines">
 
 
-789
-790
-791
-792
-793
-794
-795
-796
-797
 798
 799
-800</pre>
+800
+801
+802
+803
+804
+805
+806
+807
+808
+809</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 789</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 798</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cmd_sysinfo'>cmd_sysinfo</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_info'>info</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_sys'>sys</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_sysinfo'>sysinfo</span>
@@ -2950,7 +3015,9 @@ instead of suspend, followed by a list of one or more valid pids</p>
 146
 147
 148
-149</pre>
+149
+150
+151</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 83</span>
@@ -2963,6 +3030,7 @@ instead of suspend, followed by a list of one or more valid pids</p>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>getpid</span><span class='tstring_end'>&quot;</span></span>      <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Get the current process identifier</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>getprivs</span><span class='tstring_end'>&quot;</span></span>    <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Attempt to enable all privileges available to the current process</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>getuid</span><span class='tstring_end'>&quot;</span></span>      <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Get the user that the server is running as</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>getsid</span><span class='tstring_end'>&quot;</span></span>      <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Get the SID of the user that the server is running as</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>getenv</span><span class='tstring_end'>&quot;</span></span>      <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Get one or more environment variable values</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>kill</span><span class='tstring_end'>&quot;</span></span>        <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Terminate a process</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ps</span><span class='tstring_end'>&quot;</span></span>          <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>List running processes</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
@@ -2982,6 +3050,7 @@ instead of suspend, followed by a list of one or more valid pids</p>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>getpid</span><span class='tstring_end'>&quot;</span></span>      <span class='op'>=&gt;</span> <span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>stdapi_sys_process_getpid</span><span class='tstring_end'>&quot;</span></span>  <span class='rbracket'>]</span><span class='comma'>,</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>getprivs</span><span class='tstring_end'>&quot;</span></span>    <span class='op'>=&gt;</span> <span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>stdapi_sys_config_getprivs</span><span class='tstring_end'>&quot;</span></span> <span class='rbracket'>]</span><span class='comma'>,</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>getuid</span><span class='tstring_end'>&quot;</span></span>      <span class='op'>=&gt;</span> <span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>stdapi_sys_config_getuid</span><span class='tstring_end'>&quot;</span></span> <span class='rbracket'>]</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>getsid</span><span class='tstring_end'>&quot;</span></span>      <span class='op'>=&gt;</span> <span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>stdapi_sys_config_getsid</span><span class='tstring_end'>&quot;</span></span> <span class='rbracket'>]</span><span class='comma'>,</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>getenv</span><span class='tstring_end'>&quot;</span></span>      <span class='op'>=&gt;</span> <span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>stdapi_sys_config_getenv</span><span class='tstring_end'>&quot;</span></span> <span class='rbracket'>]</span><span class='comma'>,</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>kill</span><span class='tstring_end'>&quot;</span></span>        <span class='op'>=&gt;</span> <span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>stdapi_sys_process_kill</span><span class='tstring_end'>&quot;</span></span> <span class='rbracket'>]</span><span class='comma'>,</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ps</span><span class='tstring_end'>&quot;</span></span>          <span class='op'>=&gt;</span> <span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>stdapi_sys_process_get_processes</span><span class='tstring_end'>&quot;</span></span> <span class='rbracket'>]</span><span class='comma'>,</span>
@@ -3053,12 +3122,12 @@ instead of suspend, followed by a list of one or more valid pids</p>
       <pre class="lines">
 
 
-154
-155
-156</pre>
+156
+157
+158</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 154</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 156</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Stdapi: System</span><span class='tstring_end'>&quot;</span></span>
@@ -3180,15 +3249,6 @@ the session)</p>
       <pre class="lines">
 
 
-380
-381
-382
-383
-384
-385
-386
-387
-388
 389
 390
 391
@@ -3210,10 +3270,19 @@ the session)</p>
 407
 408
 409
-410</pre>
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 380</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/ui/console/command_dispatcher/stdapi/sys.rb', line 389</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_validate_pids'>validate_pids</span><span class='lparen'>(</span><span class='id identifier rubyid_pids'>pids</span><span class='comma'>,</span> <span class='id identifier rubyid_allow_pid_0'>allow_pid_0</span> <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='id identifier rubyid_allow_session_pid'>allow_session_pid</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
 
@@ -3256,9 +3325,9 @@ the session)</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:52:25 2014 by
+  Generated on Tue Dec  2 09:36:12 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

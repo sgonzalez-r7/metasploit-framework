@@ -844,7 +844,7 @@ currently only works for shells.</p>
   <span class='comment'># If this is a multi-stage payload, then we just need to blindly
 </span>  <span class='comment'># transmit the stage and create the session, hoping that it works.
 </span>  <span class='kw'>if</span> <span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_payload_type'>payload_type</span> <span class='op'>!=</span> <span class='const'>Msf</span><span class='op'>::</span><span class='const'>Payload</span><span class='op'>::</span><span class='const'>Type</span><span class='op'>::</span><span class='const'>Single</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_handle_connection'>handle_connection</span><span class='lparen'>(</span><span class='id identifier rubyid_sock'>sock</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_handle_connection'>handle_connection</span><span class='lparen'>(</span><span class='id identifier rubyid_sock'>sock</span><span class='comma'>,</span> <span class='lbrace'>{</span> <span class='label'>datastore:</span> <span class='id identifier rubyid_datastore'>datastore</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># Otherwise, check to see if we found a session.  We really need
 </span>  <span class='comment'># to improve this, as we could create a session when the exploit
 </span>  <span class='comment'># really didn&#39;t succeed.
@@ -916,9 +916,9 @@ required for port-based findsock payloads to function.</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:10 2014 by
+  Generated on Tue Dec  2 09:34:49 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

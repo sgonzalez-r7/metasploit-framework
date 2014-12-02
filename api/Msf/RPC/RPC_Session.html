@@ -1287,7 +1287,7 @@ position in the stream)</p>
   <span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='id identifier rubyid__valid_session'>_valid_session</span><span class='lparen'>(</span><span class='id identifier rubyid_sid'>sid</span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>shell</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_s'>s</span><span class='period'>.</span><span class='id identifier rubyid_exploit_datastore'>exploit_datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>LHOST</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_lhost'>lhost</span>
   <span class='id identifier rubyid_s'>s</span><span class='period'>.</span><span class='id identifier rubyid_exploit_datastore'>exploit_datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>LPORT</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_lport'>lport</span>
-  <span class='id identifier rubyid_s'>s</span><span class='period'>.</span><span class='id identifier rubyid_execute_script'>execute_script</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>spawn_meterpreter</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_s'>s</span><span class='period'>.</span><span class='id identifier rubyid_execute_script'>execute_script</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>post/multi/manage/shell_to_meterpreter</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>result</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>success</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1385,9 +1385,9 @@ position in the stream)</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:42 2014 by
+  Generated on Tue Dec  2 09:35:29 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

@@ -217,6 +217,31 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#encode_stage_preserved_registers-instance_method" title="#encode_stage_preserved_registers (instance method)">- (Object) <strong>encode_stage_preserved_registers</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Takes an educated guess at the list of registers an encoded stage would
+need to preserve based on the Convention.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#generate_stage-instance_method" title="#generate_stage (instance method)">- (String) <strong>generate_stage</strong> </a>
     
 
@@ -541,12 +566,12 @@ the connection that is established.</p>
       <pre class="lines">
 
 
-232
-233
-234</pre>
+288
+289
+290</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 232</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 288</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stage_prefix'>stage_prefix</span>
   <span class='ivar'>@stage_prefix</span>
@@ -602,12 +627,12 @@ the connection that is established.</p>
       <pre class="lines">
 
 
-44
-45
-46</pre>
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_assembly'>assembly</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_module_info'>module_info</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Stager</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Assembly</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
@@ -661,55 +686,125 @@ the connection that is established.</p>
       <pre class="lines">
 
 
-201
-202
-203
-204
-205
-206
-207
-208
-209
-210
-211
-212
-213
-214
-215
-216
-217
-218
-219
-220
-221
 222
-223</pre>
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 201</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 222</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_encode_stage'>encode_stage</span><span class='lparen'>(</span><span class='id identifier rubyid_stg'>stg</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_stg'>stg</span> <span class='kw'>unless</span> <span class='id identifier rubyid_encode_stage?'>encode_stage?</span>
+  <span class='id identifier rubyid_stage_enc_mod'>stage_enc_mod</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
 
-  <span class='kw'>if</span> <span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>StageEncoder</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='kw'>or</span> <span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>StageEncoder</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
-    <span class='id identifier rubyid_stage_enc_mod'>stage_enc_mod</span> <span class='op'>=</span> <span class='kw'>nil</span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_stage_enc_mod'>stage_enc_mod</span> <span class='op'>=</span> <span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>StageEncoder</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='comment'># Handle StageEncoder if specified by the user
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>StageEncoder</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+    <span class='comment'># Allow multiple encoders separated by commas
+</span>    <span class='id identifier rubyid_stage_enc_mod'>stage_enc_mod</span> <span class='op'>=</span> <span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>StageEncoder</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>,</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:strip</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&gt;</span> <span class='int'>0</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span>
   <span class='kw'>end</span>
 
-  <span class='comment'># Generate an encoded version of the stage.  We tell the encoding system
-</span>  <span class='comment'># to save edi to ensure that it does not get clobbered.
-</span>  <span class='id identifier rubyid_encp'>encp</span> <span class='op'>=</span> <span class='const'>Msf</span><span class='op'>::</span><span class='const'>EncodedPayload</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span>
-    <span class='kw'>self</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Raw</span><span class='tstring_end'>&#39;</span></span>           <span class='op'>=&gt;</span> <span class='id identifier rubyid_stg'>stg</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Encoder</span><span class='tstring_end'>&#39;</span></span>       <span class='op'>=&gt;</span> <span class='id identifier rubyid_stage_enc_mod'>stage_enc_mod</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SaveRegisters</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>edi</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ForceEncode</span><span class='tstring_end'>&#39;</span></span>   <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_print_status'>print_status</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Encoded stage with </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_encp'>encp</span><span class='period'>.</span><span class='id identifier rubyid_encoder'>encoder</span><span class='period'>.</span><span class='id identifier rubyid_refname'>refname</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='comment'># Add automatic encoding as a fallback if needed
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>StageEncodingFallback</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_stage_enc_mod'>stage_enc_mod</span> <span class='op'>&lt;&lt;</span> <span class='kw'>nil</span>
+  <span class='kw'>end</span>
 
-  <span class='comment'># If the encoding succeeded, use the encoded buffer.  Otherwise, fall
-</span>  <span class='comment'># back to using the non-encoded stage
-</span>  <span class='id identifier rubyid_encp'>encp</span><span class='period'>.</span><span class='id identifier rubyid_encoded'>encoded</span> <span class='op'>||</span> <span class='id identifier rubyid_stg'>stg</span>
+  <span class='comment'># If fallback has been disabled and no encoder was parsed, exit early and rop the session
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_stage_enc_mod'>stage_enc_mod</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>==</span> <span class='int'>0</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>RuntimeError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>StageEncoder is invalid and StageEncodingFallback is disabled</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Allow the user to specify additional registers to preserve
+</span>  <span class='id identifier rubyid_saved_registers'>saved_registers</span> <span class='op'>=</span> <span class='lparen'>(</span>
+    <span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>StageEncoderSaveRegisters</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_encode_stage_preserved_registers'>encode_stage_preserved_registers</span>
+  <span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span>
+
+  <span class='id identifier rubyid_estg'>estg</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+  <span class='id identifier rubyid_stage_enc_mod'>stage_enc_mod</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_encoder_refname_from_user'>encoder_refname_from_user</span><span class='op'>|</span>
+
+    <span class='comment'># Generate an encoded version of the stage.  We tell the encoding system
+</span>    <span class='comment'># to save certain registers to ensure that it does not get clobbered.
+</span>    <span class='id identifier rubyid_encp'>encp</span> <span class='op'>=</span> <span class='const'>Msf</span><span class='op'>::</span><span class='const'>EncodedPayload</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span>
+      <span class='kw'>self</span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Raw</span><span class='tstring_end'>&#39;</span></span>                <span class='op'>=&gt;</span> <span class='id identifier rubyid_stg'>stg</span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Encoder</span><span class='tstring_end'>&#39;</span></span>            <span class='op'>=&gt;</span> <span class='id identifier rubyid_encoder_refname_from_user'>encoder_refname_from_user</span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>EncoderOptions</span><span class='tstring_end'>&#39;</span></span>     <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SaveRegisters</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_saved_registers'>saved_registers</span> <span class='rbrace'>}</span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ForceSaveRegisters</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ForceEncode</span><span class='tstring_end'>&#39;</span></span>        <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='rparen'>)</span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_encp'>encp</span><span class='period'>.</span><span class='id identifier rubyid_encoder'>encoder</span>
+      <span class='id identifier rubyid_print_status'>print_status</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Encoded stage with </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_encp'>encp</span><span class='period'>.</span><span class='id identifier rubyid_encoder'>encoder</span><span class='period'>.</span><span class='id identifier rubyid_refname'>refname</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_estg'>estg</span> <span class='op'>=</span> <span class='id identifier rubyid_encp'>encp</span><span class='period'>.</span><span class='id identifier rubyid_encoded'>encoded</span>
+      <span class='kw'>break</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>StageEncodingFallback</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_estg'>estg</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='id identifier rubyid_print_warning'>print_warning</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>StageEncoder failed, falling back to no encoding</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_estg'>estg</span> <span class='op'>=</span> <span class='id identifier rubyid_stg'>stg</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>unless</span> <span class='id identifier rubyid_estg'>estg</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>RuntimeError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Stage encoding failed and StageEncodingFallback is disabled</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_estg'>estg</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -755,17 +850,61 @@ the connection that is established.</p>
       <pre class="lines">
 
 
-100
 101
 102
 103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 100</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 101</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_encode_stage?'>encode_stage?</span>
-  <span class='comment'># Convert to string in case it hasn&#39;t been normalized
-</span>  <span class='op'>!</span><span class='op'>!</span><span class='lparen'>(</span><span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>EnableStageEncoding</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>true</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='op'>!</span><span class='op'>!</span><span class='lparen'>(</span><span class='id identifier rubyid_datastore'>datastore</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>EnableStageEncoding</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="encode_stage_preserved_registers-instance_method">
+  
+    - (<tt>Object</tt>) <strong>encode_stage_preserved_registers</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Takes an educated guess at the list of registers an encoded stage would
+need to preserve based on the Convention</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+214
+215
+216
+217
+218</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 214</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_encode_stage_preserved_registers'>encode_stage_preserved_registers</span>
+  <span class='id identifier rubyid_module_info'>module_info</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Convention</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_scan'>scan</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\bsock([a-z]{3,}+)\b</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span><span class='period'>.</span>
+    <span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_reg'>reg</span><span class='op'>|</span> <span class='id identifier rubyid_reg'>reg</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span> <span class='rbrace'>}</span><span class='period'>.</span>
+    <span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -926,7 +1065,18 @@ the connection that is established.</p>
 172
 173
 174
-175</pre>
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 130</span>
@@ -938,7 +1088,18 @@ the connection that is established.</p>
     <span class='id identifier rubyid_p'>p</span> <span class='op'>=</span> <span class='id identifier rubyid_generate_stage'>generate_stage</span>
 
     <span class='comment'># Encode the stage if stage encoding is enabled
-</span>    <span class='id identifier rubyid_p'>p</span> <span class='op'>=</span> <span class='id identifier rubyid_encode_stage'>encode_stage</span><span class='lparen'>(</span><span class='id identifier rubyid_p'>p</span><span class='rparen'>)</span>
+</span>    <span class='kw'>begin</span>
+      <span class='id identifier rubyid_p'>p</span> <span class='op'>=</span> <span class='id identifier rubyid_encode_stage'>encode_stage</span><span class='lparen'>(</span><span class='id identifier rubyid_p'>p</span><span class='rparen'>)</span>
+    <span class='kw'>rescue</span> <span class='op'>::</span><span class='const'>RuntimeError</span>
+      <span class='id identifier rubyid_warning_msg'>warning_msg</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Failed to stage</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_warning_msg'>warning_msg</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> (</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_conn'>conn</span><span class='period'>.</span><span class='id identifier rubyid_peerhost'>peerhost</span><span class='embexpr_end'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>  <span class='kw'>if</span> <span class='id identifier rubyid_conn'>conn</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span> <span class='symbol'>:peerhost</span>
+      <span class='id identifier rubyid_warning_msg'>warning_msg</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='gvar'>$!</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_print_warning'>print_warning</span> <span class='id identifier rubyid_warning_msg'>warning_msg</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_conn'>conn</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span> <span class='symbol'>:close</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_conn'>conn</span><span class='period'>.</span><span class='id identifier rubyid_closed?'>closed?</span>
+        <span class='id identifier rubyid_conn'>conn</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
+      <span class='kw'>end</span>
+      <span class='kw'>return</span>
+    <span class='kw'>end</span>
 
     <span class='comment'># Give derived classes an opportunity to an intermediate state before
 </span>    <span class='comment'># the stage is sent.  This gives derived classes an opportunity to
@@ -1013,12 +1174,12 @@ given <code>conn</code> socket with <span class='object_link'><a href="../Handle
       <pre class="lines">
 
 
-187
-188
-189</pre>
+198
+199
+200</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 187</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 198</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_connection_stage'>handle_connection_stage</span><span class='lparen'>(</span><span class='id identifier rubyid_conn'>conn</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_create_session'>create_session</span><span class='lparen'>(</span><span class='id identifier rubyid_conn'>conn</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -1055,12 +1216,12 @@ its transmission.</p>
       <pre class="lines">
 
 
-195
-196
-197</pre>
+206
+207
+208</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 195</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 206</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_intermediate_stage'>handle_intermediate_stage</span><span class='lparen'>(</span><span class='id identifier rubyid_conn'>conn</span><span class='comma'>,</span> <span class='id identifier rubyid_payload'>payload</span><span class='rparen'>)</span>
   <span class='kw'>false</span>
@@ -1094,7 +1255,9 @@ its transmission.</p>
 18
 19
 20
-21</pre>
+21
+22
+23</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 12</span>
@@ -1106,6 +1269,8 @@ its transmission.</p>
     <span class='lbracket'>[</span>
       <span class='const'>Msf</span><span class='op'>::</span><span class='const'>OptBool</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>EnableStageEncoding</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='lbracket'>[</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Encode the second stage payload</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>false</span> <span class='rbracket'>]</span><span class='rparen'>)</span><span class='comma'>,</span>
       <span class='const'>Msf</span><span class='op'>::</span><span class='const'>OptString</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>StageEncoder</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='lbracket'>[</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Encoder to use if EnableStageEncoding is set</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>nil</span> <span class='rbracket'>]</span><span class='rparen'>)</span><span class='comma'>,</span>
+      <span class='const'>Msf</span><span class='op'>::</span><span class='const'>OptString</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>StageEncoderSaveRegisters</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='lbracket'>[</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Additional registers to preserve in the staged payload if EnableStageEncoding is set</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span> <span class='rbracket'>]</span><span class='rparen'>)</span><span class='comma'>,</span>
+      <span class='const'>Msf</span><span class='op'>::</span><span class='const'>OptBool</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>StageEncodingFallback</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='lbracket'>[</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Fallback to default encoders or no encoding if the selected StageEncoder is not compatible</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>true</span> <span class='rbracket'>]</span><span class='rparen'>)</span>
     <span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Msf</span><span class='op'>::</span><span class='const'>Payload</span><span class='op'>::</span><span class='const'>Stager</span><span class='rparen'>)</span>
 
 <span class='kw'>end</span></pre>
@@ -1159,12 +1324,12 @@ its transmission.</p>
       <pre class="lines">
 
 
-54
-55
-56</pre>
+56
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_offsets'>offsets</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_module_info'>module_info</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Stager</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Offsets</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
@@ -1219,12 +1384,12 @@ its transmission.</p>
       <pre class="lines">
 
 
-36
-37
-38</pre>
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_payload'>payload</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_module_info'>module_info</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Stager</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Payload</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
@@ -1260,12 +1425,12 @@ its transmission.</p>
       <pre class="lines">
 
 
-26
-27
-28</pre>
+28
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_payload_type'>payload_type</span>
   <span class='kw'>return</span> <span class='const'>Msf</span><span class='op'>::</span><span class='const'>Payload</span><span class='op'>::</span><span class='const'>Type</span><span class='op'>::</span><span class='const'>Stager</span>
@@ -1314,12 +1479,12 @@ its transmission.</p>
       <pre class="lines">
 
 
-72
-73
-74</pre>
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stage_assembly'>stage_assembly</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_module_info'>module_info</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Stage</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Assembly</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
@@ -1370,12 +1535,12 @@ its transmission.</p>
       <pre class="lines">
 
 
-83
-84
-85</pre>
+85
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 83</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 85</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stage_offsets'>stage_offsets</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_module_info'>module_info</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Stage</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Offsets</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
@@ -1425,12 +1590,12 @@ the connection that is established.</p>
       <pre class="lines">
 
 
-91
-92
-93</pre>
+93
+94
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 93</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stage_over_connection?'>stage_over_connection?</span>
   <span class='kw'>true</span>
@@ -1481,12 +1646,12 @@ the connection that is established.</p>
       <pre class="lines">
 
 
-64
-65
-66</pre>
+66
+67
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/payload/stager.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stage_payload'>stage_payload</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_module_info'>module_info</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Stage</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Payload</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
@@ -1501,9 +1666,9 @@ the connection that is established.</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:07 2014 by
+  Generated on Tue Dec  2 09:34:37 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

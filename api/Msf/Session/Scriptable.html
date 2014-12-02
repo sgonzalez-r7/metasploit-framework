@@ -186,8 +186,8 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Executes the supplied script or Post module with arguments
-<code>args</code>.</p>
+<p>Executes the supplied script, Post module, or local Exploit module with  
+arguments <code>args</code>.</p>
 </div></span>
   
 </li>
@@ -304,8 +304,9 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Executes the supplied script or Post module with arguments
-<code>args</code></p>
+<p>Executes the supplied script, Post module, or local Exploit module with</p>
+
+<pre class="code ruby"><code class="ruby">arguments +args+</code></pre>
 
 <p>Will search the script path.</p>
 
@@ -321,7 +322,6 @@
       <pre class="lines">
 
 
-59
 60
 61
 62
@@ -351,30 +351,101 @@
 86
 87
 88
-89</pre>
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/base/sessions/scriptable.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/base/sessions/scriptable.rb', line 60</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_execute_script'>execute_script</span><span class='lparen'>(</span><span class='id identifier rubyid_script_name'>script_name</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_mod'>mod</span> <span class='op'>=</span> <span class='id identifier rubyid_framework'>framework</span><span class='period'>.</span><span class='id identifier rubyid_modules'>modules</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_script_name'>script_name</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span> <span class='kw'>and</span> <span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>post</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_mod'>mod</span>
     <span class='comment'># Don&#39;t report module run events here as it will be taken care of
 </span>    <span class='comment'># in +Post.run_simple+
 </span>    <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SESSION</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_sid'>sid</span> <span class='rbrace'>}</span>
     <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_arg'>arg</span><span class='op'>|</span>
       <span class='id identifier rubyid_k'>k</span><span class='comma'>,</span><span class='id identifier rubyid_v'>v</span> <span class='op'>=</span> <span class='id identifier rubyid_arg'>arg</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>=</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span>
-      <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_v'>v</span>
+      <span class='comment'># case doesn&#39;t matter in datastore, but it does in hashes, let&#39;s normalize
+</span>      <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_v'>v</span>
     <span class='kw'>end</span>
-    <span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_run_simple'>run_simple</span><span class='lparen'>(</span>
-      <span class='comment'># Run with whatever the default stance is for now.  At some
-</span>      <span class='comment'># point in the future, we&#39;ll probably want a way to force a
-</span>      <span class='comment'># module to run in the background
-</span>      <span class='comment'>#&#39;RunAsJob&#39; =&gt; true,
-</span>      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>LocalInput</span><span class='tstring_end'>&#39;</span></span>  <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_user_input'>user_input</span><span class='comma'>,</span>
-      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>LocalOutput</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_user_output'>user_output</span><span class='comma'>,</span>
-      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Options</span><span class='tstring_end'>&#39;</span></span>     <span class='op'>=&gt;</span> <span class='id identifier rubyid_opts'>opts</span>
-    <span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>post</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_run_simple'>run_simple</span><span class='lparen'>(</span>
+        <span class='comment'># Run with whatever the default stance is for now.  At some
+</span>        <span class='comment'># point in the future, we&#39;ll probably want a way to force a
+</span>        <span class='comment'># module to run in the background
+</span>        <span class='comment'>#&#39;RunAsJob&#39; =&gt; true,
+</span>        <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>LocalInput</span><span class='tstring_end'>&#39;</span></span>  <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_user_input'>user_input</span><span class='comma'>,</span>
+        <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>LocalOutput</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_user_output'>user_output</span><span class='comma'>,</span>
+        <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Options</span><span class='tstring_end'>&#39;</span></span>     <span class='op'>=&gt;</span> <span class='id identifier rubyid_opts'>opts</span>
+      <span class='rparen'>)</span>
+    <span class='kw'>elsif</span> <span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>exploit</span><span class='tstring_end'>&quot;</span></span>
+      <span class='comment'># well it must be a local, we&#39;re not currently supporting anything else
+</span>      <span class='kw'>if</span> <span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_exploit_type'>exploit_type</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>local</span><span class='tstring_end'>&quot;</span></span>
+        <span class='comment'># get a copy of the session exploit&#39;s datastore if we can
+</span>        <span class='id identifier rubyid_original_exploit_datastore'>original_exploit_datastore</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_exploit'>exploit</span><span class='period'>.</span><span class='id identifier rubyid_datastore'>datastore</span> <span class='op'>||</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+        <span class='id identifier rubyid_copy_of_orig_exploit_datastore'>copy_of_orig_exploit_datastore</span> <span class='op'>=</span> <span class='id identifier rubyid_original_exploit_datastore'>original_exploit_datastore</span><span class='period'>.</span><span class='id identifier rubyid_clone'>clone</span>
+        <span class='comment'># convert datastore opts to a hash to normalize casing issues
+</span>        <span class='id identifier rubyid_local_exploit_opts'>local_exploit_opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+        <span class='id identifier rubyid_copy_of_orig_exploit_datastore'>copy_of_orig_exploit_datastore</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span><span class='id identifier rubyid_v'>v</span><span class='op'>|</span>
+          <span class='id identifier rubyid_local_exploit_opts'>local_exploit_opts</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_v'>v</span>
+        <span class='kw'>end</span>
+        <span class='comment'># we don&#39;t want to inherit a couple things, like AutoRunScript&#39;s
+</span>        <span class='id identifier rubyid_to_neuter'>to_neuter</span> <span class='op'>=</span> <span class='qwords_beg'>%w{</span><span class='tstring_content'>AutoRunScript</span><span class='words_sep'> </span><span class='tstring_content'>InitialAutoRunScript</span><span class='words_sep'> </span><span class='tstring_content'>LPORT</span><span class='words_sep'> </span><span class='tstring_content'>TARGET</span><span class='words_sep'>}</span>
+        <span class='id identifier rubyid_to_neuter'>to_neuter</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_setting'>setting</span><span class='op'>|</span>
+          <span class='id identifier rubyid_local_exploit_opts'>local_exploit_opts</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_setting'>setting</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span><span class='rparen'>)</span>
+        <span class='kw'>end</span>
+
+        <span class='comment'># merge in any opts that were passed in, defaulting all other settings
+</span>        <span class='comment'># to the values from the datastore (of the exploit) that spawned the
+</span>        <span class='comment'># session
+</span>        <span class='id identifier rubyid_local_exploit_opts'>local_exploit_opts</span> <span class='op'>=</span> <span class='id identifier rubyid_local_exploit_opts'>local_exploit_opts</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
+
+        <span class='id identifier rubyid_new_session'>new_session</span> <span class='op'>=</span> <span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_exploit_simple'>exploit_simple</span><span class='lparen'>(</span>
+          <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Payload</span><span class='tstring_end'>&#39;</span></span>       <span class='op'>=&gt;</span> <span class='id identifier rubyid_local_exploit_opts'>local_exploit_opts</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>payload</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+          <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Target</span><span class='tstring_end'>&#39;</span></span>        <span class='op'>=&gt;</span> <span class='id identifier rubyid_local_exploit_opts'>local_exploit_opts</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>target</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+          <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>LocalInput</span><span class='tstring_end'>&#39;</span></span>    <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_user_input'>user_input</span><span class='comma'>,</span>
+          <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>LocalOutput</span><span class='tstring_end'>&#39;</span></span>   <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_user_output'>user_output</span><span class='comma'>,</span>
+          <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Options</span><span class='tstring_end'>&#39;</span></span>       <span class='op'>=&gt;</span> <span class='id identifier rubyid_local_exploit_opts'>local_exploit_opts</span>
+          <span class='rparen'>)</span>
+
+      <span class='kw'>end</span> <span class='comment'># end if local
+</span>    <span class='kw'>end</span> <span class='comment'># end if exploit
+</span>
   <span class='kw'>else</span>
     <span class='id identifier rubyid_full_path'>full_path</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_find_script_path'>find_script_path</span><span class='lparen'>(</span><span class='id identifier rubyid_script_name'>script_name</span><span class='rparen'>)</span>
 
@@ -397,9 +468,9 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:13 2014 by
+  Generated on Tue Dec  2 09:34:55 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

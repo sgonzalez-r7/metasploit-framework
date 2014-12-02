@@ -1798,12 +1798,12 @@ duplicates from breaking our state.</p>
       <pre class="lines">
 
 
-314
-315
-316</pre>
+319
+320
+321</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/proto/iax2/call.rb', line 314</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/proto/iax2/call.rb', line 319</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_audio_packet_data'>audio_packet_data</span><span class='lparen'>(</span><span class='id identifier rubyid_pkt'>pkt</span><span class='rparen'>)</span>
   <span class='lparen'>(</span><span class='id identifier rubyid_pkt'>pkt</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>C</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>&amp;</span> <span class='int'>0x80</span> <span class='op'>==</span> <span class='int'>0</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_pkt'>pkt</span><span class='lbracket'>[</span><span class='int'>4</span><span class='comma'>,</span><span class='id identifier rubyid_pkt'>pkt</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='op'>-</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='id identifier rubyid_pkt'>pkt</span><span class='lbracket'>[</span><span class='int'>12</span><span class='comma'>,</span><span class='id identifier rubyid_pkt'>pkt</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='op'>-</span><span class='int'>12</span><span class='rbracket'>]</span>
@@ -1828,11 +1828,6 @@ duplicates from breaking our state.</p>
       <pre class="lines">
 
 
-292
-293
-294
-295
-296
 297
 298
 299
@@ -1848,10 +1843,15 @@ duplicates from breaking our state.</p>
 309
 310
 311
-312</pre>
+312
+313
+314
+315
+316
+317</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/proto/iax2/call.rb', line 292</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/proto/iax2/call.rb', line 297</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_decode_audio_frame'>decode_audio_frame</span><span class='lparen'>(</span><span class='id identifier rubyid_buff'>buff</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_codec'>codec</span>
@@ -1894,11 +1894,6 @@ duplicates from breaking our state.</p>
       <pre class="lines">
 
 
-104
-105
-106
-107
-108
 109
 110
 111
@@ -1917,10 +1912,15 @@ duplicates from breaking our state.</p>
 124
 125
 126
-127</pre>
+127
+128
+129
+130
+131
+132</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/proto/iax2/call.rb', line 104</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/proto/iax2/call.rb', line 109</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dial'>dial</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_send_new'>send_new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_number'>number</span><span class='rparen'>)</span>
@@ -1996,14 +1996,14 @@ duplicates from breaking our state.</p>
       <pre class="lines">
 
 
-286
-287
-288
-289
-290</pre>
+291
+292
+293
+294
+295</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/proto/iax2/call.rb', line 286</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/proto/iax2/call.rb', line 291</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_each_audio_frame'>each_audio_frame</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_audio_buff'>audio_buff</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_frame'>frame</span><span class='op'>|</span>
@@ -2041,11 +2041,6 @@ duplicates from breaking our state.</p>
       <pre class="lines">
 
 
-267
-268
-269
-270
-271
 272
 273
 274
@@ -2058,10 +2053,15 @@ duplicates from breaking our state.</p>
 281
 282
 283
-284</pre>
+284
+285
+286
+287
+288
+289</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/proto/iax2/call.rb', line 267</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/proto/iax2/call.rb', line 272</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_audio'>handle_audio</span><span class='lparen'>(</span><span class='id identifier rubyid_pkt'>pkt</span><span class='rparen'>)</span>
   <span class='comment'># Ignore audio received before the call is answered (ring ring)
@@ -2113,11 +2113,6 @@ duplicates from breaking our state</p>
       <pre class="lines">
 
 
-156
-157
-158
-159
-160
 161
 162
 163
@@ -2220,10 +2215,15 @@ duplicates from breaking our state</p>
 260
 261
 262
-263</pre>
+263
+264
+265
+266
+267
+268</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/proto/iax2/call.rb', line 156</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/proto/iax2/call.rb', line 161</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_control'>handle_control</span><span class='lparen'>(</span><span class='id identifier rubyid_pkt'>pkt</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_src_call'>src_call</span><span class='comma'>,</span> <span class='id identifier rubyid_dst_call'>dst_call</span><span class='comma'>,</span> <span class='id identifier rubyid_tstamp'>tstamp</span><span class='comma'>,</span> <span class='id identifier rubyid_out_seq'>out_seq</span><span class='comma'>,</span> <span class='id identifier rubyid_inp_seq'>inp_seq</span><span class='comma'>,</span> <span class='id identifier rubyid_itype'>itype</span> <span class='op'>=</span> <span class='id identifier rubyid_pkt'>pkt</span><span class='period'>.</span><span class='id identifier rubyid_unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>nnNCCC</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
@@ -2353,14 +2353,14 @@ duplicates from breaking our state</p>
       <pre class="lines">
 
 
-129
-130
-131
-132
-133</pre>
+134
+135
+136
+137
+138</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/proto/iax2/call.rb', line 129</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/proto/iax2/call.rb', line 134</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_hangup'>hangup</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_send_hangup'>send_hangup</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
@@ -2387,19 +2387,19 @@ duplicates from breaking our state</p>
       <pre class="lines">
 
 
-143
-144
-145
-146
-147
 148
 149
 150
 151
-152</pre>
+152
+153
+154
+155
+156
+157</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/proto/iax2/call.rb', line 143</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/proto/iax2/call.rb', line 148</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_process_elements'>process_elements</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='comma'>,</span><span class='id identifier rubyid_off'>off</span><span class='op'>=</span><span class='int'>0</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_res'>res</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -2483,7 +2483,12 @@ duplicates from breaking our state</p>
 99
 100
 101
-102</pre>
+102
+103
+104
+105
+106
+107</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rex/proto/iax2/call.rb', line 61</span>
@@ -2505,6 +2510,11 @@ duplicates from breaking our state</p>
   <span class='kw'>if</span> <span class='id identifier rubyid_res'>res</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>14</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\x00\x03</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>and</span> <span class='id identifier rubyid_res'>res</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='const'>IAX_IE_CHALLENGE_DATA</span><span class='rbracket'>]</span>
     <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dcall'>dcall</span> <span class='op'>=</span> <span class='id identifier rubyid_res'>res</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_chall'>chall</span> <span class='op'>=</span> <span class='id identifier rubyid_res'>res</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='const'>IAX_IE_CHALLENGE_DATA</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_chall'>chall</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='id identifier rubyid_dprint'>dprint</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>REGAUTH: No challenge data received</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>return</span>
   <span class='kw'>end</span>
 
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_send_regreq_chall_response'>send_regreq_chall_response</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_chall'>chall</span><span class='rparen'>)</span>
@@ -2550,12 +2560,12 @@ duplicates from breaking our state</p>
       <pre class="lines">
 
 
-135
-136
-137</pre>
+140
+141
+142</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/proto/iax2/call.rb', line 135</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/proto/iax2/call.rb', line 140</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ring_time'>ring_time</span>
   <span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_ring_finish'>ring_finish</span> <span class='op'>||</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span> <span class='op'>-</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_ring_start'>ring_start</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
@@ -2580,12 +2590,12 @@ duplicates from breaking our state</p>
       <pre class="lines">
 
 
-139
-140
-141</pre>
+144
+145
+146</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/proto/iax2/call.rb', line 139</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/proto/iax2/call.rb', line 144</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_timestamp'>timestamp</span>
   <span class='lparen'>(</span><span class='lparen'>(</span> <span class='op'>::</span><span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span> <span class='op'>-</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_itime'>itime</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='float'>1000.0</span> <span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span> <span class='op'>&amp;</span> <span class='int'>0xffffffff</span>
@@ -2650,9 +2660,9 @@ duplicates from breaking our state</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:56 2014 by
+  Generated on Tue Dec  2 09:35:44 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

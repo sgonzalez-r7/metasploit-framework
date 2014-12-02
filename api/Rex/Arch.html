@@ -425,7 +425,7 @@ module provide features that are specific to a given architecture.</p>
   <span class='kw'>case</span> <span class='id identifier rubyid_arch'>arch</span>
     <span class='kw'>when</span> <span class='const'>ARCH_X86</span>
       <span class='lbracket'>[</span><span class='id identifier rubyid_addr'>addr</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_pack'>pack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>V</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-    <span class='kw'>when</span> <span class='const'>ARCH_X86_64</span>
+    <span class='kw'>when</span> <span class='const'>ARCH_X86_64</span><span class='comma'>,</span> <span class='const'>ARCH_X64</span>
       <span class='lbracket'>[</span><span class='id identifier rubyid_addr'>addr</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_pack'>pack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Q&lt;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
     <span class='kw'>when</span> <span class='const'>ARCH_MIPS</span> <span class='comment'># ambiguous
 </span>      <span class='lbracket'>[</span><span class='id identifier rubyid_addr'>addr</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_pack'>pack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>N</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
@@ -453,9 +453,9 @@ module provide features that are specific to a given architecture.</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:21 2014 by
+  Generated on Tue Dec  2 09:35:08 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

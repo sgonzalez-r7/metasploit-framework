@@ -110,11 +110,11 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>This exception is raised when an attempt to use an address or port that is
-already in use occurs, such as binding to a host on a given port that is
-already in use.  Note that Windows raises this in some cases when
-attempting to connect to addresses that it can&#39;t handle, e.g.
-“0.0.0.0”.  Thus, this is a ConnectionError.</p>
+<p>This exception is listed for backwards compatibility. We had been using
+AddressInUse as the exception for both bind errors and connection errors
+triggered by connection attempts to broadcast and network addresses. The
+two classes above have split this into their respective sources, but
+callers may still expect the old behavior.</p>
 
 
   </div>
@@ -218,15 +218,15 @@ attempting to connect to addresses that it can&#39;t handle, e.g.
       <pre class="lines">
 
 
-230
-231
-232</pre>
+261
+262
+263</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/exceptions.rb', line 230</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/exceptions.rb', line 261</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
-  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The address is already in use </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_addr_to_s'>addr_to_s</span><span class='embexpr_end'>}</span><span class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The address is already in use or unavailable: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_addr_to_s'>addr_to_s</span><span class='embexpr_end'>}</span><span class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -238,9 +238,9 @@ attempting to connect to addresses that it can&#39;t handle, e.g.
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:51 2014 by
+  Generated on Tue Dec  2 09:35:40 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

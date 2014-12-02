@@ -3206,7 +3206,9 @@ selected by the user, or match the arch selected.</p>
 319
 320
 321
-322</pre>
+322
+323
+324</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/msf/core/payload_generator.rb', line 306</span>
@@ -3216,12 +3218,14 @@ selected by the user, or match the arch selected.</p>
   <span class='kw'>if</span> <span class='id identifier rubyid_encoder'>encoder</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span>
     <span class='comment'># Allow comma seperated list of encoders so users can choose several
 </span>    <span class='id identifier rubyid_encoder'>encoder</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>,</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_chosen_encoder'>chosen_encoder</span><span class='op'>|</span>
-      <span class='id identifier rubyid_encoders'>encoders</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_framework'>framework</span><span class='period'>.</span><span class='id identifier rubyid_encoders'>encoders</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_chosen_encoder'>chosen_encoder</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_e'>e</span> <span class='op'>=</span> <span class='id identifier rubyid_framework'>framework</span><span class='period'>.</span><span class='id identifier rubyid_encoders'>encoders</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_chosen_encoder'>chosen_encoder</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_encoders'>encoders</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_e'>e</span> <span class='kw'>if</span> <span class='id identifier rubyid_e'>e</span>
     <span class='kw'>end</span>
     <span class='id identifier rubyid_encoders'>encoders</span><span class='period'>.</span><span class='id identifier rubyid_sort_by'>sort_by</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_my_encoder'>my_encoder</span><span class='op'>|</span> <span class='id identifier rubyid_my_encoder'>my_encoder</span><span class='period'>.</span><span class='id identifier rubyid_rank'>rank</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_reverse'>reverse</span>
   <span class='kw'>elsif</span> <span class='id identifier rubyid_badchars'>badchars</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span>
-    <span class='id identifier rubyid_framework'>framework</span><span class='period'>.</span><span class='id identifier rubyid_encoders'>encoders</span><span class='period'>.</span><span class='id identifier rubyid_each_module_ranked'>each_module_ranked</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Arch</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_arch'>arch</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_mod'>mod</span><span class='op'>|</span>
-      <span class='id identifier rubyid_encoders'>encoders</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_framework'>framework</span><span class='period'>.</span><span class='id identifier rubyid_encoders'>encoders</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_framework'>framework</span><span class='period'>.</span><span class='id identifier rubyid_encoders'>encoders</span><span class='period'>.</span><span class='id identifier rubyid_each_module_ranked'>each_module_ranked</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Arch</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_arch'>arch</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Platform</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_platform_list'>platform_list</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_mod'>mod</span><span class='op'>|</span>
+      <span class='id identifier rubyid_e'>e</span> <span class='op'>=</span> <span class='id identifier rubyid_framework'>framework</span><span class='period'>.</span><span class='id identifier rubyid_encoders'>encoders</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_encoders'>encoders</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_e'>e</span> <span class='kw'>if</span> <span class='id identifier rubyid_e'>e</span>
     <span class='kw'>end</span>
     <span class='id identifier rubyid_encoders'>encoders</span><span class='period'>.</span><span class='id identifier rubyid_sort_by'>sort_by</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_my_encoder'>my_encoder</span><span class='op'>|</span> <span class='id identifier rubyid_my_encoder'>my_encoder</span><span class='period'>.</span><span class='id identifier rubyid_rank'>rank</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_reverse'>reverse</span>
   <span class='kw'>else</span>
@@ -3278,8 +3282,6 @@ creation.</p>
       <pre class="lines">
 
 
-326
-327
 328
 329
 330
@@ -3289,10 +3291,12 @@ creation.</p>
 334
 335
 336
-337</pre>
+337
+338
+339</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/payload_generator.rb', line 326</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/payload_generator.rb', line 328</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_platform_list'>platform_list</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_platform'>platform</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
@@ -3376,8 +3380,6 @@ size based on the nops value given to the generator.</p>
       <pre class="lines">
 
 
-343
-344
 345
 346
 347
@@ -3389,10 +3391,12 @@ size based on the nops value given to the generator.</p>
 353
 354
 355
-356</pre>
+356
+357
+358</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/payload_generator.rb', line 343</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/payload_generator.rb', line 345</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_prepend_nops'>prepend_nops</span><span class='lparen'>(</span><span class='id identifier rubyid_shellcode'>shellcode</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_nops'>nops</span> <span class='op'>&gt;</span> <span class='int'>0</span>
@@ -3512,23 +3516,27 @@ against the shellcode.</p>
       <pre class="lines">
 
 
-363
-364
 365
 366
 367
 368
 369
-370</pre>
+370
+371
+372
+373
+374</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/payload_generator.rb', line 363</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/payload_generator.rb', line 365</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run_encoder'>run_encoder</span><span class='lparen'>(</span><span class='id identifier rubyid_encoder_module'>encoder_module</span><span class='comma'>,</span> <span class='id identifier rubyid_shellcode'>shellcode</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_iterations'>iterations</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span>
     <span class='id identifier rubyid_shellcode'>shellcode</span> <span class='op'>=</span> <span class='id identifier rubyid_encoder_module'>encoder_module</span><span class='period'>.</span><span class='id identifier rubyid_encode'>encode</span><span class='lparen'>(</span><span class='id identifier rubyid_shellcode'>shellcode</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='comma'>,</span> <span class='id identifier rubyid_badchars'>badchars</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_platform_list'>platform_list</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_cli_print'>cli_print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_encoder_module'>encoder_module</span><span class='period'>.</span><span class='id identifier rubyid_refname'>refname</span><span class='embexpr_end'>}</span><span class='tstring_content'> succeeded with size </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_shellcode'>shellcode</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='embexpr_end'>}</span><span class='tstring_content'> (iteration=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_x'>x</span><span class='embexpr_end'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>EncoderSpaceViolation</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>encoder has made a buffer that is too big</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_shellcode'>shellcode</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_space'>space</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_shellcode'>shellcode</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_space'>space</span>
+      <span class='id identifier rubyid_raise'>raise</span> <span class='const'>EncoderSpaceViolation</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>encoder has made a buffer that is too big</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
   <span class='kw'>end</span>
   <span class='id identifier rubyid_shellcode'>shellcode</span>
 <span class='kw'>end</span></pre>
@@ -3542,9 +3550,9 @@ against the shellcode.</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:41 2014 by
+  Generated on Tue Dec  2 09:35:27 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

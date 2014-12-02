@@ -820,7 +820,7 @@ class that has custom handling for payloads.</p>
       <pre class="code"><span class="info file"># File 'lib/msf/core/payload_set.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
-  <span class='kw'>super</span><span class='lparen'>(</span><span class='const'>MODULE_PAYLOAD</span><span class='rparen'>)</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='const'>Msf</span><span class='op'>::</span><span class='const'>MODULE_PAYLOAD</span><span class='rparen'>)</span>
 
   <span class='comment'># A hash of each of the payload types that holds an array
 </span>  <span class='comment'># for all of the associated modules
@@ -2320,9 +2320,9 @@ singles, stagers, and stages.</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:37 2014 by
+  Generated on Tue Dec  2 09:35:23 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

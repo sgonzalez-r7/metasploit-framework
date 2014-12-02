@@ -73,17 +73,21 @@
   
   
     
+      <dt class="r1">Extended by:</dt>
+      <dd class="r1">ActiveSupport::Concern</dd>
+      
+    
   
     
   
   
-    <dt class="r1">Included in:</dt>
-    <dd class="r1"><span class='object_link'><a href="../Ftp/Client.html" title="Metasploit::Framework::Ftp::Client (module)">Ftp::Client</a></span>, <span class='object_link'><a href="../LoginScanner/AFP.html" title="Metasploit::Framework::LoginScanner::AFP (class)">LoginScanner::AFP</a></span>, <span class='object_link'><a href="../LoginScanner/DB2.html" title="Metasploit::Framework::LoginScanner::DB2 (class)">LoginScanner::DB2</a></span>, <span class='object_link'><a href="../LoginScanner/MySQL.html" title="Metasploit::Framework::LoginScanner::MySQL (class)">LoginScanner::MySQL</a></span>, <span class='object_link'><a href="../LoginScanner/POP3.html" title="Metasploit::Framework::LoginScanner::POP3 (class)">LoginScanner::POP3</a></span>, <span class='object_link'><a href="../LoginScanner/SMB.html" title="Metasploit::Framework::LoginScanner::SMB (class)">LoginScanner::SMB</a></span>, <span class='object_link'><a href="../LoginScanner/VMAUTHD.html" title="Metasploit::Framework::LoginScanner::VMAUTHD (class)">LoginScanner::VMAUTHD</a></span>, <span class='object_link'><a href="../LoginScanner/VNC.html" title="Metasploit::Framework::LoginScanner::VNC (class)">LoginScanner::VNC</a></span>, <span class='object_link'><a href="../MSSQL/Client.html" title="Metasploit::Framework::MSSQL::Client (module)">MSSQL::Client</a></span>, <span class='object_link'><a href="../SMB.html" title="Metasploit::Framework::SMB (module)">SMB</a></span>, <span class='object_link'><a href="../Telnet/Client.html" title="Metasploit::Framework::Telnet::Client (module)">Metasploit::Framework::Telnet::Client</a></span></dd>
+    <dt class="r2">Included in:</dt>
+    <dd class="r2"><span class='object_link'><a href="../Ftp/Client.html" title="Metasploit::Framework::Ftp::Client (module)">Ftp::Client</a></span>, <span class='object_link'><a href="../LoginScanner/AFP.html" title="Metasploit::Framework::LoginScanner::AFP (class)">LoginScanner::AFP</a></span>, <span class='object_link'><a href="../LoginScanner/DB2.html" title="Metasploit::Framework::LoginScanner::DB2 (class)">LoginScanner::DB2</a></span>, <span class='object_link'><a href="../LoginScanner/MySQL.html" title="Metasploit::Framework::LoginScanner::MySQL (class)">LoginScanner::MySQL</a></span>, <span class='object_link'><a href="../LoginScanner/POP3.html" title="Metasploit::Framework::LoginScanner::POP3 (class)">LoginScanner::POP3</a></span>, <span class='object_link'><a href="../LoginScanner/SMB.html" title="Metasploit::Framework::LoginScanner::SMB (class)">LoginScanner::SMB</a></span>, <span class='object_link'><a href="../LoginScanner/VMAUTHD.html" title="Metasploit::Framework::LoginScanner::VMAUTHD (class)">LoginScanner::VMAUTHD</a></span>, <span class='object_link'><a href="../LoginScanner/VNC.html" title="Metasploit::Framework::LoginScanner::VNC (class)">LoginScanner::VNC</a></span>, <span class='object_link'><a href="../MSSQL/Client.html" title="Metasploit::Framework::MSSQL::Client (module)">MSSQL::Client</a></span>, <span class='object_link'><a href="../Telnet/Client.html" title="Metasploit::Framework::Telnet::Client (module)">Metasploit::Framework::Telnet::Client</a></span></dd>
     
   
   
-    <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/metasploit/framework/tcp/client.rb</dd>
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/metasploit/framework/tcp/client.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -94,6 +98,60 @@
 
   <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
   <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#max_send_size-instance_method" title="#max_send_size (instance method)">- (Fixnum) <strong>max_send_size</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The max size of the data to encapsulate in a single packet.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#send_delay-instance_method" title="#send_delay (instance method)">- (Fixnum) <strong>send_delay</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The delay between sending packets.</p>
+</div></span>
+  
+</li>
+
     
       <li class="public ">
   <span class="summary_signature">
@@ -234,30 +292,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#max_send_size-instance_method" title="#max_send_size (instance method)">- (Object) <strong>max_send_size</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Wrappers for getters.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#proxies-instance_method" title="#proxies (instance method)">- (Object) <strong>proxies</strong> </a>
     
 
@@ -323,28 +357,6 @@
     <span class="summary_desc"><div class='inline'>
 <p>Returns the remote port.</p>
 </div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#send_delay-instance_method" title="#send_delay (instance method)">- (Object) <strong>send_delay</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -425,13 +437,136 @@
   
 
 
+  
   <div id="instance_attr_details" class="attr_details">
     <h2>Instance Attribute Details</h2>
     
       
-      <span id="sock=-instance_method"></span>
+      <span id="max_send_size=-instance_method"></span>
       <div class="method_details first">
-  <h3 class="signature first" id="sock-instance_method">
+  <h3 class="signature first" id="max_send_size-instance_method">
+  
+    - (<tt>Fixnum</tt>) <strong>max_send_size</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns The max size of the data to encapsulate in a single packet</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Fixnum</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The max size of the data to encapsulate in a single packet</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+47
+48
+49</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/tcp/client.rb', line 47</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_max_send_size'>max_send_size</span>
+  <span class='ivar'>@max_send_size</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="send_delay=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="send_delay-instance_method">
+  
+    - (<tt>Fixnum</tt>) <strong>send_delay</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns The delay between sending packets</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Fixnum</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The delay between sending packets</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+50
+51
+52</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/tcp/client.rb', line 50</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_send_delay'>send_delay</span>
+  <span class='ivar'>@send_delay</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="sock=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="sock-instance_method">
   
     - (<tt>Object</tt>) <strong>sock</strong> 
   
@@ -456,12 +591,12 @@
       <pre class="lines">
 
 
-181
-182
-183</pre>
+199
+200
+201</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/tcp/client.rb', line 181</span>
+      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/tcp/client.rb', line 199</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sock'>sock</span>
   <span class='ivar'>@sock</span>
@@ -517,12 +652,12 @@
       <pre class="lines">
 
 
-149
-150
-151</pre>
+167
+168
+169</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/tcp/client.rb', line 149</span>
+      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/tcp/client.rb', line 167</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_chost'>chost</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NotImplementedError</span>
@@ -567,37 +702,36 @@
       <pre class="lines">
 
 
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75</pre>
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/tcp/client.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/tcp/client.rb', line 75</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_connect'>connect</span><span class='lparen'>(</span><span class='id identifier rubyid_global'>global</span> <span class='op'>=</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -618,7 +752,6 @@
       <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Proxies</span><span class='tstring_end'>&#39;</span></span>    <span class='op'>=&gt;</span> <span class='id identifier rubyid_proxies'>proxies</span><span class='comma'>,</span>
       <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Timeout</span><span class='tstring_end'>&#39;</span></span>    <span class='op'>=&gt;</span> <span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ConnectTimeout</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='id identifier rubyid_connection_timeout'>connection_timeout</span> <span class='op'>||</span> <span class='int'>10</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
       <span class='rparen'>)</span>
-
   <span class='comment'># enable evasions on this socket
 </span>  <span class='id identifier rubyid_set_tcp_evasions'>set_tcp_evasions</span><span class='lparen'>(</span><span class='id identifier rubyid_nsock'>nsock</span><span class='rparen'>)</span>
 
@@ -671,12 +804,12 @@
       <pre class="lines">
 
 
-156
-157
-158</pre>
+174
+175
+176</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/tcp/client.rb', line 156</span>
+      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/tcp/client.rb', line 174</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cport'>cport</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NotImplementedError</span>
@@ -712,23 +845,23 @@
       <pre class="lines">
 
 
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116</pre>
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/tcp/client.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/tcp/client.rb', line 129</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_disconnect'>disconnect</span><span class='lparen'>(</span><span class='id identifier rubyid_nsock'>nsock</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_sock'>sock</span><span class='rparen'>)</span>
   <span class='kw'>begin</span>
@@ -743,60 +876,6 @@
     <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_sock'>sock</span> <span class='op'>=</span> <span class='kw'>nil</span>
   <span class='kw'>end</span>
 
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="max_send_size-instance_method">
-  
-    - (<tt>Object</tt>) <strong>max_send_size</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Wrappers for getters</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Raises:</p>
-<ul class="raise">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>NotImplementedError</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-124
-125
-126</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/tcp/client.rb', line 124</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_max_send_size'>max_send_size</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NotImplementedError</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -842,12 +921,12 @@
       <pre class="lines">
 
 
-177
-178
-179</pre>
+195
+196
+197</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/tcp/client.rb', line 177</span>
+      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/tcp/client.rb', line 195</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_proxies'>proxies</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NotImplementedError</span>
@@ -896,12 +975,12 @@
       <pre class="lines">
 
 
-135
-136
-137</pre>
+153
+154
+155</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/tcp/client.rb', line 135</span>
+      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/tcp/client.rb', line 153</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rhost'>rhost</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NotImplementedError</span>
@@ -950,66 +1029,14 @@
       <pre class="lines">
 
 
-142
-143
-144</pre>
+160
+161
+162</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/tcp/client.rb', line 142</span>
+      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/tcp/client.rb', line 160</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rport'>rport</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NotImplementedError</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="send_delay-instance_method">
-  
-    - (<tt>Object</tt>) <strong>send_delay</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Raises:</p>
-<ul class="raise">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>NotImplementedError</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-128
-129
-130</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/tcp/client.rb', line 128</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_send_delay'>send_delay</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NotImplementedError</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1043,30 +1070,30 @@
       <pre class="lines">
 
 
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98</pre>
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/tcp/client.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/tcp/client.rb', line 104</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_set_tcp_evasions'>set_tcp_evasions</span><span class='lparen'>(</span><span class='id identifier rubyid_socket'>socket</span><span class='rparen'>)</span>
 
@@ -1133,12 +1160,12 @@
       <pre class="lines">
 
 
-163
-164
-165</pre>
+181
+182
+183</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/tcp/client.rb', line 163</span>
+      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/tcp/client.rb', line 181</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ssl'>ssl</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NotImplementedError</span>
@@ -1187,12 +1214,12 @@
       <pre class="lines">
 
 
-170
-171
-172</pre>
+188
+189
+190</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/tcp/client.rb', line 170</span>
+      <pre class="code"><span class="info file"># File 'lib/metasploit/framework/tcp/client.rb', line 188</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ssl_version'>ssl_version</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NotImplementedError</span>
@@ -1207,9 +1234,9 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:20 2014 by
+  Generated on Tue Dec  2 09:35:06 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

@@ -238,6 +238,28 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#rpc_creds-instance_method" title="#rpc_creds (instance method)">- (Object) <strong>rpc_creds</strong>(xopts) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#rpc_current_workspace-instance_method" title="#rpc_current_workspace (instance method)">- (Object) <strong>rpc_current_workspace</strong> </a>
     
 
@@ -1029,17 +1051,17 @@
       <pre class="lines">
 
 
-312
-313
-314
-315
-316
-317
-318
-319</pre>
+348
+349
+350
+351
+352
+353
+354
+355</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 312</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 348</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_add_workspace'>rpc_add_workspace</span><span class='lparen'>(</span><span class='id identifier rubyid_wspace'>wspace</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -1069,37 +1091,37 @@
       <pre class="lines">
 
 
-915
-916
-917
-918
-919
-920
-921
-922
-923
-924
-925
-926
-927
-928
-929
-930
-931
-932
-933
-934
-935
-936
-937
-938
-939
-940
-941
-942</pre>
+951
+952
+953
+954
+955
+956
+957
+958
+959
+960
+961
+962
+963
+964
+965
+966
+967
+968
+969
+970
+971
+972
+973
+974
+975
+976
+977
+978</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 915</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 951</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_clients'>rpc_clients</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -1149,38 +1171,38 @@
       <pre class="lines">
 
 
-1002
-1003
-1004
-1005
-1006
-1007
-1008
-1009
-1010
-1011
-1012
-1013
-1014
-1015
-1016
-1017
-1018
-1019
-1020
-1021
-1022
-1023
-1024
-1025
-1026
-1027
-1028
-1029
-1030</pre>
+1038
+1039
+1040
+1041
+1042
+1043
+1044
+1045
+1046
+1047
+1048
+1049
+1050
+1051
+1052
+1053
+1054
+1055
+1056
+1057
+1058
+1059
+1060
+1061
+1062
+1063
+1064
+1065
+1066</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 1002</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 1038</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_connect'>rpc_connect</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='id identifier rubyid_fix_options'>fix_options</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
@@ -1319,6 +1341,100 @@
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="rpc_creds-instance_method">
+  
+    - (<tt>Object</tt>) <strong>rpc_creds</strong>(xopts) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 143</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_rpc_creds'>rpc_creds</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
+    <span class='id identifier rubyid_ret'>ret</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+    <span class='id identifier rubyid_ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:creds</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_opts'>opts</span><span class='comma'>,</span> <span class='id identifier rubyid_wspace'>wspace</span> <span class='op'>=</span> <span class='id identifier rubyid_init_db_opts_workspace'>init_db_opts_workspace</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_limit'>limit</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='symbol'>:limit</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='int'>100</span>
+    <span class='id identifier rubyid_offset'>offset</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='symbol'>:offset</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='int'>0</span>
+    <span class='id identifier rubyid_query'>query</span> <span class='op'>=</span> <span class='const'>Metasploit</span><span class='op'>::</span><span class='const'>Credential</span><span class='op'>::</span><span class='const'>Core</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span>
+      <span class='label'>workspace_id:</span> <span class='id identifier rubyid_wspace'>wspace</span>
+    <span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_offset'>offset</span><span class='lparen'>(</span><span class='id identifier rubyid_offset'>offset</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_limit'>limit</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_query'>query</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_cred'>cred</span><span class='op'>|</span>
+      <span class='id identifier rubyid_host'>host</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
+      <span class='id identifier rubyid_port'>port</span> <span class='op'>=</span> <span class='int'>0</span>
+      <span class='id identifier rubyid_proto'>proto</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
+      <span class='id identifier rubyid_sname'>sname</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
+      <span class='kw'>unless</span> <span class='id identifier rubyid_cred'>cred</span><span class='period'>.</span><span class='id identifier rubyid_logins'>logins</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+        <span class='id identifier rubyid_login'>login</span> <span class='op'>=</span> <span class='id identifier rubyid_cred'>cred</span><span class='period'>.</span><span class='id identifier rubyid_logins'>logins</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+        <span class='id identifier rubyid_host'>host</span> <span class='op'>=</span> <span class='id identifier rubyid_login'>login</span><span class='period'>.</span><span class='id identifier rubyid_service'>service</span><span class='period'>.</span><span class='id identifier rubyid_host'>host</span><span class='period'>.</span><span class='id identifier rubyid_address'>address</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+        <span class='id identifier rubyid_sname'>sname</span> <span class='op'>=</span> <span class='id identifier rubyid_login'>login</span><span class='period'>.</span><span class='id identifier rubyid_service'>service</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='kw'>if</span> <span class='id identifier rubyid_login'>login</span><span class='period'>.</span><span class='id identifier rubyid_service'>service</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span>
+        <span class='id identifier rubyid_port'>port</span> <span class='op'>=</span> <span class='id identifier rubyid_login'>login</span><span class='period'>.</span><span class='id identifier rubyid_service'>service</span><span class='period'>.</span><span class='id identifier rubyid_port'>port</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+        <span class='id identifier rubyid_proto'>proto</span> <span class='op'>=</span> <span class='id identifier rubyid_login'>login</span><span class='period'>.</span><span class='id identifier rubyid_service'>service</span><span class='period'>.</span><span class='id identifier rubyid_proto'>proto</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+      <span class='kw'>end</span>
+      <span class='id identifier rubyid_ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:creds</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='lbrace'>{</span>
+              <span class='symbol'>:user</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_cred'>cred</span><span class='period'>.</span><span class='id identifier rubyid_public'>public</span><span class='period'>.</span><span class='id identifier rubyid_username'>username</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='comma'>,</span>
+              <span class='symbol'>:pass</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_cred'>cred</span><span class='period'>.</span><span class='id identifier rubyid_private'>private</span><span class='period'>.</span><span class='id identifier rubyid_data'>data</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='comma'>,</span>
+              <span class='symbol'>:updated_at</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_cred'>cred</span><span class='period'>.</span><span class='id identifier rubyid_private'>private</span><span class='period'>.</span><span class='id identifier rubyid_updated_at'>updated_at</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span><span class='comma'>,</span>
+              <span class='symbol'>:type</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_cred'>cred</span><span class='period'>.</span><span class='id identifier rubyid_private'>private</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='comma'>,</span>
+              <span class='symbol'>:host</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_host'>host</span><span class='comma'>,</span>
+              <span class='symbol'>:port</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_port'>port</span><span class='comma'>,</span>
+              <span class='symbol'>:proto</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_proto'>proto</span><span class='comma'>,</span>
+              <span class='symbol'>:sname</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_sname'>sname</span><span class='rbrace'>}</span>
+    <span class='kw'>end</span>
+    <span class='id identifier rubyid_ret'>ret</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="rpc_current_workspace-instance_method">
   
     - (<tt>Object</tt>) <strong>rpc_current_workspace</strong> 
@@ -1333,13 +1449,13 @@
       <pre class="lines">
 
 
-260
-261
-262
-263</pre>
+296
+297
+298
+299</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 260</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 296</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_current_workspace'>rpc_current_workspace</span>
   <span class='id identifier rubyid_db_check'>db_check</span>
@@ -1365,50 +1481,50 @@
       <pre class="lines">
 
 
-944
-945
-946
-947
-948
-949
-950
-951
-952
-953
-954
-955
-956
-957
-958
-959
-960
-961
-962
-963
-964
-965
-966
-967
-968
-969
-970
-971
-972
-973
-974
-975
-976
-977
-978
-979
 980
 981
 982
 983
-984</pre>
+984
+985
+986
+987
+988
+989
+990
+991
+992
+993
+994
+995
+996
+997
+998
+999
+1000
+1001
+1002
+1003
+1004
+1005
+1006
+1007
+1008
+1009
+1010
+1011
+1012
+1013
+1014
+1015
+1016
+1017
+1018
+1019
+1020</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 944</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 980</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_del_client'>rpc_del_client</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -1471,37 +1587,37 @@
       <pre class="lines">
 
 
-745
-746
-747
-748
-749
-750
-751
-752
-753
-754
-755
-756
-757
-758
-759
-760
-761
-762
-763
-764
-765
-766
-767
-768
-769
-770
-771
-772</pre>
+781
+782
+783
+784
+785
+786
+787
+788
+789
+790
+791
+792
+793
+794
+795
+796
+797
+798
+799
+800
+801
+802
+803
+804
+805
+806
+807
+808</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 745</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 781</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_del_host'>rpc_del_host</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -1551,42 +1667,6 @@
       <pre class="lines">
 
 
-621
-622
-623
-624
-625
-626
-627
-628
-629
-630
-631
-632
-633
-634
-635
-636
-637
-638
-639
-640
-641
-642
-643
-644
-645
-646
-647
-648
-649
-650
-651
-652
-653
-654
-655
-656
 657
 658
 659
@@ -1617,10 +1697,46 @@
 684
 685
 686
-687</pre>
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 621</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 657</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_del_note'>rpc_del_note</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -1709,42 +1825,6 @@
       <pre class="lines">
 
 
-689
-690
-691
-692
-693
-694
-695
-696
-697
-698
-699
-700
-701
-702
-703
-704
-705
-706
-707
-708
-709
-710
-711
-712
-713
-714
-715
-716
-717
-718
-719
-720
-721
-722
-723
-724
 725
 726
 727
@@ -1763,10 +1843,46 @@
 740
 741
 742
-743</pre>
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765
+766
+767
+768
+769
+770
+771
+772
+773
+774
+775
+776
+777
+778
+779</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 689</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 725</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_del_service'>rpc_del_service</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -1843,42 +1959,6 @@
       <pre class="lines">
 
 
-552
-553
-554
-555
-556
-557
-558
-559
-560
-561
-562
-563
-564
-565
-566
-567
-568
-569
-570
-571
-572
-573
-574
-575
-576
-577
-578
-579
-580
-581
-582
-583
-584
-585
-586
-587
 588
 589
 590
@@ -1910,10 +1990,46 @@
 616
 617
 618
-619</pre>
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 552</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 588</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_del_vuln'>rpc_del_vuln</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -2003,28 +2119,28 @@
       <pre class="lines">
 
 
-292
-293
-294
-295
-296
-297
-298
-299
-300
-301
-302
-303
-304
-305
-306
-307
-308
-309
-310</pre>
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 292</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 328</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_del_workspace'>rpc_del_workspace</span><span class='lparen'>(</span><span class='id identifier rubyid_wspace'>wspace</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -2065,17 +2181,17 @@
       <pre class="lines">
 
 
-1053
-1054
-1055
-1056
-1057
-1058
-1059
-1060</pre>
+1089
+1090
+1091
+1092
+1093
+1094
+1095
+1096</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 1053</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 1089</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_disconnect'>rpc_disconnect</span>
   <span class='kw'>if</span> <span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_framework'>framework</span><span class='period'>.</span><span class='id identifier rubyid_db'>db</span><span class='rparen'>)</span>
@@ -2105,24 +2221,24 @@
       <pre class="lines">
 
 
-986
-987
-988
-989
-990
-991
-992
-993
-994
-995
-996
-997
-998
-999
-1000</pre>
+1022
+1023
+1024
+1025
+1026
+1027
+1028
+1029
+1030
+1031
+1032
+1033
+1034
+1035
+1036</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 986</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 1022</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_driver'>rpc_driver</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='id identifier rubyid_fix_options'>fix_options</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
@@ -2159,32 +2275,32 @@
       <pre class="lines">
 
 
-785
-786
-787
-788
-789
-790
-791
-792
-793
-794
-795
-796
-797
-798
-799
-800
-801
-802
-803
-804
-805
-806
-807</pre>
+821
+822
+823
+824
+825
+826
+827
+828
+829
+830
+831
+832
+833
+834
+835
+836
+837
+838
+839
+840
+841
+842
+843</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 785</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 821</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_events'>rpc_events</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -2229,29 +2345,29 @@
       <pre class="lines">
 
 
-466
-467
-468
-469
-470
-471
-472
-473
-474
-475
-476
-477
-478
-479
-480
-481
-482
-483
-484
-485</pre>
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 466</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 502</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_get_client'>rpc_get_client</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -2293,36 +2409,36 @@
       <pre class="lines">
 
 
-321
-322
-323
-324
-325
-326
-327
-328
-329
-330
-331
-332
-333
-334
-335
-336
-337
-338
-339
-340
-341
-342
-343
-344
-345
-346
-347</pre>
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 321</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 357</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_get_host'>rpc_get_host</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -2371,42 +2487,6 @@
       <pre class="lines">
 
 
-414
-415
-416
-417
-418
-419
-420
-421
-422
-423
-424
-425
-426
-427
-428
-429
-430
-431
-432
-433
-434
-435
-436
-437
-438
-439
-440
-441
-442
-443
-444
-445
-446
-447
-448
-449
 450
 451
 452
@@ -2421,10 +2501,46 @@
 461
 462
 463
-464</pre>
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 414</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 450</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_get_note'>rpc_get_note</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -2497,15 +2613,15 @@
       <pre class="lines">
 
 
-545
-546
-547
-548
-549
-550</pre>
+581
+582
+583
+584
+585
+586</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 545</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 581</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_get_ref'>rpc_get_ref</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -2533,42 +2649,6 @@
       <pre class="lines">
 
 
-368
-369
-370
-371
-372
-373
-374
-375
-376
-377
-378
-379
-380
-381
-382
-383
-384
-385
-386
-387
-388
-389
-390
-391
-392
-393
-394
-395
-396
-397
-398
-399
-400
-401
-402
-403
 404
 405
 406
@@ -2577,10 +2657,46 @@
 409
 410
 411
-412</pre>
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 368</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 404</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_get_service'>rpc_get_service</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -2598,7 +2714,7 @@
     <span class='id identifier rubyid_sret'>sret</span> <span class='op'>=</span> <span class='id identifier rubyid_host'>host</span><span class='period'>.</span><span class='id identifier rubyid_services'>services</span><span class='period'>.</span><span class='id identifier rubyid_find_by_proto_and_port'>find_by_proto_and_port</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:proto</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:port</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='kw'>elsif</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:proto</span><span class='rbracket'>]</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:port</span><span class='rbracket'>]</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_conditions'>conditions</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-    <span class='id identifier rubyid_conditions'>conditions</span><span class='lbracket'>[</span><span class='symbol'>:state</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>ServiceState</span><span class='op'>::</span><span class='const'>Open</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:up</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_conditions'>conditions</span><span class='lbracket'>[</span><span class='symbol'>:state</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>Msf</span><span class='op'>::</span><span class='const'>ServiceState</span><span class='op'>::</span><span class='const'>Open</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:up</span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_conditions'>conditions</span><span class='lbracket'>[</span><span class='symbol'>:proto</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:proto</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:proto</span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_conditions'>conditions</span><span class='lbracket'>[</span><span class='symbol'>:port</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:port</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:port</span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_conditions'>conditions</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:names</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:names</span><span class='rbracket'>]</span>
@@ -2647,42 +2763,6 @@
       <pre class="lines">
 
 
-865
-866
-867
-868
-869
-870
-871
-872
-873
-874
-875
-876
-877
-878
-879
-880
-881
-882
-883
-884
-885
-886
-887
-888
-889
-890
-891
-892
-893
-894
-895
-896
-897
-898
-899
-900
 901
 902
 903
@@ -2695,10 +2775,46 @@
 910
 911
 912
-913</pre>
+913
+914
+915
+916
+917
+918
+919
+920
+921
+922
+923
+924
+925
+926
+927
+928
+929
+930
+931
+932
+933
+934
+935
+936
+937
+938
+939
+940
+941
+942
+943
+944
+945
+946
+947
+948
+949</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 865</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 901</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_get_vuln'>rpc_get_vuln</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -2769,23 +2885,23 @@
       <pre class="lines">
 
 
-265
-266
-267
-268
-269
-270
-271
-272
-273
-274
-275
-276
-277
-278</pre>
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 265</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 301</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_get_workspace'>rpc_get_workspace</span><span class='lparen'>(</span><span class='id identifier rubyid_wspace'>wspace</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_db_check'>db_check</span>
@@ -2821,42 +2937,42 @@
       <pre class="lines">
 
 
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175</pre>
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 143</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 179</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_hosts'>rpc_hosts</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -2911,16 +3027,16 @@
       <pre class="lines">
 
 
-857
-858
-859
-860
-861
-862
-863</pre>
+893
+894
+895
+896
+897
+898
+899</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 857</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 893</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_import_data'>rpc_import_data</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -2981,33 +3097,33 @@
       <pre class="lines">
 
 
-831
-832
-833
-834
-835
-836
-837
-838
-839
-840
-841
-842
-843
-844
-845
-846
-847
-848
-849
-850
-851
-852
-853
-854</pre>
+867
+868
+869
+870
+871
+872
+873
+874
+875
+876
+877
+878
+879
+880
+881
+882
+883
+884
+885
+886
+887
+888
+889
+890</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 831</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 867</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_loots'>rpc_loots</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -3053,39 +3169,39 @@
       <pre class="lines">
 
 
-514
-515
-516
-517
-518
-519
-520
-521
-522
-523
-524
-525
-526
-527
-528
-529
-530
-531
-532
-533
-534
-535
-536
-537
-538
-539
-540
-541
-542
-543</pre>
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 514</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 550</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_notes'>rpc_notes</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -3137,17 +3253,17 @@
       <pre class="lines">
 
 
-487
-488
-489
-490
-491
-492
-493
-494</pre>
+523
+524
+525
+526
+527
+528
+529
+530</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 487</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 523</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_report_client'>rpc_report_client</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -3177,16 +3293,16 @@
       <pre class="lines">
 
 
-809
-810
-811
-812
-813
-814
-815</pre>
+845
+846
+847
+848
+849
+850
+851</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 809</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 845</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_report_event'>rpc_report_event</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -3215,18 +3331,18 @@
       <pre class="lines">
 
 
-349
-350
-351
-352
-353
-354
-355
-356
-357</pre>
+385
+386
+387
+388
+389
+390
+391
+392
+393</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 349</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 385</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_report_host'>rpc_report_host</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -3268,20 +3384,20 @@
       <pre class="lines">
 
 
-819
-820
-821
-822
-823
-824
-825
-826
-827
-828
-829</pre>
+855
+856
+857
+858
+859
+860
+861
+862
+863
+864
+865</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 819</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 855</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_report_loot'>rpc_report_loot</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -3325,25 +3441,25 @@
       <pre class="lines">
 
 
-497
-498
-499
-500
-501
-502
-503
-504
-505
-506
-507
-508
-509
-510
-511
-512</pre>
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 497</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 533</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_report_note'>rpc_report_note</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -3381,17 +3497,17 @@
       <pre class="lines">
 
 
-359
-360
-361
-362
-363
-364
-365
-366</pre>
+395
+396
+397
+398
+399
+400
+401
+402</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 359</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 395</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_report_service'>rpc_report_service</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -3421,19 +3537,19 @@
       <pre class="lines">
 
 
-774
-775
-776
-777
-778
-779
-780
-781
-782
-783</pre>
+810
+811
+812
+813
+814
+815
+816
+817
+818
+819</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 774</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 810</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_report_vuln'>rpc_report_vuln</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -3465,42 +3581,42 @@
       <pre class="lines">
 
 
-177
-178
-179
-180
-181
-182
-183
-184
-185
-186
-187
-188
-189
-190
-191
-192
-193
-194
-195
-196
-197
-198
-199
-200
-201
-202
-203
-204
-205
-206
-207
-208
-209</pre>
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 177</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 213</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_services'>rpc_services</span><span class='lparen'>(</span> <span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -3509,7 +3625,7 @@
   <span class='id identifier rubyid_offset'>offset</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='symbol'>:offset</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='int'>0</span>
 
   <span class='id identifier rubyid_conditions'>conditions</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='id identifier rubyid_conditions'>conditions</span><span class='lbracket'>[</span><span class='symbol'>:state</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>ServiceState</span><span class='op'>::</span><span class='const'>Open</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:only_up</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_conditions'>conditions</span><span class='lbracket'>[</span><span class='symbol'>:state</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>Msf</span><span class='op'>::</span><span class='const'>ServiceState</span><span class='op'>::</span><span class='const'>Open</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:only_up</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_conditions'>conditions</span><span class='lbracket'>[</span><span class='symbol'>:proto</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:proto</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:proto</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_conditions'>conditions</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>hosts.address</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:addresses</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:addresses</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_conditions'>conditions</span><span class='lbracket'>[</span><span class='symbol'>:port</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Socket</span><span class='period'>.</span><span class='id identifier rubyid_portspec_to_portlist'>portspec_to_portlist</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:ports</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:ports</span><span class='rbracket'>]</span>
@@ -3555,20 +3671,20 @@
       <pre class="lines">
 
 
-280
-281
-282
-283
-284
-285
-286
-287
-288
-289
-290</pre>
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 280</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 316</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_set_workspace'>rpc_set_workspace</span><span class='lparen'>(</span><span class='id identifier rubyid_wspace'>wspace</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -3601,29 +3717,29 @@
       <pre class="lines">
 
 
-1032
-1033
-1034
-1035
-1036
-1037
-1038
-1039
-1040
-1041
-1042
-1043
-1044
-1045
-1046
-1047
-1048
-1049
-1050
-1051</pre>
+1068
+1069
+1070
+1071
+1072
+1073
+1074
+1075
+1076
+1077
+1078
+1079
+1080
+1081
+1082
+1083
+1084
+1085
+1086
+1087</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 1032</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 1068</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_status'>rpc_status</span>
   <span class='kw'>if</span> <span class='lparen'>(</span><span class='kw'>not</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_framework'>framework</span><span class='period'>.</span><span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_driver'>driver</span><span class='rparen'>)</span>
@@ -3665,42 +3781,42 @@
       <pre class="lines">
 
 
-211
-212
-213
-214
-215
-216
-217
-218
-219
-220
-221
-222
-223
-224
-225
-226
-227
-228
-229
-230
-231
-232
-233
-234
-235
-236
-237
-238
-239
-240
-241
-242
-243</pre>
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 211</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 247</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_vulns'>rpc_vulns</span><span class='lparen'>(</span><span class='id identifier rubyid_xopts'>xopts</span><span class='rparen'>)</span>
 <span class='op'>::</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection_pool'>connection_pool</span><span class='period'>.</span><span class='id identifier rubyid_with_connection'>with_connection</span> <span class='lbrace'>{</span>
@@ -3755,23 +3871,23 @@
       <pre class="lines">
 
 
-245
-246
-247
-248
-249
-250
-251
-252
-253
-254
-255
-256
-257
-258</pre>
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 245</span>
+      <pre class="code"><span class="info file"># File 'lib/msf/core/rpc/v10/rpc_db.rb', line 281</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rpc_workspaces'>rpc_workspaces</span>
   <span class='id identifier rubyid_db_check'>db_check</span>
@@ -3797,9 +3913,9 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:51:38 2014 by
+  Generated on Tue Dec  2 09:35:24 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>

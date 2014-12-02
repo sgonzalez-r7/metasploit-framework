@@ -142,11 +142,11 @@ class is meant to drive a single meterpreter client session.</p>
         </dt>
         <dd><pre class="code"><span class='lbrace'>{</span><span class='rbrace'>}</span></pre></dd>
       
-        <dt id="ssl_ctx-classvariable" class="">@@ssl_ctx =
+        <dt id="ssl_cached_cert-classvariable" class="">@@ssl_cached_cert =
           <div class="docstring">
   <div class="discussion">
     
-<p>Cached SSL certificate (required to scale)</p>
+<p>Cached auto-generated SSL certificate</p>
 
 
   </div>
@@ -589,6 +589,33 @@ class is meant to drive a single meterpreter client session.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>Use SSL (HTTPS).</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ssl_cert-instance_method" title="#ssl_cert (instance method)">- (Object) <strong>ssl_cert</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Use this SSL Certificate (unified PEM).</p>
 </div></span>
   
 </li>
@@ -1267,13 +1294,13 @@ matching extension alias exists for the supplied symbol.</p>
       <pre class="lines">
 
 
-291
-292
-293
-294</pre>
+277
+278
+279
+280</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 291</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 277</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_method_missing'>method_missing</span><span class='lparen'>(</span><span class='id identifier rubyid_symbol'>symbol</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='comment'>#$stdout.puts(&quot;method_missing: #{symbol}&quot;)
@@ -1318,12 +1345,12 @@ this will be false</p>
       <pre class="lines">
 
 
-434
-435
-436</pre>
+420
+421
+422</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 434</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 420</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_alive'>alive</span>
   <span class='ivar'>@alive</span>
@@ -1361,12 +1388,12 @@ this will be false</p>
       <pre class="lines">
 
 
-442
-443
-444</pre>
+428
+429
+430</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 442</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 428</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_capabilities'>capabilities</span>
   <span class='ivar'>@capabilities</span>
@@ -1404,12 +1431,12 @@ this will be false</p>
       <pre class="lines">
 
 
-462
-463
-464</pre>
+452
+453
+454</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 462</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 452</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_comm_timeout'>comm_timeout</span>
   <span class='ivar'>@comm_timeout</span>
@@ -1447,12 +1474,12 @@ this will be false</p>
       <pre class="lines">
 
 
-474
-475
-476</pre>
+464
+465
+466</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 474</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 464</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_commands'>commands</span>
   <span class='ivar'>@commands</span>
@@ -1490,12 +1517,12 @@ this will be false</p>
       <pre class="lines">
 
 
-446
-447
-448</pre>
+432
+433
+434</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 446</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 432</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_conn_id'>conn_id</span>
   <span class='ivar'>@conn_id</span>
@@ -1533,12 +1560,12 @@ this will be false</p>
       <pre class="lines">
 
 
-470
-471
-472</pre>
+460
+461
+462</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 470</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 460</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_encode_unicode'>encode_unicode</span>
   <span class='ivar'>@encode_unicode</span>
@@ -1576,12 +1603,12 @@ this will be false</p>
       <pre class="lines">
 
 
-458
-459
-460</pre>
+448
+449
+450</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 458</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 448</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_expiration'>expiration</span>
   <span class='ivar'>@expiration</span>
@@ -1622,12 +1649,12 @@ example:</p>
       <pre class="lines">
 
 
-417
-418
-419</pre>
+403
+404
+405</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 417</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 403</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ext'>ext</span>
   <span class='ivar'>@ext</span>
@@ -1665,12 +1692,12 @@ example:</p>
       <pre class="lines">
 
 
-477
-478
-479</pre>
+467
+468
+469</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 477</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 467</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ext_aliases'>ext_aliases</span>
   <span class='ivar'>@ext_aliases</span>
@@ -1708,12 +1735,12 @@ example:</p>
       <pre class="lines">
 
 
-477
-478
-479</pre>
+467
+468
+469</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 477</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 467</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_parser'>parser</span>
   <span class='ivar'>@parser</span>
@@ -1751,12 +1778,12 @@ example:</p>
       <pre class="lines">
 
 
-466
-467
-468</pre>
+456
+457
+458</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 466</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 456</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_passive_dispatcher'>passive_dispatcher</span>
   <span class='ivar'>@passive_dispatcher</span>
@@ -1794,12 +1821,12 @@ example:</p>
       <pre class="lines">
 
 
-425
-426
-427</pre>
+411
+412
+413</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 425</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 411</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_response_timeout'>response_timeout</span>
   <span class='ivar'>@response_timeout</span>
@@ -1837,12 +1864,12 @@ example:</p>
       <pre class="lines">
 
 
-429
-430
-431</pre>
+415
+416
+417</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 429</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 415</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_send_keepalives'>send_keepalives</span>
   <span class='ivar'>@send_keepalives</span>
@@ -1880,12 +1907,12 @@ example:</p>
       <pre class="lines">
 
 
-421
-422
-423</pre>
+407
+408
+409</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 421</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 407</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sock'>sock</span>
   <span class='ivar'>@sock</span>
@@ -1923,15 +1950,58 @@ example:</p>
       <pre class="lines">
 
 
-454
-455
-456</pre>
+440
+441
+442</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 454</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 440</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ssl'>ssl</span>
   <span class='ivar'>@ssl</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="ssl_cert=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="ssl_cert-instance_method">
+  
+    - (<tt>Object</tt>) <strong>ssl_cert</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Use this SSL Certificate (unified PEM)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+444
+445
+446</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 444</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_ssl_cert'>ssl_cert</span>
+  <span class='ivar'>@ssl_cert</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1966,12 +2036,12 @@ example:</p>
       <pre class="lines">
 
 
-438
-439
-440</pre>
+424
+425
+426</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 438</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 424</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_target_id'>target_id</span>
   <span class='ivar'>@target_id</span>
@@ -2009,12 +2079,12 @@ example:</p>
       <pre class="lines">
 
 
-450
-451
-452</pre>
+436
+437
+438</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 450</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 436</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_url'>url</span>
   <span class='ivar'>@url</span>
@@ -2100,12 +2170,12 @@ a response.</p>
       <pre class="lines">
 
 
-277
-278
-279</pre>
+263
+264
+265</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 277</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 263</span>
 
 <span class='kw'>def</span> <span class='const'>Client</span><span class='period'>.</span><span class='id identifier rubyid_default_timeout'>default_timeout</span>
   <span class='kw'>return</span> <span class='int'>300</span>
@@ -2231,6 +2301,20 @@ href="http://extension">client.ext.</a>.</p>
       <pre class="lines">
 
 
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
 306
 307
 308
@@ -2244,24 +2328,10 @@ href="http://extension">client.ext.</a>.</p>
 316
 317
 318
-319
-320
-321
-322
-323
-324
-325
-326
-327
-328
-329
-330
-331
-332
-333</pre>
+319</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 306</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 292</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_extension'>add_extension</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_commands'>commands</span><span class='op'>=</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_commands'>commands</span> <span class='op'>|=</span> <span class='id identifier rubyid_commands'>commands</span>
@@ -2373,12 +2443,12 @@ href="http://extension">client.ext.</a>.</p>
       <pre class="lines">
 
 
-338
-339
-340</pre>
+324
+325
+326</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 338</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 324</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_deregister_extension'>deregister_extension</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_ext'>ext</span><span class='period'>.</span><span class='id identifier rubyid_aliases'>aliases</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
@@ -2414,12 +2484,12 @@ href="http://extension">client.ext.</a>.</p>
       <pre class="lines">
 
 
-381
-382
-383</pre>
+367
+368
+369</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 381</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 367</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_deregister_extension_alias'>deregister_extension_alias</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_ext_aliases'>ext_aliases</span><span class='period'>.</span><span class='id identifier rubyid_aliases'>aliases</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
@@ -2455,16 +2525,16 @@ href="http://extension">client.ext.</a>.</p>
       <pre class="lines">
 
 
-388
-389
-390
-391
-392
-393
-394</pre>
+374
+375
+376
+377
+378
+379
+380</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 388</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 374</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dump_extension_tree'>dump_extension_tree</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_items'>items</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -2504,12 +2574,12 @@ href="http://extension">client.ext.</a>.</p>
       <pre class="lines">
 
 
-345
-346
-347</pre>
+331
+332
+333</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 345</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 331</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_each_extension'>each_extension</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_ext'>ext</span><span class='period'>.</span><span class='id identifier rubyid_aliases'>aliases</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lparen'>(</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
@@ -2534,17 +2604,6 @@ href="http://extension">client.ext.</a>.</p>
       <pre class="lines">
 
 
-202
-203
-204
-205
-206
-207
-208
-209
-210
-211
-212
 213
 214
 215
@@ -2583,88 +2642,49 @@ href="http://extension">client.ext.</a>.</p>
 248
 249
 250
-251
-252
-253
-254
-255
-256
-257
-258
-259
-260
-261
-262
-263
-264
-265</pre>
+251</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 202</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 213</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_generate_ssl_context'>generate_ssl_context</span>
-  <span class='cvar'>@@ssl_mutex</span><span class='period'>.</span><span class='id identifier rubyid_synchronize'>synchronize</span> <span class='kw'>do</span>
-  <span class='kw'>if</span> <span class='kw'>not</span> <span class='cvar'>@@ssl_ctx</span>
 
-  <span class='id identifier rubyid_wlog'>wlog</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Generating SSL certificate for Meterpreter sessions</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_ctx'>ctx</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='id identifier rubyid_ssl_cert_info'>ssl_cert_info</span> <span class='op'>=</span> <span class='kw'>nil</span>
 
-  <span class='id identifier rubyid_key'>key</span>  <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>PKey</span><span class='op'>::</span><span class='const'>RSA</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>1024</span><span class='rparen'>)</span><span class='lbrace'>{</span> <span class='rbrace'>}</span>
-  <span class='id identifier rubyid_cert'>cert</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>X509</span><span class='op'>::</span><span class='const'>Certificate</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
-  <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_version'>version</span> <span class='op'>=</span> <span class='int'>2</span>
-  <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_serial'>serial</span>  <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>0xFFFFFFFF</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_loop'>loop</span> <span class='kw'>do</span>
 
-  <span class='comment'># Depending on how the socket was created, getsockname will
-</span>  <span class='comment'># return either a struct sockaddr as a String (the default ruby
-</span>  <span class='comment'># Socket behavior) or an Array (the extend&#39;d Rex::Socket::Tcp
-</span>  <span class='comment'># behavior). Avoid the ambiguity by always picking a random
-</span>  <span class='comment'># hostname. See #7350.
-</span>  <span class='id identifier rubyid_subject_cn'>subject_cn</span> <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_hostname'>rand_hostname</span>
+    <span class='comment'># Load a custom SSL certificate if one has been specified
+</span>    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_ssl_cert'>ssl_cert</span>
+      <span class='id identifier rubyid_wlog'>wlog</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Loading custom SSL certificate for Meterpreter session</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_ssl_cert_info'>ssl_cert_info</span> <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Socket</span><span class='op'>::</span><span class='const'>SslTcpServer</span><span class='period'>.</span><span class='id identifier rubyid_ssl_parse_pem'>ssl_parse_pem</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_ssl_cert'>ssl_cert</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_wlog'>wlog</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Loaded custom SSL certificate for Meterpreter session</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+      <span class='kw'>break</span>
+    <span class='kw'>end</span>
 
-  <span class='id identifier rubyid_subject'>subject</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>X509</span><span class='op'>::</span><span class='const'>Name</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='lbracket'>[</span>
-      <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>C</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>US</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
-      <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ST</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_state'>rand_state</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='comma'>,</span>
-      <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>L</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_text_alpha'>rand_text_alpha</span><span class='lparen'>(</span><span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>20</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='int'>10</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='comma'>,</span>
-      <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>O</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_text_alpha'>rand_text_alpha</span><span class='lparen'>(</span><span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>20</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='int'>10</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='comma'>,</span>
-      <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CN</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_subject_cn'>subject_cn</span><span class='rbracket'>]</span><span class='comma'>,</span>
-    <span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_issuer'>issuer</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>X509</span><span class='op'>::</span><span class='const'>Name</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='lbracket'>[</span>
-      <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>C</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>US</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
-      <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ST</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_state'>rand_state</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='comma'>,</span>
-      <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>L</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_text_alpha'>rand_text_alpha</span><span class='lparen'>(</span><span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>20</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='int'>10</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='comma'>,</span>
-      <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>O</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_text_alpha'>rand_text_alpha</span><span class='lparen'>(</span><span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>20</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='int'>10</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='comma'>,</span>
-      <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CN</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_text_alpha'>rand_text_alpha</span><span class='lparen'>(</span><span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>20</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='int'>10</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='comma'>,</span>
-    <span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='comment'># Generate a certificate if necessary and cache it
+</span>    <span class='kw'>if</span> <span class='op'>!</span> <span class='cvar'>@@ssl_cached_cert</span>
+      <span class='cvar'>@@ssl_mutex</span><span class='period'>.</span><span class='id identifier rubyid_synchronize'>synchronize</span> <span class='kw'>do</span>
+        <span class='id identifier rubyid_wlog'>wlog</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Generating SSL certificate for Meterpreter sessions</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+        <span class='cvar'>@@ssl_cached_cert</span> <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Socket</span><span class='op'>::</span><span class='const'>SslTcpServer</span><span class='period'>.</span><span class='id identifier rubyid_ssl_generate_certificate'>ssl_generate_certificate</span>
+        <span class='id identifier rubyid_wlog'>wlog</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Generated SSL certificate for Meterpreter sessions</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
 
-  <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_subject'>subject</span> <span class='op'>=</span> <span class='id identifier rubyid_subject'>subject</span>
-  <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_issuer'>issuer</span> <span class='op'>=</span> <span class='id identifier rubyid_issuer'>issuer</span>
-  <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_not_before'>not_before</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span> <span class='op'>-</span> <span class='lparen'>(</span><span class='int'>3600</span> <span class='op'>*</span> <span class='int'>365</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>3600</span> <span class='op'>*</span> <span class='int'>14</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_not_after'>not_after</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='int'>3600</span> <span class='op'>*</span> <span class='int'>365</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>3600</span> <span class='op'>*</span> <span class='int'>14</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_public_key'>public_key</span> <span class='op'>=</span> <span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_public_key'>public_key</span>
-  <span class='id identifier rubyid_ef'>ef</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>X509</span><span class='op'>::</span><span class='const'>ExtensionFactory</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='comma'>,</span><span class='id identifier rubyid_cert'>cert</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_extensions'>extensions</span> <span class='op'>=</span> <span class='lbracket'>[</span>
-    <span class='id identifier rubyid_ef'>ef</span><span class='period'>.</span><span class='id identifier rubyid_create_extension'>create_extension</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>basicConstraints</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CA:FALSE</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
-    <span class='id identifier rubyid_ef'>ef</span><span class='period'>.</span><span class='id identifier rubyid_create_extension'>create_extension</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>subjectKeyIdentifier</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>hash</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
-    <span class='id identifier rubyid_ef'>ef</span><span class='period'>.</span><span class='id identifier rubyid_create_extension'>create_extension</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>extendedKeyUsage</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>serverAuth</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
-    <span class='id identifier rubyid_ef'>ef</span><span class='period'>.</span><span class='id identifier rubyid_create_extension'>create_extension</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>keyUsage</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>keyEncipherment,dataEncipherment,digitalSignature</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-  <span class='rbracket'>]</span>
-  <span class='id identifier rubyid_ef'>ef</span><span class='period'>.</span><span class='id identifier rubyid_issuer_certificate'>issuer_certificate</span> <span class='op'>=</span> <span class='id identifier rubyid_cert'>cert</span>
-  <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_add_extension'>add_extension</span> <span class='id identifier rubyid_ef'>ef</span><span class='period'>.</span><span class='id identifier rubyid_create_extension'>create_extension</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>authorityKeyIdentifier</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>keyid:always,issuer:always</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_cert'>cert</span><span class='period'>.</span><span class='id identifier rubyid_sign'>sign</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>Digest</span><span class='op'>::</span><span class='const'>SHA1</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='rparen'>)</span>
+    <span class='comment'># Use the cached certificate
+</span>    <span class='id identifier rubyid_ssl_cert_info'>ssl_cert_info</span> <span class='op'>=</span> <span class='cvar'>@@ssl_cached_cert</span>
+    <span class='kw'>break</span>
+  <span class='kw'>end</span>
 
-  <span class='id identifier rubyid_ctx'>ctx</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>SSL</span><span class='op'>::</span><span class='const'>SSLContext</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:SSLv3</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_ctx'>ctx</span><span class='period'>.</span><span class='id identifier rubyid_key'>key</span> <span class='op'>=</span> <span class='id identifier rubyid_key'>key</span>
-  <span class='id identifier rubyid_ctx'>ctx</span><span class='period'>.</span><span class='id identifier rubyid_cert'>cert</span> <span class='op'>=</span> <span class='id identifier rubyid_cert'>cert</span>
-
+  <span class='comment'># Create a new context for each session
+</span>  <span class='id identifier rubyid_ctx'>ctx</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>SSL</span><span class='op'>::</span><span class='const'>SSLContext</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_ctx'>ctx</span><span class='period'>.</span><span class='id identifier rubyid_key'>key</span> <span class='op'>=</span> <span class='id identifier rubyid_ssl_cert_info'>ssl_cert_info</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_ctx'>ctx</span><span class='period'>.</span><span class='id identifier rubyid_cert'>cert</span> <span class='op'>=</span> <span class='id identifier rubyid_ssl_cert_info'>ssl_cert_info</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_ctx'>ctx</span><span class='period'>.</span><span class='id identifier rubyid_extra_chain_cert'>extra_chain_cert</span> <span class='op'>=</span> <span class='id identifier rubyid_ssl_cert_info'>ssl_cert_info</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_ctx'>ctx</span><span class='period'>.</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='int'>0</span>
   <span class='id identifier rubyid_ctx'>ctx</span><span class='period'>.</span><span class='id identifier rubyid_session_id_context'>session_id_context</span> <span class='op'>=</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_rand_text'>rand_text</span><span class='lparen'>(</span><span class='int'>16</span><span class='rparen'>)</span>
 
-  <span class='id identifier rubyid_wlog'>wlog</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Generated SSL certificate for Meterpreter sessions</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-
-  <span class='cvar'>@@ssl_ctx</span> <span class='op'>=</span> <span class='id identifier rubyid_ctx'>ctx</span>
-
-  <span class='kw'>end</span> <span class='comment'># End of if not @ssl_ctx
-</span>  <span class='kw'>end</span> <span class='comment'># End of mutex.synchronize
-</span>
-  <span class='cvar'>@@ssl_ctx</span>
+  <span class='id identifier rubyid_ctx'>ctx</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2746,7 +2766,18 @@ href="http://extension">client.ext.</a>.</p>
 145
 146
 147
-148</pre>
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 99</span>
@@ -2761,7 +2792,6 @@ href="http://extension">client.ext.</a>.</p>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_capabilities'>capabilities</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:capabilities</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_commands'>commands</span>     <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
 
-
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_conn_id'>conn_id</span>      <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:conn_id</span><span class='rbracket'>]</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_url'>url</span>          <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:url</span><span class='rbracket'>]</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_ssl'>ssl</span>          <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:ssl</span><span class='rbracket'>]</span>
@@ -2771,8 +2801,20 @@ href="http://extension">client.ext.</a>.</p>
 
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_response_timeout'>response_timeout</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:timeout</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_default_timeout'>default_timeout</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_send_keepalives'>send_keepalives</span>  <span class='op'>=</span> <span class='kw'>true</span>
-  <span class='comment'># self.encode_unicode   = opts.has_key?(:encode_unicode) ? opts[:encode_unicode] : true
+
+  <span class='comment'># TODO: Clarify why we don&#39;t allow unicode to be set in initial options
+</span>  <span class='comment'># self.encode_unicode   = opts.has_key?(:encode_unicode) ? opts[:encode_unicode] : true
 </span>  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_encode_unicode'>encode_unicode</span> <span class='op'>=</span> <span class='kw'>false</span>
+
+  <span class='comment'># The SSL certificate is being passed down as a file path
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:ssl_cert</span><span class='rbracket'>]</span>
+    <span class='kw'>if</span> <span class='op'>!</span> <span class='op'>::</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exists?'>exists?</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:ssl_cert</span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_elog'>elog</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SSL certificate at </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:ssl_cert</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'> does not exist and will be ignored</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='comment'># Load the certificate the same way that SslTcpServer does it
+</span>      <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_ssl_cert'>ssl_cert</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:ssl_cert</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
 
   <span class='kw'>if</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:passive_dispatcher</span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_initialize_passive_dispatcher'>initialize_passive_dispatcher</span>
@@ -2832,24 +2874,24 @@ href="http://extension">client.ext.</a>.</p>
       <pre class="lines">
 
 
-353
-354
-355
-356
-357
-358
-359
-360
-361
-362
-363
-364
-365
-366
-367</pre>
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 353</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 339</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_register_extension_alias'>register_extension_alias</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_ext'>ext</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_ext_aliases'>ext_aliases</span><span class='period'>.</span><span class='id identifier rubyid_aliases'>aliases</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_ext'>ext</span>
@@ -2897,14 +2939,14 @@ href="http://extension">client.ext.</a>.</p>
       <pre class="lines">
 
 
-372
-373
-374
-375
-376</pre>
+358
+359
+360
+361
+362</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 372</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 358</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_register_extension_aliases'>register_extension_aliases</span><span class='lparen'>(</span><span class='id identifier rubyid_aliases'>aliases</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_aliases'>aliases</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='op'>|</span>
@@ -2931,17 +2973,6 @@ href="http://extension">client.ext.</a>.</p>
       <pre class="lines">
 
 
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
 161
 162
 163
@@ -2972,10 +3003,21 @@ href="http://extension">client.ext.</a>.</p>
 188
 189
 190
-191</pre>
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 150</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 161</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_swap_sock_plain_to_ssl'>swap_sock_plain_to_ssl</span>
   <span class='comment'># Create a new SSL session on the existing socket
@@ -3039,17 +3081,17 @@ href="http://extension">client.ext.</a>.</p>
       <pre class="lines">
 
 
-193
-194
-195
-196
-197
-198
-199
-200</pre>
+204
+205
+206
+207
+208
+209
+210
+211</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 193</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 204</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_swap_sock_ssl_to_plain'>swap_sock_ssl_to_plain</span>
   <span class='comment'># Remove references to the SSLSocket and Context
@@ -3090,12 +3132,12 @@ href="http://extension">client.ext.</a>.</p>
       <pre class="lines">
 
 
-406
-407
-408</pre>
+392
+393
+394</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 406</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 392</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_unicode_filter_decode'>unicode_filter_decode</span><span class='lparen'>(</span><span class='id identifier rubyid_str'>str</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_encode_unicode'>encode_unicode</span> <span class='op'>?</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_unicode_filter_decode'>unicode_filter_decode</span><span class='lparen'>(</span><span class='id identifier rubyid_str'>str</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid_str'>str</span>
@@ -3131,12 +3173,12 @@ href="http://extension">client.ext.</a>.</p>
       <pre class="lines">
 
 
-399
-400
-401</pre>
+385
+386
+387</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 399</span>
+      <pre class="code"><span class="info file"># File 'lib/rex/post/meterpreter/client.rb', line 385</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_unicode_filter_encode'>unicode_filter_encode</span><span class='lparen'>(</span><span class='id identifier rubyid_str'>str</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_encode_unicode'>encode_unicode</span> <span class='op'>?</span> <span class='const'>Rex</span><span class='op'>::</span><span class='const'>Text</span><span class='period'>.</span><span class='id identifier rubyid_unicode_filter_encode'>unicode_filter_encode</span><span class='lparen'>(</span><span class='id identifier rubyid_str'>str</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid_str'>str</span>
@@ -3151,9 +3193,9 @@ href="http://extension">client.ext.</a>.</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Sep  3 01:52:08 2014 by
+  Generated on Tue Dec  2 09:35:56 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.2).
+  0.8.7.4 (ruby-2.1.5).
 </div>
 
   </body>
